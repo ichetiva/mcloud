@@ -19,7 +19,7 @@ class UserService:
     def convert(self, user: User) -> UserDTO:
         return UserDTO(
             id=user.id,
-            username=user.usernmae,
+            username=user.username,
             password=user.password,
             email=user.email,
             is_admin=user.is_admin,
@@ -36,16 +36,18 @@ class UserService:
             status_code=409,
             detail="User already exists",
         )
-        try:
-            user, created = await self.daos.user_dao.get_or_create(
-                defaults={
-                    "email": email,
-                    "password": self.services.auth_service.hash_password(password),
-                },
-                username=username,
-            )
-        except IntegrityError:
-            raise user_already_exists
+        user, created = await self.daos.user_dao.get_or_create(
+            defaults={
+                "email": email,
+                "password": self.services.auth_service.hash_password(password),
+            },
+            username=username,
+        )
         if not created:
             raise user_already_exists
+        try:
+            await self.daos.session.commit()
+        except IntegrityError:
+            raise user_already_exists
+        await self.daos.session.refresh(user)
         return self.convert(user)

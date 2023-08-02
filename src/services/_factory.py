@@ -9,8 +9,8 @@ class ServicesFactory:
 
     @property
     def user_service(self) -> UserService:
-        return UserService(self.daos)
+        return UserService(self.daos, self)
 
     @property
     def auth_service(self) -> AuthSerivce:
-        return AuthSerivce(self.daos)
+        return AuthSerivce(self.daos, self)
