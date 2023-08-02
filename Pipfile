@@ -11,6 +11,7 @@ alembic = "*"
 psycopg2-binary = "*"
 python-jose = {version = "*", extras = ["cryptography"]}
 passlib = {version = "*", extras = ["bcrypt"]}
+uvicorn = "*"
 
 [dev-packages]
 
