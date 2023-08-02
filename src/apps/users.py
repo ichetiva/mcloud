@@ -1,6 +1,6 @@
-from typing import Annotated
+from typing import Annotated, List
 
-from fastapi import APIRouter, Body, Depends
+from fastapi import APIRouter, Body, Query, Depends
 
 from schemes.user import UserResp, CreateUser
 from services import ServicesFactory
@@ -24,3 +24,11 @@ async def sign_up_user(
 @router.get("/me", response_model=UserResp)
 async def get_me(user: Annotated[UserDTO, Depends(get_current_user)]):
     return user
+
+
+@router.get("/find", response_model=List[UserResp])
+async def find_users(
+    q: Annotated[str, Query()],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    return await services.user_service.find(q)

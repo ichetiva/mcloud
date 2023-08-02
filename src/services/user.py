@@ -2,12 +2,6 @@ from typing import TYPE_CHECKING
 
 from fastapi import HTTPException
 from sqlalchemy.exc import IntegrityError
-from email_validator import (
-    EmailSyntaxError,
-    EmailUndeliverableError,
-    EmailNotValidError,
-    validate_email,
-)
 
 from dao import DAOFactory
 from models import User
@@ -32,6 +26,9 @@ class UserService:
             created_at=user.created_at,
             updated_at=user.updated_at,
         )
+
+    def convert_multiple(self, users: list[User]) -> list[UserDTO]:
+        return [self.convert(user) for user in users]
 
     async def get(self, login_type: str, login: str) -> UserDTO | None:
         if login_type == "username":
@@ -62,3 +59,7 @@ class UserService:
             raise user_already_exists
         await self.daos.session.refresh(user)
         return self.convert(user)
+
+    async def find(self, pattern: str) -> list[UserDTO]:
+        users = await self.daos.user_dao.find(pattern)
+        return self.convert_multiple(users)
