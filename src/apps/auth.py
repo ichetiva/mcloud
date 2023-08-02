@@ -1,9 +1,8 @@
 from typing import Annotated
 
-from fastapi import APIRouter, HTTPException, Depends, status
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import APIRouter, HTTPException, Depends, Body, status
 
-from schemes.auth import AuthResp
+from schemes.auth import AuthResp, AuthReq
 from services import ServicesFactory
 from dependencies import get_services
 
@@ -15,10 +14,12 @@ router = APIRouter(
 
 @router.post("/token", response_model=AuthResp)
 async def get_access_token(
-    data: Annotated[OAuth2PasswordRequestForm, Depends()],
+    data: Annotated[AuthReq, Body()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
-    user = await services.auth_service.authenticate(data.username, data.password)
+    user = await services.auth_service.authenticate(
+        data.login_type, data.login, data.password
+    )
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

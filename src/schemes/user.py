@@ -15,7 +15,7 @@ class UserResp(BaseModel):
     email: str
     is_admin: bool
     created_at: datetime
-    updated_at: datetime
+    updated_at: datetime | None
 
     class Config:
         from_attributes = True
