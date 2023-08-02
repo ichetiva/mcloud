@@ -38,7 +38,7 @@ class AuthSerivce:
         return encoded_jwt
 
     async def authenticate(self, login_type: str, login: str, password: str):
-        user = await self.services.user_service.get(login_type, login)
+        user = await self.services.user_service.get_to_authenticate(login_type, login)
         if not user:
             return False
         if not self.verify_password(password, user.password):

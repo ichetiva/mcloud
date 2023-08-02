@@ -30,7 +30,11 @@ class UserService:
     def convert_multiple(self, users: list[User]) -> list[UserDTO]:
         return [self.convert(user) for user in users]
 
-    async def get(self, login_type: str, login: str) -> UserDTO | None:
+    async def get(self, username) -> UserDTO | None:
+        user = await self.daos.user_dao.get(username=username)
+        return self.convert(user)
+
+    async def get_to_authenticate(self, login_type: str, login: str) -> UserDTO | None:
         if login_type == "username":
             user = await self.daos.user_dao.get(username=login)
         elif login_type == "email":
