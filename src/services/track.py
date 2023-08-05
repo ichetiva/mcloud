@@ -24,7 +24,12 @@ class TrackService:
         return [self.convert(track) for track in tracks]
 
     async def create(self, user: UserDTO, title: str, poster: str):
-        path = await self.services.file_service.save("poster", poster, user.id, title)
+        poster_path = await self.services.file_service.save(
+            "poster", poster, user.id, title
+        )
+        track_path = await self.services.file_service.save(
+            "track", track, user.id, title
+        )
         track = await self.daos.track_dao.create(user.id, title, path)
         return self.convert(track)
 

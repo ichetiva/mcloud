@@ -18,6 +18,7 @@ async def create_track(
     user: Annotated[UserDTO, Depends(get_current_user)],
     data: Annotated[CreateTrack, Body()],
     poster: Annotated[UploadFile, File()],
+    track: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     track = await services.track_service.create(user, data.title, poster)

@@ -9,11 +9,18 @@ class TrackDAO(BaseDAO[Track]):
     def __init__(self, session: AsyncSession):
         super().__init__(Track, session)
 
-    async def create(self, user_id: int, title: str, poster_path: str) -> Track:
+    async def create(
+        self,
+        user_id: int,
+        title: str,
+        poster_path: str,
+        track_path: str,
+    ) -> Track:
         track = Track(
             user_id=user_id,
             title=title,
             poster_path=poster_path,
+            track_path=track_path,
         )
         self.session.add(track)
         await self.session.commit()
