@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Body, UploadFile, Depends, File, Path
+from fastapi import APIRouter, Body, UploadFile, Depends, File, Path, HTTPException
 
 from schemes.track import TrackResp, CreateTrack
 from dependencies import get_services, get_current_user, valid_track_id
@@ -21,6 +21,13 @@ async def create_track(
     track: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
+    if poster.content_type != "image/jpeg":
+        raise HTTPException(
+            status_code=400,
+            detail="The track requires \"jpeg\" or \"jpg\" format",
+        )
+    if track.content_type != "audio/mpeg":
+        raise HTTPException(status_code=400, detail="The track requires \"mp3\" format")
     track = await services.track_service.create(user, data.title, poster, track)
     return track
 
