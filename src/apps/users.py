@@ -1,6 +1,6 @@
 from typing import Annotated, List
 
-from fastapi import APIRouter, Body, Query, Path, Depends
+from fastapi import APIRouter, Body, Query, Depends
 
 from schemes.user import UserResp, CreateUser
 from services import ServicesFactory
