@@ -66,3 +66,22 @@ async def valid_track_id(
     if not track.is_published:
         raise track_not_found
     return track
+
+
+async def valid_author_track_id(
+    track_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> TrackDTO:
+    track = await services.track_service.get(track_id)
+    if not track:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Track not found",
+        )
+    if track.user_id != user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You have no permissions to delete this track",
+        )
+    return track

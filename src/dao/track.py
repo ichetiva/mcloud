@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .base import BaseDAO
@@ -23,8 +23,6 @@ class TrackDAO(BaseDAO[Track]):
             track_path=track_path,
         )
         self.session.add(track)
-        await self.session.commit()
-        await self.session.refresh(track)
         return track
 
     async def get_by_username(self, username: str) -> list[Track]:
@@ -40,3 +38,7 @@ class TrackDAO(BaseDAO[Track]):
         stmt = select(Track).where(Track.user_id == user_id)
         result = await self.session.scalars(stmt)
         return result.all()
+
+    async def delete(self, track_id: int):
+        stmt = delete(Track).where(Track.id == track_id)
+        await self.session.execute(stmt)

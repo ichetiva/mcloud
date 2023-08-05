@@ -37,6 +37,8 @@ class TrackService:
         track = await self.daos.track_dao.create(
             user.id, title, poster_path, track_path
         )
+        await self.daos.session.commit()
+        await self.daos.session.refresh(track)
         return self.convert(track)
 
     async def get_by_username(self, username: str) -> list[TrackDTO]:
@@ -52,3 +54,11 @@ class TrackService:
         if not track:
             return None
         return self.convert(track)
+
+    async def delete(self, track: TrackDTO) -> bool:
+        try:
+            await self.daos.track_dao.delete(track.id)
+            await self.daos.session.commit()
+            return True
+        except:
+            return False

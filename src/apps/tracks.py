@@ -2,8 +2,14 @@ from typing import Annotated
 
 from fastapi import APIRouter, Body, UploadFile, Depends, File, Path, HTTPException
 
+from schemes import OkResp
 from schemes.track import TrackResp, CreateTrack
-from dependencies import get_services, get_current_user, valid_track_id
+from dependencies import (
+    get_services,
+    get_current_user,
+    valid_track_id,
+    valid_author_track_id,
+)
 from services import ServicesFactory
 from dto import UserDTO, TrackDTO
 
@@ -30,6 +36,15 @@ async def create_track(
         raise HTTPException(status_code=400, detail="The track requires \"mp3\" format")
     track = await services.track_service.create(user, data.title, poster, track)
     return track
+
+
+@router.delete("/{track_id}", response_model=OkResp)
+async def delete_track(
+    track: Annotated[TrackDTO, Depends(valid_author_track_id)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    ok = await services.track_service.delete(track)
+    return {"ok": ok}
 
 
 @router.get("/", response_model=list[TrackResp])
