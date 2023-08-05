@@ -1,6 +1,6 @@
 from typing import AsyncGenerator, Annotated
 
-from fastapi import HTTPException, Depends, status
+from fastapi import HTTPException, Depends, status, Path
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from jose import jwt, JWTError
@@ -9,6 +9,7 @@ import config
 from database import async_session
 from services import ServicesFactory
 from dao import DAOFactory
+from dto import TrackDTO, UserDTO
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/token")
 
@@ -49,3 +50,20 @@ async def get_current_user(
     if user is None:
         raise credentials_exception
     return user
+
+
+async def valid_track_id(
+    track_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> TrackDTO:
+    track_not_found = HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail="Track not found",
+    )
+    track = await services.track_service.get(track_id)
+    if not track:
+        raise track_not_found
+    if not track.is_published and track.user_id != user.id:
+        raise track_not_found
+    return track

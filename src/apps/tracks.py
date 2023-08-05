@@ -3,9 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, Body, UploadFile, Depends, File, Path
 
 from schemes.track import TrackResp, CreateTrack
-from dependencies import get_services, get_current_user
+from dependencies import get_services, get_current_user, valid_track_id
 from services import ServicesFactory
-from dto import UserDTO
+from dto import UserDTO, TrackDTO
 
 router = APIRouter(
     prefix="/api/tracks",
@@ -31,3 +31,10 @@ async def get_tracks(
 ):
     tracks = await services.track_service.get_by_username(username)
     return tracks
+
+
+@router.get("/{track_id}", response_model=TrackResp)
+async def get_track(
+    track: Annotated[TrackDTO, Depends(valid_track_id)],
+):
+    return track
