@@ -21,7 +21,7 @@ async def create_track(
     track: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
-    track = await services.track_service.create(user, data.title, poster)
+    track = await services.track_service.create(user, data.title, poster, track)
     return track
 
 

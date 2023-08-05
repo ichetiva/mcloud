@@ -1,11 +1,15 @@
+from typing import TYPE_CHECKING
+
 from dao import DAOFactory
 from dto import UserDTO, TrackDTO
 from models import Track
-from services import ServicesFactory
+
+if TYPE_CHECKING:
+    from services import ServicesFactory
 
 
 class TrackService:
-    def __init__(self, daos: DAOFactory, services: ServicesFactory) -> None:
+    def __init__(self, daos: DAOFactory, services: "ServicesFactory") -> None:
         self.daos = daos
         self.services = services
 
@@ -30,7 +34,9 @@ class TrackService:
         track_path = await self.services.file_service.save(
             "track", track, user.id, title
         )
-        track = await self.daos.track_dao.create(user.id, title, path)
+        track = await self.daos.track_dao.create(
+            user.id, title, poster_path, track_path
+        )
         return self.convert(track)
 
     async def get_by_username(self, username: str) -> list[TrackDTO]:
