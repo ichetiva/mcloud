@@ -32,6 +32,10 @@ class TrackService:
         tracks = await self.daos.track_dao.get_by_username(username)
         return self.convert_multiple(tracks)
 
+    async def get_current_user_tracks(self, user: UserDTO) -> list[TrackDTO]:
+        tracks = await self.daos.track_dao.get_current_user_tracks(user.id)
+        return self.convert_multiple(tracks)
+
     async def get(self, track_id: int) -> TrackDTO:
         track = await self.daos.track_dao.get(id=track_id)
         if not track:

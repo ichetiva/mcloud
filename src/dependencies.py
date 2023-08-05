@@ -54,7 +54,6 @@ async def get_current_user(
 
 async def valid_track_id(
     track_id: Annotated[int, Path()],
-    user: Annotated[UserDTO, Depends(get_current_user)],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ) -> TrackDTO:
     track_not_found = HTTPException(
@@ -64,6 +63,6 @@ async def valid_track_id(
     track = await services.track_service.get(track_id)
     if not track:
         raise track_not_found
-    if not track.is_published and track.user_id != user.id:
+    if not track.is_published:
         raise track_not_found
     return track

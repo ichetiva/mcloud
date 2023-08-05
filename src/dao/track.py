@@ -20,9 +20,16 @@ class TrackDAO(BaseDAO[Track]):
         await self.session.refresh(track)
         return track
 
-    async def get_by_username(self, username: str) -> Track:
+    async def get_by_username(self, username: str) -> list[Track]:
         stmt = select(Track).where(
-            (Track.user_id == User.id) & (User.username == username)
+            (Track.user_id == User.id)
+            & (User.username == username)
+            & (Track.is_published == True)
         )
+        result = await self.session.scalars(stmt)
+        return result.all()
+
+    async def get_current_user_tracks(self, user_id: int) -> list[Track]:
+        stmt = select(Track).where(Track.user_id == user_id)
         result = await self.session.scalars(stmt)
         return result.all()
