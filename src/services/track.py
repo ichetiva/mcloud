@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING
 
+from fastapi import UploadFile
+
 from dao import DAOFactory
 from dto import UserDTO, TrackDTO
 from models import Track
@@ -62,3 +64,27 @@ class TrackService:
             return True
         except:
             return False
+
+    async def update(
+        self,
+        track_id: int,
+        title: str | None,
+        poster_file: UploadFile | None,
+        track_file: UploadFile | None,
+    ) -> TrackDTO:
+        track = self.daos.track_dao.get(for_update=True, id=track_id)
+        if title:
+            track.title = title
+        if poster_file:
+            poster_path = await self.services.file_service.save(
+                "poster", poster_file, track.user_id, track.title
+            )
+            track.poster_path = poster_path
+        if track_file:
+            track_path = await self.services.file_service.save(
+                "track", track_file, track.user_id, track.title
+            )
+            track.track_path = track_path
+        await self.daos.session.commit()
+        await self.daos.session.refresh(track)
+        return self.convert(track)

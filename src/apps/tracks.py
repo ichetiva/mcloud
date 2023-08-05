@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Body, UploadFile, Depends, File, Path, HTTPException
 
 from schemes import OkResp
-from schemes.track import TrackResp, CreateTrack
+from schemes.track import TrackResp, CreateTrack, UpdateTrack
 from dependencies import (
     get_services,
     get_current_user,
@@ -23,18 +23,34 @@ router = APIRouter(
 async def create_track(
     user: Annotated[UserDTO, Depends(get_current_user)],
     data: Annotated[CreateTrack, Body()],
-    poster: Annotated[UploadFile, File()],
-    track: Annotated[UploadFile, File()],
+    poster_file: Annotated[UploadFile, File()],
+    track_file: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
-    if poster.content_type != "image/jpeg":
+    if poster_file.content_type != "image/jpeg":
         raise HTTPException(
             status_code=400,
             detail="The track requires \"jpeg\" or \"jpg\" format",
         )
-    if track.content_type != "audio/mpeg":
+    if track_file.content_type != "audio/mpeg":
         raise HTTPException(status_code=400, detail="The track requires \"mp3\" format")
-    track = await services.track_service.create(user, data.title, poster, track)
+    track = await services.track_service.create(
+        user, data.title, poster_file, track_file
+    )
+    return track
+
+
+@router.put("/{track_id}", response_model=TrackResp)
+async def update_track(
+    track: Annotated[TrackDTO, Depends(valid_author_track_id)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+    data: Annotated[UpdateTrack, Body()],
+    poster_file: Annotated[UploadFile | None, File()],
+    track_file: Annotated[UploadFile | None, File()],
+):
+    track = await services.track_service.update(
+        track.id, data.title, poster_file, track_file
+    )
     return track
 
 
