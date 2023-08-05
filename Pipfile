@@ -15,6 +15,7 @@ uvicorn = "*"
 pydantic = {version = "*", extras = ["email"]}
 greenlet = "*"
 python-multipart = "*"
+aiofiles = "*"
 
 [dev-packages]
 httpx = "*"

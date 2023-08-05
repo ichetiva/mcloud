@@ -2,6 +2,8 @@ from dao import DAOFactory
 from .auth import AuthSerivce
 from .user import UserService
 from .user_subscriber import UserSubscriberSerivce
+from .track import TrackService
+from .file import FileService
 
 
 class ServicesFactory:
@@ -19,3 +21,11 @@ class ServicesFactory:
     @property
     def user_subscriber_service(self) -> UserSubscriberSerivce:
         return UserSubscriberSerivce(self.daos, self)
+
+    @property
+    def track_service(self) -> TrackService:
+        return TrackService(self.daos)
+
+    @property
+    def file_service(self) -> FileService:
+        return FileService()

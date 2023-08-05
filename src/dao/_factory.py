@@ -2,6 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from .user import UserDAO
 from .user_subscriber import UserSubscriberDAO
+from .track import TrackDAO
 
 
 class DAOFactory:
@@ -15,3 +16,7 @@ class DAOFactory:
     @property
     def user_subscriber_dao(self) -> UserSubscriberDAO:
         return UserSubscriberDAO(self.session)
+
+    @property
+    def track_dao(self) -> TrackDAO:
+        return TrackDAO(self.session)

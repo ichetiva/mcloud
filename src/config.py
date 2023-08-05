@@ -1,5 +1,7 @@
 import os
 
+from pathlib import Path
+
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST")
@@ -9,3 +11,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 POSTGRES_URL = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:5432/{POSTGRES_DB}"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
+DEFAULT_CHUNK_SIZE = 1024 * 1024 * 5
+
+BASE_DIR = Path(__file__).resolve().parent
+MEDIA_DIR = BASE_DIR.parent / "media"
+TRACKS_DIR = MEDIA_DIR / "tracks"
+POSTERS_DIR = MEDIA_DIR / "posters"
