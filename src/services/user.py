@@ -64,6 +64,14 @@ class UserService:
         await self.daos.session.refresh(user)
         return self.convert(user)
 
+    async def delete(self, user_id: int) -> bool:
+        try:
+            await self.daos.user_dao.delete(user_id)
+            await self.daos.session.commit()
+        except:
+            return False
+        return True
+
     async def find(self, pattern: str) -> list[UserDTO]:
         users = await self.daos.user_dao.find(pattern)
         return self.convert_multiple(users)

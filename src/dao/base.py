@@ -1,6 +1,6 @@
 from typing import Tuple, TypeVar, Type, Generic
 
-from sqlalchemy import update, select
+from sqlalchemy import update, select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from models import Base
@@ -39,3 +39,6 @@ class BaseDAO(Generic[Model]):
         await self.session.execute(
             update(self.model).where(self.model.id == id).values(**kwargs)
         )
+
+    async def delete(self, id: int):
+        await self.session.execute(delete(self.model).where(self.model.id == id))

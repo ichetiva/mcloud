@@ -2,6 +2,7 @@ from typing import Annotated, List
 
 from fastapi import APIRouter, Body, Query, Depends
 
+from schemes import OkResp
 from schemes.user import UserResp, CreateUser
 from services import ServicesFactory
 from dependencies import get_services, get_current_user
@@ -24,6 +25,15 @@ async def sign_up_user(
 @router.get("/me", response_model=UserResp)
 async def get_me(user: Annotated[UserDTO, Depends(get_current_user)]):
     return user
+
+
+@router.delete("/me", response_model=OkResp)
+async def delete_me(
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    ok = await services.user_service.delete(user.id)
+    return {"ok": ok}
 
 
 @router.get("/find", response_model=List[UserResp])
