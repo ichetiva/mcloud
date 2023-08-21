@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from fastapi import HTTPException
+from fastapi import HTTPException, status
 from sqlalchemy.exc import IntegrityError
 
 from dao import DAOFactory
@@ -68,6 +68,31 @@ class UserService:
         try:
             await self.daos.user_dao.delete(user_id)
             await self.daos.session.commit()
+        except:
+            return False
+        return True
+
+    async def change_password(
+        self,
+        user: UserDTO,
+        old_password: str,
+        new_password1: str,
+        new_password2: str,
+    ) -> bool:
+        if not self.services.auth_service.verify_password(old_password, user.password):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Incorrect old password",
+            )
+        elif new_password1 != new_password2:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="New password mismatch",
+            )
+        try:
+            user = await self.services.daos.user_dao.get(for_update=True, id=user.id)
+            user.password = self.services.auth_service.hash_password(new_password2)
+            await self.services.daos.session.commit()
         except:
             return False
         return True

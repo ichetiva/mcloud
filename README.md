@@ -2,9 +2,9 @@
 
 ### TODO:
 - [x] Register user
-- [ ] Delete user
+- [x] Delete user
 - [x] Get current user information
-- [ ] Change user password
+- [x] Change user password
 - [ ] Recover account using e-mail
 - [x] Find another user
 - [x] Get access token

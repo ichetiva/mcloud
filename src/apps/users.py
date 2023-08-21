@@ -3,7 +3,7 @@ from typing import Annotated, List
 from fastapi import APIRouter, Body, Query, Depends
 
 from schemes import OkResp
-from schemes.user import UserResp, CreateUser
+from schemes.user import UserResp, CreateUser, ChangePassword
 from services import ServicesFactory
 from dependencies import get_services, get_current_user
 from dto import UserDTO
@@ -33,6 +33,18 @@ async def delete_me(
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     ok = await services.user_service.delete(user.id)
+    return {"ok": ok}
+
+
+@router.put("/change/password", response_model=OkResp)
+async def change_current_user_password(
+    data: Annotated[ChangePassword, Body()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    ok = await services.user_service.change_password(
+        user, data.old_password, data.new_password1, data.new_password2
+    )
     return {"ok": ok}
 
 
