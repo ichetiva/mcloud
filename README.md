@@ -19,7 +19,7 @@
 - [x] Get specific track
 - [x] Delete track
 - [ ] Create album
-- [ ] Update album (name, description, poster)
+- [ ] Update album (name, poster)
 - [ ] Update album tracks
 - [ ] Delete album
 - [ ] Create playlist
