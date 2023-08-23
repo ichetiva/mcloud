@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
-    command: uvicorn app:app --host 0.0.0.0 --port 8000
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
     env_file: .env
     ports:
       - "8000:8000"
@@ -17,6 +17,20 @@ services:
       mcloud:
         aliases:
           - mcloud-backend
+
+  mcloud-migrations:
+    container_name: mcloud-migrations
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: alembic upgrade head
+    env_file: .env
+    volumes:
+      - "./src:/code"
+    networks:
+      mcloud:
+        aliases:
+          - mcloud-migrations
     
   mcloud-postgres:
     container_name: mcloud-postgres

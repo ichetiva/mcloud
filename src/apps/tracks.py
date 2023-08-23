@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Body, UploadFile, Depends, File, Path, HTTPException
+from pydantic import Json
 
 from schemes import OkResp
 from schemes.track import TrackResp, CreateTrack, UpdateTrack
@@ -22,7 +23,7 @@ router = APIRouter(
 @router.post("/", response_model=TrackResp)
 async def create_track(
     user: Annotated[UserDTO, Depends(get_current_user)],
-    data: Annotated[CreateTrack, Body()],
+    data: Annotated[Json[CreateTrack], Body()],
     poster_file: Annotated[UploadFile, File()],
     track_file: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
@@ -30,7 +31,7 @@ async def create_track(
     if poster_file.content_type != "image/jpeg":
         raise HTTPException(
             status_code=400,
-            detail="The track requires \"jpeg\" or \"jpg\" format",
+            detail="The poster requires \"jpeg\" or \"jpg\" format",
         )
     if track_file.content_type != "audio/mpeg":
         raise HTTPException(status_code=400, detail="The track requires \"mp3\" format")

@@ -3,6 +3,12 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password1: str
+    new_password2: str
+
+
 class CreateUser(BaseModel):
     username: str
     email: str

@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class AuthReq(BaseModel):
     login: str
     password: str
-    login_type: Literal["username", "email"]
+    login_type: Literal["username", "email"] = "username"
 
 
 class AuthResp(BaseModel):

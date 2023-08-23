@@ -20,7 +20,8 @@ class TrackService:
             id=track.id,
             user_id=track.user_id,
             title=track.title,
-            poster_path=track.poster_path,
+            poster_url=track.poster_url,
+            track_url=track.track_url,
             is_published=track.is_published,
             created_at=track.created_at,
             updated_at=track.updated_at,
@@ -29,16 +30,16 @@ class TrackService:
     def convert_multiple(self, tracks: list[Track]) -> list[TrackDTO]:
         return [self.convert(track) for track in tracks]
 
-    async def create(self, user: UserDTO, title: str, poster: str):
-        poster_path = await self.services.file_service.save(
-            "poster", poster, user.id, title
+    async def create(
+        self, user: UserDTO, title: str, poster: UploadFile, track: UploadFile
+    ):
+        poster_url = await self.services.storage_service.save_poster(
+            poster, user.id, title
         )
-        track_path = await self.services.file_service.save(
-            "track", track, user.id, title
+        track_url = await self.services.storage_service.save_track(
+            track, user.id, title
         )
-        track = await self.daos.track_dao.create(
-            user.id, title, poster_path, track_path
-        )
+        track = await self.daos.track_dao.create(user.id, title, poster_url, track_url)
         await self.daos.session.commit()
         await self.daos.session.refresh(track)
         return self.convert(track)
@@ -69,22 +70,22 @@ class TrackService:
         self,
         track_id: int,
         title: str | None,
-        poster_file: UploadFile | None,
-        track_file: UploadFile | None,
+        poster: UploadFile | None,
+        track: UploadFile | None,
     ) -> TrackDTO:
         track = self.daos.track_dao.get(for_update=True, id=track_id)
         if title:
             track.title = title
-        if poster_file:
-            poster_path = await self.services.file_service.save(
-                "poster", poster_file, track.user_id, track.title
+        if poster:
+            poster_url = await self.services.storage_service.save_poster(
+                poster, track.user_id, track.title
             )
-            track.poster_path = poster_path
-        if track_file:
-            track_path = await self.services.file_service.save(
-                "track", track_file, track.user_id, track.title
+            track.poster_url = poster_url
+        if track:
+            track_url = await self.services.storage_service.save_track(
+                track, track.user_id, track.title
             )
-            track.track_path = track_path
+            track.track_url = track_url
         await self.daos.session.commit()
         await self.daos.session.refresh(track)
         return self.convert(track)
