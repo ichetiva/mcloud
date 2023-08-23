@@ -1,7 +1,7 @@
 from typing import AsyncGenerator, Annotated
 
 from fastapi import HTTPException, Depends, status, Path
-from fastapi.security import OAuth2PasswordBearer
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 from jose import jwt, JWTError
 
@@ -11,7 +11,7 @@ from services import ServicesFactory
 from dao import DAOFactory
 from dto import TrackDTO, UserDTO
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/auth/token")
+oauth2_scheme = HTTPBearer()
 
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
@@ -31,7 +31,7 @@ async def get_services(
 
 
 async def get_current_user(
-    token: Annotated[str, Depends(oauth2_scheme)],
+    auth: Annotated[HTTPAuthorizationCredentials, Depends(oauth2_scheme)],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     credentials_exception = HTTPException(
@@ -40,7 +40,9 @@ async def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        payload = jwt.decode(token, config.SECRET_KEY, algorithms=[config.ALGORITHM])
+        payload = jwt.decode(
+            auth.credentials, config.SECRET_KEY, algorithms=[config.ALGORITHM]
+        )
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception

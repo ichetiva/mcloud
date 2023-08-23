@@ -3,7 +3,7 @@ from .auth import AuthSerivce
 from .user import UserService
 from .user_subscriber import UserSubscriberSerivce
 from .track import TrackService
-from .file import FileService
+from .storage import StorageService
 
 
 class ServicesFactory:
@@ -24,8 +24,8 @@ class ServicesFactory:
 
     @property
     def track_service(self) -> TrackService:
-        return TrackService(self.daos)
+        return TrackService(self.daos, self)
 
     @property
-    def file_service(self) -> FileService:
-        return FileService()
+    def storage_service(self) -> StorageService:
+        return StorageService()

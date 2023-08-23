@@ -12,10 +12,12 @@ psycopg2-binary = "*"
 python-jose = {version = "*", extras = ["cryptography"]}
 passlib = {version = "*", extras = ["bcrypt"]}
 uvicorn = "*"
-pydantic = {version = "*", extras = ["email"]}
 greenlet = "*"
 python-multipart = "*"
 aiofiles = "*"
+boto3 = "*"
+asgiref = "*"
+pydantic = {version = "<2", extras = ["email"]}
 
 [dev-packages]
 httpx = "*"

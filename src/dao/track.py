@@ -13,14 +13,14 @@ class TrackDAO(BaseDAO[Track]):
         self,
         user_id: int,
         title: str,
-        poster_path: str,
-        track_path: str,
+        poster_url: str,
+        track_url: str,
     ) -> Track:
         track = Track(
             user_id=user_id,
             title=title,
-            poster_path=poster_path,
-            track_path=track_path,
+            poster_url=poster_url,
+            track_url=track_url,
         )
         self.session.add(track)
         return track
