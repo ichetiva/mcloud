@@ -36,7 +36,7 @@ async def create_track(
     if track_file.content_type != "audio/mpeg":
         raise HTTPException(status_code=400, detail="The track requires \"mp3\" format")
     track = await services.track_service.create(
-        user, data.title, poster_file, track_file
+        user, data.title, data.publish_after_creation, poster_file, track_file
     )
     return track
 

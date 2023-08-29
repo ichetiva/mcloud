@@ -14,7 +14,7 @@ router = APIRouter(
 )
 
 
-@router.post("/sign_up", response_model=UserResp)
+@router.post("/", response_model=UserResp)
 async def sign_up_user(
     data: Annotated[CreateUser, Body()],
     services: Annotated[ServicesFactory, Depends(get_services)],

@@ -31,15 +31,22 @@ class TrackService:
         return [self.convert(track) for track in tracks]
 
     async def create(
-        self, user: UserDTO, title: str, poster: UploadFile, track: UploadFile
-    ):
+        self,
+        user: UserDTO,
+        title: str,
+        publish_after_creation: bool,
+        poster: UploadFile,
+        track: UploadFile,
+    ) -> TrackDTO:
         poster_url = await self.services.storage_service.save_poster(
-            poster, user.id, title
+            poster, user.id, title, "track"
         )
         track_url = await self.services.storage_service.save_track(
             track, user.id, title
         )
-        track = await self.daos.track_dao.create(user.id, title, poster_url, track_url)
+        track = await self.daos.track_dao.create(
+            user.id, title, publish_after_creation, poster_url, track_url
+        )
         await self.daos.session.commit()
         await self.daos.session.refresh(track)
         return self.convert(track)
@@ -78,7 +85,7 @@ class TrackService:
             track.title = title
         if poster:
             poster_url = await self.services.storage_service.save_poster(
-                poster, track.user_id, track.title
+                poster, track.user_id, track.title, "track"
             )
             track.poster_url = poster_url
         if track:

@@ -18,7 +18,7 @@
 - [x] Get another user tracks
 - [x] Get specific track
 - [x] Delete track
-- [ ] Create album
+- [x] Create album
 - [ ] Update album (name, poster)
 - [ ] Update album tracks
 - [ ] Delete album

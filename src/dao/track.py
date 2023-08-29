@@ -13,6 +13,7 @@ class TrackDAO(BaseDAO[Track]):
         self,
         user_id: int,
         title: str,
+        publish_after_creation: bool,
         poster_url: str,
         track_url: str,
     ) -> Track:
@@ -21,6 +22,7 @@ class TrackDAO(BaseDAO[Track]):
             title=title,
             poster_url=poster_url,
             track_url=track_url,
+            is_published=publish_after_creation,
         )
         self.session.add(track)
         return track

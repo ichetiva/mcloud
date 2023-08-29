@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 class CreateTrack(BaseModel):
     title: str
+    publish_after_creation: bool
 
 
 class UpdateTrack(BaseModel):
@@ -21,4 +22,4 @@ class TrackResp(BaseModel):
     updated_at: datetime | None
 
     class Config:
-        from_attributes = True
+        orm_mode = True

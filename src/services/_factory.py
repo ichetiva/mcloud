@@ -1,5 +1,7 @@
 from dao import DAOFactory
 from .auth import AuthSerivce
+from .album import AlbumService
+from .album_track import AlbumTrackService
 from .user import UserService
 from .user_subscriber import UserSubscriberSerivce
 from .track import TrackService
@@ -25,6 +27,14 @@ class ServicesFactory:
     @property
     def track_service(self) -> TrackService:
         return TrackService(self.daos, self)
+
+    @property
+    def album_service(self) -> AlbumService:
+        return AlbumService(self.daos)
+
+    @property
+    def album_track_service(self) -> AlbumTrackService:
+        return AlbumTrackService(self.daos)
 
     @property
     def storage_service(self) -> StorageService:
