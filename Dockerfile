@@ -4,6 +4,6 @@ WORKDIR /code
 
 RUN pip install -U pipenv
 COPY Pipfile* /code/
-RUN pipenv install --system --deploy --ignore-pipfile
+RUN pipenv install --system
 
 COPY src /code/
