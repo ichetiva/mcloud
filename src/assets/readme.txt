@@ -1,0 +1,1 @@
+can add equalizer, avatar with equalizer which float behind the main block, when music starts to play it transfers on the main screen and adds some buttons like play next play prev. 
