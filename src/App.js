@@ -3,27 +3,41 @@ import './App.css'
 
 function App() {
   return (
+    <>
     <div className='CoreBody'>
-       <sidebar id='sidebar'>
-          <div className='LeftNav '>
-          
-          </div>
+      <div className='Split'>
+          <sidebar id='sidebar'>
+              <div className='LeftNav '>
 
-          <div className='Playlist'>
-              <div></div>
-          </div>
-       </sidebar>
+              </div>
 
-       <div id='container'>
-          <div className='MainNav'>
+              <div className='Playlist'>
+                  <div></div>
+              </div>
+          </sidebar>
 
-          </div>
+          <div id='container'>
+              <div className='Split2'>
+                  <div className='MainNav'>
 
-          <div className='HomeBar'>
+                  </div>
+                  <div className='AvatarSpace'>
+                      <div className='Avatar'></div>
+                  </div>
+              </div>
 
+              <div className='HomeBar'>
+
+              </div>
+              
           </div>
        </div>
+       <div className='BottomNav'>
+        
+       </div>
     </div>
+    
+    </>
   );
 }
 
