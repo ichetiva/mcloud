@@ -2,7 +2,7 @@ TODO LIST
 
 
 Starter todo
-- [x] based structure
+- [x] base structure
 - [ ] adding some basic buttons
 - [ ] adding routing 
 - [ ] testing with .map and custom scroll bar 
