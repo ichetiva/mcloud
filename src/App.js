@@ -1,44 +1,17 @@
-import './App.css'
+import { Component } from 'react';
+import Home from './pages/home/home'
+import './pages/home/home.css'
+import PrRoutes from './pages/routes/routes';
 
 
-function App() {
-  return (
+class App extends Component{
+  render() {
+    return(
     <>
-    <div className='CoreBody'>
-      <div className='Split'>
-          <sidebar id='sidebar'>
-              <div className='LeftNav '>
-
-              </div>
-
-              <div className='Playlist'>
-                  <div></div>
-              </div>
-          </sidebar>
-
-          <div id='container'>
-              <div className='Split2'>
-                  <div className='MainNav'>
-
-                  </div>
-                  <div className='AvatarSpace'>
-                      <div className='Avatar'></div>
-                  </div>
-              </div>
-
-              <div className='HomeBar'>
-
-              </div>
-              
-          </div>
-       </div>
-       <div className='BottomNav'>
-        
-       </div>
-    </div>
-    
+    <Home />
     </>
-  );
+    )
+  }
 }
 
 export default App;
