@@ -4,7 +4,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { HomeSearch } from './pages/routes/routes';
-import PrRoutes from './pages/routes/routes';
+import MainRoutes from './pages/routes/routes';
+import { NavRoutes } from './pages/routes/routes';
 
 
 class App extends Component{
@@ -28,7 +29,7 @@ class App extends Component{
           <div id='container'>
               <div className='Split2'>
                   <div className='MainNav'>
-                    
+                    <NavRoutes />
                   </div>
                   <div className='AvatarSpace'>
                       <div className='Avatar'></div>
@@ -36,7 +37,7 @@ class App extends Component{
               </div>
 
               <div className='HomeBar'>
-                  <PrRoutes />
+                  <MainRoutes />
               </div>
               
           </div>

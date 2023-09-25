@@ -6,6 +6,7 @@ Starter todo
 - [x] adding some basic buttons
 - [x] thinking through the Routing 
 - [x] adding routing 
+- [ ] add onclick Nav change in routes(FloatingPlaylist)
 - [ ] add some data to test playlist links and home links
 - [ ] testing with .map and custom scroll bar 
 - [ ] adding list for playlists

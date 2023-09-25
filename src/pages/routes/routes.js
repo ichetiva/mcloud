@@ -4,6 +4,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import Home from "../home/home";
 import Playlist from '../playlist/playlistExample'
 import NotFound from '../NotFound/NotFound'
+import FloatingHome from "../NavBarPages/forHome/FloatingHome";
 import './routes.css'
 
 class HomeSearch extends Component{
@@ -35,7 +36,7 @@ class HomeSearch extends Component{
   }    
 
 
-const PrRoutes = () => {
+const MainRoutes = () => {
     return (
         <>
         <div>
@@ -49,8 +50,23 @@ const PrRoutes = () => {
     )
 }
 
-  export default PrRoutes
-  export {HomeSearch}
+const NavRoutes = () => {
+  return (
+      <>
+      <div>
+          <Routes>
+              <Route exact path="/" element={<FloatingHome />}/>
+              {/* Make here Floating Playlist (Floating thing which appears on header)*/}
+          </Routes>
+          
+      </div>
+      </>
+  )
+}
+
+
+  export default MainRoutes
+  export {HomeSearch , NavRoutes}
 
 
 /* <Route exact element={<NotFound />} /> */ 
