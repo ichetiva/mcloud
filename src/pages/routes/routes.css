@@ -1,0 +1,62 @@
+.Icon{
+    background-color: #5F85DB;
+    width: 40px;
+    height: 40px;
+    margin-right: 5%;
+}
+.NavButton{
+    display: flex;
+    text-decoration: none; 
+    all:unset;
+    margin: 8px;
+    border-radius: 5px;
+    text-align: start;
+    height: 6vh;
+    width: 18vw;
+    background-color: #26282B;
+    font-size: 55%;
+    color: #eeeeeeca;
+    transition: 0.5s;
+}
+
+.Home:hover .NavHome{
+    color: #56f0ff;
+    text-decoration: none;
+    
+}
+.Home:hover{
+    
+}
+.Search:hover .NavSearch{
+    color: #56f0ff;
+    text-decoration: none;
+   
+}
+.Search:hover{
+    
+}
+
+.Home{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.Search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.SearchHome{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+

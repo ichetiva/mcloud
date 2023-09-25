@@ -1,31 +1,33 @@
-
 import React, {Component} from "react"
 import Button from 'react-bootstrap/Button';
 import { Link, Routes, Route } from "react-router-dom";
 import Home from "../home/home";
 import Playlist from '../playlist/playlistExample'
 import NotFound from '../NotFound/NotFound'
+import './routes.css'
 
 class HomeSearch extends Component{
     render() {
       return(
       <div className="SearchHome">
         <div className="Home">
-          <Link to="/">
-            <button className="NavButton" variant="outlined">
-            Home
+          <div className="IconHome Icon">
+
+          </div>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            
+            <button className="NavButton NavHome" variant="outlined">
+              <h1>Home</h1>
             </button>
           </Link>
-          <Link to="/NotFound">
-            <button className="NavButton" variant="outlined">
-            Search
+        </div>
+        <div className="Search">
+            <div className="IconHome Icon">
+              
+            </div>
+            <button className="NavButton NavSearch" variant="outlined">
+              <h1>Search</h1>
             </button>
-          </Link>
-          <Link to="/Playlist">
-            <button className="NavButton" variant="outlined">
-            Playlist
-            </button>
-          </Link>
         </div>
       </div>
       )
@@ -38,7 +40,7 @@ const PrRoutes = () => {
         <>
         <div>
             <Routes>
-                <Route exact path="/NotFound" element={<NotFound />}/>
+                <Route exact path="/" element={<Home />}/>
                 <Route exact path="/Playlist" element={<Playlist />}/>
             </Routes>
             
