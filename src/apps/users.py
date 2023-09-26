@@ -19,7 +19,10 @@ async def sign_up_user(
     data: Annotated[CreateUser, Body()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
-    return await services.user_service.create(data.username, data.email, data.password)
+    user = await services.user_service.create(data.username, data.email, data.password)
+    playlist = await services.playlist_service.create(
+        user.id, "Favourite", "The tracks you liked", None, True
+    )
 
 
 @router.get("/me", response_model=UserResp)

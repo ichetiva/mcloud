@@ -5,6 +5,7 @@ from .user_subscriber import UserSubscriberDAO
 from .track import TrackDAO
 from .album import AlbumDAO
 from .album_track import AlbumTrackDAO
+from .playlist import PlaylistDAO
 
 
 class DAOFactory:
@@ -30,3 +31,7 @@ class DAOFactory:
     @property
     def album_track_dao(self) -> AlbumTrackDAO:
         return AlbumTrackDAO(self.session)
+
+    @property
+    def playlist_dao(self) -> PlaylistDAO:
+        return PlaylistDAO(self.session)

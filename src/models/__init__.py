@@ -4,6 +4,7 @@ from .track import Track
 from .user_subscriber import UserSubscriber
 from .album import Album
 from .album_track import AlbumTrack
+from .playlist import Playlist
 
 __all__ = (
     "Base",
@@ -12,4 +13,5 @@ __all__ = (
     "Track",
     "Album",
     "AlbumTrack",
+    "Playlist",
 )

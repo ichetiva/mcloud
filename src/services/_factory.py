@@ -6,6 +6,7 @@ from .user import UserService
 from .user_subscriber import UserSubscriberSerivce
 from .track import TrackService
 from .storage import StorageService
+from .playlist import PlaylistService
 
 
 class ServicesFactory:
@@ -39,3 +40,7 @@ class ServicesFactory:
     @property
     def storage_service(self) -> StorageService:
         return StorageService()
+
+    @property
+    def playlist_service(self) -> PlaylistService:
+        return PlaylistService(self.daos, self)
