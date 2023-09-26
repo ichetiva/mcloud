@@ -44,3 +44,8 @@ class TrackDAO(BaseDAO[Track]):
     async def delete(self, track_id: int):
         stmt = delete(Track).where(Track.id == track_id)
         await self.session.execute(stmt)
+
+    async def get_by_ids(self, track_ids: list[int]) -> list[Track]:
+        stmt = select(Track).where(Track.id.in_(track_ids))
+        result = await self.session.scalars(stmt)
+        return result.all()

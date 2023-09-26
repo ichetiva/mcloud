@@ -40,5 +40,5 @@ class BaseDAO(Generic[Model]):
             update(self.model).where(self.model.id == id).values(**kwargs)
         )
 
-    async def delete(self, id: int):
-        await self.session.execute(delete(self.model).where(self.model.id == id))
+    async def delete(self, **kwargs):
+        await self.session.execute(delete(self.model).filter_by(**kwargs))

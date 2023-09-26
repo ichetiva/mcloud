@@ -96,3 +96,11 @@ class TrackService:
         await self.daos.session.commit()
         await self.daos.session.refresh(track)
         return self.convert(track)
+
+    async def get_by_ids(self, track_ids: list[int]) -> list[TrackDTO]:
+        tracks = await self.daos.track_dao.get_by_ids(track_ids)
+        return self.convert_multiple(tracks)
+
+    async def get_by_album_id(self, album_id: int) -> list[TrackDTO]:
+        tracks = await self.daos.album_track_dao.get_by_album_id(album_id)
+        return self.convert_multiple(tracks)

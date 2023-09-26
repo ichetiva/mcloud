@@ -9,7 +9,7 @@ import config
 from database import async_session
 from services import ServicesFactory
 from dao import DAOFactory
-from dto import TrackDTO, UserDTO
+from dto import TrackDTO, UserDTO, AlbumDTO
 
 oauth2_scheme = HTTPBearer()
 
@@ -87,3 +87,41 @@ async def valid_author_track_id(
             detail="You have no permissions to delete this track",
         )
     return track
+
+
+async def valid_author_album_id(
+    album_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> AlbumDTO:
+    album = await services.album_service.get(album_id)
+    if not album:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Album not found",
+        )
+    if album.user_id != user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You have no permissions to delete this album",
+        )
+    return album
+
+
+async def valid_author_or_published_album_id(
+    album_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> AlbumDTO:
+    album = await services.album_service.get(album_id)
+    if not album or (album.is_published is False and album.user_id != user.id):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Album not found",
+        )
+    if album.user_id != user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You have no permissions to delete this album",
+        )
+    return album

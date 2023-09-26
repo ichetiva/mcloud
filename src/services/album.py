@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from fastapi import UploadFile
 
 from dao import DAOFactory
-from dto import UserDTO, AlbumDTO
+from dto import UserDTO, AlbumDTO, TrackDTO
 from models import Album
 
 if TYPE_CHECKING:
@@ -15,13 +15,20 @@ class AlbumService:
         self.daos = daos
         self.services = services
 
-    def convert(self, album: Album) -> AlbumDTO:
+    def convert(self, album: Album, tracks: list[TrackDTO] = []) -> AlbumDTO:
         return AlbumDTO(
             id=album.id,
+            user_id=album.user_id,
             title=album.title,
             is_published=album.is_published,
-            tracks=[],
+            tracks=tracks,
         )
+
+    async def get(self, album_id: int) -> AlbumDTO:
+        album = await self.daos.album_dao.get(id=album_id)
+        if not album:
+            return None
+        return self.convert(album)
 
     async def create(
         self,
@@ -39,3 +46,11 @@ class AlbumService:
         await self.daos.session.commit()
         await self.daos.session.refresh(album)
         return self.convert(album)
+
+    async def delete(self, album: AlbumDTO) -> bool:
+        try:
+            await self.daos.album_dao.delete(album.id)
+            await self.daos.session.commit()
+            return True
+        except:
+            return False
