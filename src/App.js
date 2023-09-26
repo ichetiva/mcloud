@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { HomeSearch } from './pages/routes/routes';
 import MainRoutes from './pages/routes/routes';
 import { NavRoutes } from './pages/routes/routes';
-
+import PlMapping from './components/mapping/playlistmapping';
 
 class App extends Component{
   render() {
@@ -21,7 +21,7 @@ class App extends Component{
 
               <div className='Playlist'>
                   <div>
-                    
+                      <PlMapping />
                   </div>
               </div>
           </sidebar>

@@ -1,0 +1,17 @@
+{
+    "Song1": {
+        "img": "something",
+        "Name": "Chizue",
+        "Author": "Miyavi",
+        "Description": "The song which was made in 2024"
+        
+    },
+
+    "Song2": {
+        "img": "something",
+        "Name": "Way to home",
+        "Author": "Asuna",
+        "Description": "Brand new song"
+        
+    }
+}
