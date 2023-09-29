@@ -1,36 +1,14 @@
-{   
-    "Playlist1":{
-        "Song1": {
-            "img": "something",
-            "Name": "Chizue",
-            "Author": "Miyavi",
-            "Description": "The song which was made in 2024"
-            
-        },
-
-        "Song2": {
-            "img": "something",
-            "Name": "Way to home",
-            "Author": "Asuna",
-            "Description": "Brand new song"
-            
-        }
-    },
-    "Playlist2":{
-        "Song1": {
-            "img": "something",
-            "Name": "Chizue",
-            "Author": "Miyavi",
-            "Description": "The song which was made in 2024"
-            
-        },
-
-        "Song2": {
-            "img": "something",
-            "Name": "Way to home",
-            "Author": "Asuna",
-            "Description": "Brand new song"
-            
-        }
-    }
-}
+[
+  {
+    "img": "something",
+    "name": "Chizue",
+    "author": "Miyavi",
+    "description": "The songs which was made in 2024"
+  },
+  {
+    "img": "something",
+    "name": "Way to home",
+    "author": "Asuna",
+    "description": "Brand new songs"
+  }
+]

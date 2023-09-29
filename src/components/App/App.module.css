@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  background-color: #353941;
+  color: #eee;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  grid-template-areas:
+    "nav header avatar"
+    "nav pages pages"
+    "userPlaylists pages pages"
+    "footer footer footer";
+  grid-gap: 15px;
+  margin: 15px;
+}
+
+.header,
+.nav,
+.userPlaylists,
+.pages,
+.footer {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #26282b;
+}
+
+.nav {
+  grid-area: nav;
+  height: 120px;
+}
+.header {
+  grid-area: header;
+  height: 60px;
+  overflow: hidden;
+}
+.pages {
+  grid-area: pages;
+}
+.userPlaylists {
+  grid-area: userPlaylists;
+}
+.avatar {
+  grid-area: avatar;
+  height: 80px;
+  width: 80px;
+  background-color: #26282b;
+  border-radius: 10px;
+}
+.footer {
+  grid-area: footer;
+  text-align: center;
+  background-color: #5f85db;
+}
+
+.footer a {
+  color: white;
+}
+
+.nav * {
+  border-radius: 5px;
+}
+
+/* .Playlist {
+  background-color: #26282b;
+  width: 100%;
+  border-radius: 5px;
+  height: 520px;
+  margin-bottom: 15px;
+}
+.MainNav {
+  border-radius: 5px;
+  background-color: #26282b;
+  width: 92%;
+  height: 100%;
+}
+.HomeBar {
+  overflow: auto;
+  background-color: #26282b;
+  width: 100%;
+  border-radius: 5px;
+  height: calc(696px - 64px - 70px);
+}
+.LeftNav {
+  margin-bottom: 15px;
+  background-color: #26282b;
+  width: 100%;
+  height: 120px;
+  border-radius: 5px;
+}
+.Split2 {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  margin-bottom: 30px;
+}
+
+#container {
+  width: calc(75% - 45px);
+  margin: 15px 15px 15px 0px;
+  border-radius: 0px 10px;
+  padding-top: 0;
+  height: 696px;
+}
+
+#sidebar {
+  width: 25%;
+  height: auto;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  margin: 15px;
+  border-radius: 5px;
+}
+.Split {
+  display: flex;
+  width: 100%;
+  min-height: 650px;
+}
+.CoreBody {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  background-color: #353941;
+  border-radius: 10px;
+  min-height: 650px;
+}
+
+
+.BottomNav {
+  display: flex;
+  bottom: 0;
+  position: sticky;
+  background-color: #5f85db;
+  width: 100%;
+  height: 50px;
+}
+
+@media (max-width: 850px) {
+}
+
+@media (max-width: 500px) {
+} */
