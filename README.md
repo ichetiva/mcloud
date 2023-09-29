@@ -18,7 +18,7 @@ Starter todo
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 
 LateOn todo
-- [ ] fix little space below the container; also scrollbar with width
+- [ ] fix little space below the container
 - [ ] later adding sign up menu
 - [ ] add grid functionality for playlist bar 
 - [ ] adding core styling( background gradient, song div getting lighter onleftclick, shadows for divs)
