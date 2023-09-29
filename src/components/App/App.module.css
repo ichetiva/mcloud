@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  background-color: #353941;
+  color: #eee;
+}
+
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr auto;
@@ -120,14 +126,6 @@
   min-height: 650px;
 }
 
-body {
-  overflow: auto;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  background-color: #353941;
-  color: #eee;
-}
 
 .BottomNav {
   display: flex;
