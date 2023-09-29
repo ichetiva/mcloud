@@ -73,22 +73,20 @@
     min-height: 650px;
 }
 .CoreBody{
+    width: 100%;
     flex-direction: column;
     display: flex;
     background-color: #353941;
-    width: 98vw;
     border-radius: 10px;
     min-height: 650px;
+    
 }
 
 body{
     overflow: auto;
     height: 100%;
+    width: 100%;
     margin: 0;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #353941;
 }
 
