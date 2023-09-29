@@ -18,7 +18,7 @@ Starter todo
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 
 LateOn todo
-
+- [ ] fix little space below the container
 - [ ] later adding sign up menu
 - [ ] add grid functionality for playlist bar 
 - [ ] adding core styling( background gradient, song div getting lighter onleftclick, shadows for divs)
@@ -28,5 +28,4 @@ LateOn todo
 Ideas todo
 
 - [ ] add changing Nav bar above the home page. It will have some links to mixes on homepage, when playlist is picked it gets bigger and changes info to playlist 
-
 - [ ] basic idea of equalizer which floats on background and transfers to main screen 

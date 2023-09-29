@@ -3,7 +3,7 @@
     background-color: #26282B;
     width: 100%;
     border-radius: 5px;
-    height: 490px;
+    height: 520px;
     margin-bottom: 15px;
 }
 
@@ -34,7 +34,7 @@
     background-color: #26282B;
     width: 100%;
     border-radius: 5px;
-    height: calc(696px - 64px - 60px);
+    height: calc(696px - 64px - 70px);
 }
 .LeftNav{
     margin-bottom: 15px;
@@ -76,7 +76,7 @@
     flex-direction: column;
     display: flex;
     background-color: #353941;
-    width: 97vw;
+    width: 100vw;
     border-radius: 10px;
     min-height: 650px;
 }
