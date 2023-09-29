@@ -15,7 +15,7 @@ class HomeSearch extends Component{
           <div className="IconHome Icon">
 
           </div>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link className="LinkBar"to="/" style={{ textDecoration: 'none' }}>
             
             <button className="NavButton NavHome" variant="outlined">
               <h1>Home</h1>

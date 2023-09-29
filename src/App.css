@@ -1,63 +1,52 @@
-.LeftNav{
-    margin-bottom: 15px;
-    background-color: #26282B;
-    width: 100%;
-    height: 25%;
-    border-radius: 5px;
-}
 
 .Playlist{
     background-color: #26282B;
     width: 100%;
     border-radius: 5px;
-    height: 75%;
+    height: 490px;
     margin-bottom: 15px;
 }
 
-
-
-.BottomNav{
-    background-color: #5F85DB;
-    width: 100%;
-    height: 10%;
-    border-radius: 0px 0px 10px 10px;
-    
-    
-}
 .Avatar{
-    height: 9vh;
-    width: 9vh;
+    height: 60px;
+    width: 60px;
     display: flex;
     align-self: center;
-    
     border-radius: 100%;
     background-color: #26282B;
     
 }
 .AvatarSpace{
-    width: 10%;
+    width: 100px;
+    margin-left: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .MainNav{
-    
+    border-radius: 5px;
     background-color:#26282B ;
     width: 92%;
     height: 100%;
 }
 .HomeBar{
+    overflow: auto;
     background-color: #26282B;
     width: 100%;
     border-radius: 5px;
-    height: calc(100% - 12.5% - 30px);
+    height: calc(696px - 64px - 60px);
 }
-
+.LeftNav{
+    margin-bottom: 15px;
+    background-color: #26282B;
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+}
 .Split2{
     display: flex;
     width: 100%;
-    border-radius: 5px;
-    height: 12.5%;
+    height: 64px;
     margin-bottom: 30px;
 }
 
@@ -66,9 +55,9 @@
     margin: 15px 15px 15px 0px;
     border-radius: 0px 10px;
     padding-top: 0;
-    
-    height: auto;
+    height: 696px;
 }
+
 #sidebar{
     width: 25%;
     height: auto;
@@ -81,24 +70,65 @@
 .Split{
     display: flex;
     width: 100%;
-    height: 93%;
+    min-height: 650px;
 }
 .CoreBody{
     flex-direction: column;
     display: flex;
     background-color: #353941;
     width: 97vw;
-    height: 97vh;
     border-radius: 10px;
-   
+    min-height: 650px;
 }
 
 body{
-    height: 100vh;
+    overflow: auto;
+    height: 100%;
     margin: 0;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #26282B;
+}
+
+.BottomNav{
+    display: flex;
+    bottom: 0;
+    position: sticky;
+    background-color: #5F85DB;
+    width: 100%;
+    height: 50px;
+}
+
+
+@media (max-width: 850px){
+    .AvatarSpace{
+        width: 70px;
+        margin: 0;
+    }
+    .Avatar{
+        height: 50px;
+        width: 50px;
+    }
+    #sidebar{
+        width: 210px;
+    }
+}
+
+@media (max-width: 500px){
+    #container{
+        width: 85%;
+    }
+    .AvatarSpace{
+        width: 50px;
+        margin: 0;
+    }
+    .Avatar{
+        height: 40px;
+        width: 40px;
+    }
+    #sidebar{
+        width: 70px;
+    }
 }
