@@ -76,7 +76,7 @@
     flex-direction: column;
     display: flex;
     background-color: #353941;
-    width: 100vw;
+    width: 98vw;
     border-radius: 10px;
     min-height: 650px;
 }
@@ -89,7 +89,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #26282B;
+    background-color: #353941;
 }
 
 .BottomNav{
