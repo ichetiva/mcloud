@@ -26,6 +26,9 @@ class PlaylistService:
         )
         return playlist_dto
 
+    def convert_multiple(self, playlists: list[Playlist]) -> list[PlaylistDTO]:
+        return [self.convert(playlist) for playlist in playlists]
+
     async def create(
         self,
         user_id: int,
@@ -47,3 +50,7 @@ class PlaylistService:
         await self.daos.session.commit()
         await self.daos.session.refresh(playlist)
         return self.convert(playlist)
+
+    async def get_by_user_id(self, user_id: int) -> list[PlaylistDTO]:
+        playlists = await self.services.playlist_service.get_by_user_id(user_id)
+        return self.convert_multiple(playlists)
