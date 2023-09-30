@@ -19,9 +19,9 @@
 - [x] Get specific track
 - [x] Delete track
 - [x] Create album
-- [ ] Update album (name, poster)
-- [ ] Update album tracks
-- [ ] Delete album
+- [x] Update album (name, poster)
+- [x] Update album tracks
+- [d] Delete album
 - [ ] Create playlist
 - [ ] Update playlist (name, description, poster)
 - [ ] Update playlist tracks

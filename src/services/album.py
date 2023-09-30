@@ -54,3 +54,15 @@ class AlbumService:
             return True
         except:
             return False
+
+    async def update(self, album: AlbumDTO, title: str | None, poster: UploadFile):
+        album = await self.daos.album_dao.get(for_update=True, id=album.id)
+        if title:
+            album.title = title
+        if poster:
+            poster_url = await self.services.storage_service.save_poster(
+                poster, album.user_id, album.title, "album"
+            )
+            album.poster_url = poster_url
+        await self.daos.session.commit()
+        return self.convert(album)

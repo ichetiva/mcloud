@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, UploadFile, Depends, Body, File, HTTPException
 
 from schemes import OkResp
-from schemes.album import AlbumResp, CreateAlbum
+from schemes.album import AlbumResp, CreateAlbum, UpdateAlbum
 from dto import UserDTO, AlbumDTO, TrackDTO
 from dependencies import (
     get_current_user,
@@ -46,6 +46,17 @@ async def get_album(
 ):
     tracks = await services.track_service.get_by_album_id(album.id)
     album.tracks = tracks
+    return album
+
+
+@router.put("/{album_id}", response_model=AlbumResp)
+async def update_album(
+    album: Annotated[AlbumDTO, Depends(valid_author_album_id)],
+    data: Annotated[UpdateAlbum, Body()],
+    poster_file: Annotated[UploadFile | None, File()],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    album = await services.album_service.update(album, data.title, poster_file)
     return album
 
 

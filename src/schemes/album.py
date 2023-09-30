@@ -9,6 +9,10 @@ class CreateAlbum(BaseModel):
     publish_after_creation: bool
 
 
+class UpdateAlbum(BaseModel):
+    title: str | None
+
+
 class AlbumResp(BaseModel):
     id: int
     title: str
