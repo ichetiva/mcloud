@@ -1,12 +1,9 @@
-function NotFound() {
-    return (
-      <>
-      <div>
-        <h1> NotFound page </h1>
-      </div>
-      
-      </>
-    );
-  }     
+import css from "./NotFound.module.css";
 
-  export default NotFound
+export const NotFound = () => {
+  return (
+    <div>
+      <h1> NotFound page </h1>
+    </div>
+  );
+};

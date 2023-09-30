@@ -1,24 +1,26 @@
-import React from "react";
-import { HomeSearch } from "../../pages/routes/routes";
+import { Routes, Route } from "react-router-dom";
+import Navigation from "../Navigation";
 import Playlists from "../Playlists";
-import MainRoutes from "../../pages/routes/routes";
-import { NavRoutes } from "../../pages/routes/routes";
+import NotFound from "../../pages/NotFound";
+import Home from "../../pages/Home";
 import css from "./App.module.css";
 
 export const App = () => {
-  const pageTitle = "Home";
   return (
     <div className={css.container}>
       <div className={css.header}></div>
       <div className={css.avatar}></div>
       <div className={css.nav}>
-        <HomeSearch />
+        <Navigation />
       </div>
       <div className={css.userPlaylists}>
         <Playlists />
       </div>
       <div className={css.pages}>
-        <MainRoutes />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
       </div>
       <div className={css.footer}>
         <a href="https://github.com/ichetiva/mcloud">Source code</a>
