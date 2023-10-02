@@ -7,6 +7,7 @@ Starter todo
 - [x] thinking through the Routing 
 - [x] adding routing 
 - [x] basic screen adjustments
+- [ ] add text size changing
 - [ ] add sign-up and login buttons, make a connection to backend 
 - [ ] add variability to site with accounts 
 - [ ] add onclick Nav change in routes(FloatingPlaylist)
