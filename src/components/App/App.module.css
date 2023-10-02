@@ -1,8 +1,8 @@
 .container {
-  height: 100%;
+  height: calc(100vh - 80px);
   display: grid;
   grid-template-columns: 0.7fr 2fr auto;
-  grid-auto-rows: auto 1fr 11.3fr;
+  grid-auto-rows: 0fr 0fr 1fr;
   grid-template-areas:
     "nav header avatar"
     "nav pages pages"
