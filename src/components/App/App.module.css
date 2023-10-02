@@ -1,11 +1,10 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 2fr auto;
+  grid-template-columns: 0.7fr 2fr auto;
   grid-template-areas:
     "nav header avatar"
     "nav pages pages"
-    "userPlaylists pages pages"
-    "footer footer footer";
+    "userPlaylists pages pages";
   grid-gap: 15px;
   margin: 15px;
 }
@@ -19,6 +18,7 @@
   background-color: #26282b;
 }
 
+
 .nav {
   grid-area: nav;
   height: 120px;
@@ -29,9 +29,13 @@
   overflow: hidden;
 }
 .pages {
+  overflow: auto;
+  height: 550px;
   grid-area: pages;
 }
 .userPlaylists {
+  overflow: auto;
+  height: 490px;
   grid-area: userPlaylists;
 }
 .avatar {
@@ -42,91 +46,34 @@
   border-radius: 10px;
 }
 .footer {
-  grid-area: footer;
-  padding: 10px;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
   text-align: center;
-  border-radius: 10px;
-  background-color: #5f85db;
-}
-
-.footer a {
-  color: white;
-}
-
-/* .Playlist {
-  background-color: #26282b;
-  width: 100%;
-  border-radius: 5px;
-  height: 520px;
-  margin-bottom: 15px;
-}
-.MainNav {
-  border-radius: 5px;
-  background-color: #26282b;
-  width: 92%;
-  height: 100%;
-}
-.HomeBar {
-  overflow: auto;
-  background-color: #26282b;
-  width: 100%;
-  border-radius: 5px;
-  height: calc(696px - 64px - 70px);
-}
-.LeftNav {
-  margin-bottom: 15px;
-  background-color: #26282b;
-  width: 100%;
-  height: 120px;
-  border-radius: 5px;
-}
-.Split2 {
-  display: flex;
-  width: 100%;
-  height: 64px;
-  margin-bottom: 30px;
-}
-
-#container {
-  width: calc(75% - 45px);
-  margin: 15px 15px 15px 0px;
-  border-radius: 0px 10px;
-  padding-top: 0;
-  height: 696px;
-}
-
-#sidebar {
-  width: 25%;
-  height: auto;
-  padding-top: 0px;
-  padding-bottom: 15px;
-  margin: 15px;
-  border-radius: 5px;
-}
-.Split {
-  display: flex;
-  width: 100%;
-  min-height: 650px;
-}
-.CoreBody {
-  width: 100%;
-  flex-direction: column;
-  display: flex;
-  background-color: #353941;
-  border-radius: 10px;
-  min-height: 650px;
-}
-
-
-.BottomNav {
-  display: flex;
-  background-color: #5f85db;
-  width: 100%;
   height: 50px;
+  background-color: #5f85db;
 }
+
+
+/* Will be deleted */
+.temporary{
+  color: white;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.footer:hover .temporary{
+  text-decoration: underline;
+}
+
 
 @media (max-width: 850px) {
+  .container {
+    grid-template-columns: 180px 2fr auto;
+  }
 }
 
 @media (max-width: 500px) {
-} */
+  .container {
+    grid-template-columns: 80px 2fr auto;
+  }
+} 

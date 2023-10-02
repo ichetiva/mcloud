@@ -18,6 +18,7 @@ Starter todo
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 
 LateOn todo
+- [ ] change to uneditable text(some parts)
 - [ ] fix little space below the container, resize objects
 - [ ] later adding sign up menu
 - [ ] add grid functionality for playlist bar 

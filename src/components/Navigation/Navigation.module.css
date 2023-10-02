@@ -23,3 +23,18 @@
 .link:hover {
   color: #56f0ff;
 }
+
+@media (max-width: 500px) {
+  .links{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content{
+    display: none;
+  }
+
+  .icon{
+    margin: 0;
+  }
+} 

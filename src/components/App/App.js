@@ -7,6 +7,7 @@ import css from "./App.module.css";
 
 export const App = () => {
   return (
+    <>
     <div className={css.container}>
       <div className={css.header}></div>
       <div className={css.avatar}></div>
@@ -22,10 +23,17 @@ export const App = () => {
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
-      <div className={css.footer}>
-        <a href="https://github.com/ichetiva/mcloud">Source code</a>
-      </div>
     </div>
+
+    <div className={css.footer}>
+        <a className={css.temporary} href="https://github.com/ichetiva/mcloud">Source code</a>
+          <br></br>
+        <a className={css.temporary} href="https://youtu.be/ymdhRMiMGK0?si=C_89Ve64LDsySp93">Main info</a>
+    </div>
+
+    
+      </>
+
     // <div className={css.CoreBody}>
     //   <div className={css.Split}>
     //     <sidebar id={css.sidebar}>
