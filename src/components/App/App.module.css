@@ -1,12 +1,14 @@
 .container {
+  height: 100%;
   display: grid;
   grid-template-columns: 0.7fr 2fr auto;
+  grid-auto-rows: auto 1fr 11.3fr;
   grid-template-areas:
     "nav header avatar"
     "nav pages pages"
     "userPlaylists pages pages";
   grid-gap: 15px;
-  margin: 15px;
+  margin: 15px 15px 65px 15px;
 }
 
 .header,
@@ -17,7 +19,6 @@
   border-radius: 10px;
   background-color: #26282b;
 }
-
 
 .nav {
   grid-area: nav;
@@ -30,12 +31,10 @@
 }
 .pages {
   overflow: auto;
-  height: 550px;
   grid-area: pages;
 }
 .userPlaylists {
   overflow: auto;
-  height: 490px;
   grid-area: userPlaylists;
 }
 .avatar {
@@ -47,13 +46,16 @@
 }
 .footer {
   width: 100%;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   text-align: center;
   height: 50px;
   background-color: #5f85db;
 }
 
+.profile{
+  display: none;
+}
 
 /* Will be deleted */
 .temporary{
@@ -65,7 +67,10 @@
   text-decoration: underline;
 }
 
-
+.avatar:target .profile{
+  color: black;
+  display: flex;
+}
 @media (max-width: 850px) {
   .container {
     grid-template-columns: 180px 2fr auto;
@@ -77,3 +82,4 @@
     grid-template-columns: 80px 2fr auto;
   }
 } 
+

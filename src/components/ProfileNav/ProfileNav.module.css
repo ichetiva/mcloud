@@ -1,0 +1,24 @@
+.links{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin: 110px 15px;
+    border-radius: 5px;
+    background-color: #5F85DB;
+    height: 150px;
+    width: 120px;
+}
+.content{
+    margin: 10px 10px 0px ;
+}
+.link{
+    color: #eee;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #63dfea;
+}

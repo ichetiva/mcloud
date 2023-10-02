@@ -4,13 +4,24 @@ import Playlists from "../Playlists";
 import NotFound from "../../pages/NotFound";
 import Home from "../../pages/Home";
 import css from "./App.module.css";
+import ProfileNav from "../ProfileNav";
+import { useState } from "react";
 
 export const App = () => {
+
+  const [isActive, SetIsActive] = useState(false);
+  const handleClick = () => {
+    SetIsActive(true)
+    
+  }
+
   return (
     <>
     <div className={css.container}>
       <div className={css.header}></div>
-      <div className={css.avatar}></div>
+      <div className={css.avatar} onClick={handleClick}>
+        <ProfileNav className={css.profile} />
+      </div>
       <div className={css.nav}>
         <Navigation />
       </div>
@@ -30,8 +41,6 @@ export const App = () => {
           <br></br>
         <a className={css.temporary} href="https://youtu.be/ymdhRMiMGK0?si=C_89Ve64LDsySp93">Main info</a>
     </div>
-
-    
       </>
 
     // <div className={css.CoreBody}>
