@@ -4,18 +4,14 @@ import Playlists from "../Playlists";
 import NotFound from "../../pages/NotFound";
 import Home from "../../pages/Home";
 import css from "./App.module.css";
-import ProfileNav from "../ProfileNav";
-
+import Profile from "../Profile";
 export const App = () => {
-
-  
-
   return (
     <>
     <div className={css.container}>
       <div className={css.header}></div>
       <div className={css.avatar}>
-        <ProfileNav className={css.profile} />
+        <Profile />
       </div>
       <div className={css.nav}>
         <Navigation />

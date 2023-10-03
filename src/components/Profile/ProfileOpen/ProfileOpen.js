@@ -1,12 +1,12 @@
-import css from "./ProfileNav.module.css"
+import css from "./ProfileOpen.module.css"
 import { Link } from "react-router-dom";
 
 
-export const ProfileNav = () => {
+export const ProfileOpen = () => {
   return (
     
       <div className={css.links}>
-        <Link className={css.link} to="SignIn">
+        <Link className={css.link} to="/SignIn">
             <div className={css.content}>SignIn</div>
         </Link>
         <Link className={css.link} to="/SignUp">

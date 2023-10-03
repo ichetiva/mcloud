@@ -5,13 +5,14 @@
     top: 0;
     right: 0;
     position: absolute;
-    margin: 110px 15px;
+    margin: 6.4rem 1rem;
     border-radius: 5px;
-    background-color: #5F85DB;
+    background-color: #1b1c21;
     height: 150px;
     width: 120px;
 }
 .content{
+    user-select: none;
     margin: 10px 10px 0px ;
 }
 .link{
