@@ -10,12 +10,11 @@ Starter todo
 - [ ] add text size changing
 - [ ] add sign-up and login buttons, make a connection to backend 
 - [ ] add variability to site with accounts 
-- [ ] add onclick Nav change in routes(FloatingPlaylist)
-- [ ] add some data to test playlist links and home links
-- [ ] testing with .map and custom scroll bar 
-- [ ] adding list for playlists
+- [x] add onclick Nav change in routes(FloatingPlaylist)
+- [x] add some data to test playlist links and home links
 - [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
-- [ ] add profile onclick menu, onclick song menu
+- [x] add profile onclick menu
+- [ ] on LClick song menu
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 
 LateOn todo
