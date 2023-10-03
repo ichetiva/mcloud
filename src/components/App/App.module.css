@@ -8,7 +8,7 @@
     "nav pages pages"
     "userPlaylists pages pages";
   grid-gap: 15px;
-  margin: 15px 15px 65px 15px;
+  margin: 15px 15px 0px 15px;
 }
 
 .header,
@@ -30,10 +30,12 @@
   overflow: hidden;
 }
 .pages {
+  margin-bottom: 15px;
   overflow: auto;
   grid-area: pages;
 }
 .userPlaylists {
+  margin-bottom: 15px;
   overflow: auto;
   grid-area: userPlaylists;
 }
@@ -49,7 +51,7 @@
   position: fixed;
   bottom: 0;
   text-align: center;
-  height: 50px;
+  height: 4rem;
   background-color: #1b1c21;
 }
 
