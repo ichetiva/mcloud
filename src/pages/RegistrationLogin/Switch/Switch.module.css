@@ -1,0 +1,25 @@
+.links {
+    width: 75%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  .link {
+    transition: 0.5s;
+    border: 1px solid #eee;
+    width: 82.5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .link:hover{
+    background-color: #74edf8cb;
+    color: #eee;
+  }
+  

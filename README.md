@@ -6,7 +6,8 @@ Starter todo
 - [x] adding some basic buttons
 - [x] thinking through the Routing 
 - [x] adding routing 
-- [x] basic screen adjustments
+- [x] basic screen adjustments\
+- [ ] add modal window signup
 - [ ] add text size changing
 - [ ] add sign-up and login buttons, make a connection to backend 
 - [ ] add variability to site with accounts 
