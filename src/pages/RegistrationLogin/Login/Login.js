@@ -19,7 +19,7 @@ export const Login = () => {
                 <Switch />
                 <input type='email' onChange={event => setUsername(event.target.value)} placeholder='Email'/>
                 <input type='password' onChange={event => setPassword(event.target.value)} placeholder='Password'/>
-                <button onClick={() => {if(isValidEmail(username) ===true , password !== ''){console.log([username, password])
+                <button onClick={() => {if(isValidEmail(username) === true && password !== ''){console.log([username, password])
                 }else{alert("you ducked up")}}}> Login </button>
                 <div className={css.transfer}>
                     <a>Still not member?</a>

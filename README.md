@@ -6,7 +6,7 @@ Starter todo
 - [x] adding some basic buttons
 - [x] thinking through the Routing 
 - [x] adding routing 
-- [x] basic screen adjustments\
+- [x] basic screen adjustments
 - [x] add onclick Nav change in routes(FloatingPlaylist)
 - [x] add profile onclick menu
 - [x] add modal window signup
