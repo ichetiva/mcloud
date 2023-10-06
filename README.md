@@ -7,14 +7,15 @@ Starter todo
 - [x] thinking through the Routing 
 - [x] adding routing 
 - [x] basic screen adjustments\
-- [ ] add modal window signup
-- [ ] add text size changing
-- [ ] add sign-up and login buttons, make a connection to backend 
-- [ ] add variability to site with accounts 
 - [x] add onclick Nav change in routes(FloatingPlaylist)
-- [x] add some data to test playlist links and home links
-- [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
 - [x] add profile onclick menu
+- [x] add modal window signup
+- [ ] add sign-up and login buttons, make a connection to backend 
+- [ ] repair footer flooting above modal
+- [ ] add variability to site with accounts 
+
+- [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
+
 - [ ] on LClick song menu
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 

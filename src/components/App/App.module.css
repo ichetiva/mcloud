@@ -47,6 +47,7 @@
   border-radius: 10px;
 }
 .footer {
+  z-index: 1;
   width: 100%;
   position: fixed;
   bottom: 0;
