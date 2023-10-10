@@ -35,8 +35,8 @@ export const Registration = () => {
                 type='password' id='RepeatPassword' placeholder='Password'/>
 
                 <button className={css.button} onClick={() => {if(password === passwordRepeat && isValidEmail(mail) === true && password !== '' && username !== '')
-                {
-                     RegistrationPost(username, mail, password)
+                {    
+                    RegistrationPost(username, mail, password)
                 }
                 else{ 
                     alert('Required information is not filled')
