@@ -7,7 +7,7 @@ const RegistrationPost = (username , mail, password ) => {
         username: username,
         email: mail,
         password: password
-      })
+      }, {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(function (response) {
         console.log(response);
       })
