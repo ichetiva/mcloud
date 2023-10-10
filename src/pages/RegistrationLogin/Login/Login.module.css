@@ -1,5 +1,5 @@
 .form{
-    z-index: 0;
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
     top: 0;
     left: 0;
@@ -51,7 +51,7 @@ button{
     padding-block: 0;
     padding-inline: 0;
     text-decoration: none;
-    margin: 200px 10px 10px 10px;
+    margin-top: 50px;
     height: 7%;
     width: 25%;
     -webkit-appearance: none;
