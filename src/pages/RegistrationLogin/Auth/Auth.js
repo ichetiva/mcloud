@@ -6,7 +6,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 export const Auth = () => {
     return(
         <Routes>
-        <Route path="/SignIn" element={<Login />} />
+        <Route path="/*" element={<Login />} />
         <Route path="/SignUp" element={<Registration />} />
         </Routes>
     )     
