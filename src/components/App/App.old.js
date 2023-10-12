@@ -45,7 +45,10 @@ export const App = () => {
           <br></br>
         <a className={css.temporary} href="https://youtu.be/ymdhRMiMGK0?si=C_89Ve64LDsySp93">Main info</a>
     </div>
-    
+    <Routes>
+        <Route path="/SignIn" element={<Login />} />
+        <Route path="/SignUp" element={<Registration />} />
+    </Routes>
       </>
   );
 };

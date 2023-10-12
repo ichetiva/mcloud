@@ -5,15 +5,25 @@ import Login from "../../../pages/RegistrationLogin/Login";
 import { useState } from "react";
 
 export const ProfileOpen = () => {
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+  async function RemoveUser() {
+    await localStorage.removeItem('Token')
+    refreshPage()
+  }
+
   return (
     
       <div className={css.links}>
-        <Link className={css.link} to="/SignIn">
-            <div className={css.content}>SignIn</div>
-        </Link>
-        <Link className={css.link} to="/SignUp">
-            <div className={css.content}>SignUp</div>
-        </Link>
+        
+      <button className={css.content} onClick={() => {
+        RemoveUser()
+      }}>Exit</button>
+        
+        
       </div>
   );
 };

@@ -12,6 +12,8 @@
     width: 120px;
 }
 .content{
+    width: 100%;
+    height: 20px;
     user-select: none;
     margin: 10px 10px 0px ;
 }

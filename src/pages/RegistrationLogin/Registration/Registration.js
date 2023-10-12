@@ -2,7 +2,8 @@ import css from './Registration.module.css'
 import { Link } from 'react-router-dom'
 import Switch from '../Switch'
 import { useState } from 'react'
-import RegistrationPost from '../../../api/auth/login'
+import RegistrationPost from '../../../api/auth/registration'
+import LoginPost from '../../../api/auth/login'
 
 export const Registration = () => {
     const [username, setUsername] = useState('');
@@ -18,10 +19,25 @@ export const Registration = () => {
         return /\S+@\S+\.\S+/.test(email);
       }
 
+    function RegistrationProcess(){
+        
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
+    async function SigningUp() {
+        let UserNameFormat = 'username'
+        await RegistrationPost(username, mail, password)
+        await LoginPost(username, password, UserNameFormat)
+        refreshPage()
+    }
+
+
     return(
         <div className={css.form}>
             <div className={css.block}>
-                <Link to='/'>To home(Temporary)</Link>
                 <h1>SignUp Form</h1>
                 <Switch />
 
@@ -35,8 +51,8 @@ export const Registration = () => {
                 type='password' id='RepeatPassword' placeholder='Password'/>
 
                 <button className={css.button} onClick={() => {if(password === passwordRepeat && isValidEmail(mail) === true && password !== '' && username !== '')
-                {    
-                    RegistrationPost(username, mail, password)
+                {      
+                    SigningUp()
                 }
                 else{ 
                     alert('Required information is not filled')
