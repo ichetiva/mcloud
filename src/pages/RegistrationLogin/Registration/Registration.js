@@ -19,20 +19,18 @@ export const Registration = () => {
         return /\S+@\S+\.\S+/.test(email);
       }
 
-    function RegistrationProcess(){
-        
+    async function RegistrationProcess(){
+        let UserNameFormat = 'username'
+        await RegistrationPost(username, mail, password)
+        await LoginPost(username, password, UserNameFormat)
+        refreshPage()
     }
 
     function refreshPage() {
         window.location.reload(false);
     }
 
-    async function SigningUp() {
-        let UserNameFormat = 'username'
-        await RegistrationPost(username, mail, password)
-        await LoginPost(username, password, UserNameFormat)
-        refreshPage()
-    }
+    
 
 
     return(
@@ -41,18 +39,18 @@ export const Registration = () => {
                 <h1>SignUp Form</h1>
                 <Switch />
 
-                <input onChange={event => setMail(event.target.value)}
+                <input autocomplete="off" onChange={event => setMail(event.target.value)}
                 type='email' placeholder='Email'/>
-                <input onChange={event => setUsername(event.target.value)}
+                <input autocomplete="off" onChange={event => setUsername(event.target.value)}
                 type='login' id='login' placeholder='Login'/>
-                <input onChange={event => setPassword(event.target.value)}
+                <input autocomplete="off" onChange={event => setPassword(event.target.value)}
                 type='password' id='password' placeholder='Password'/>
-                <input onChange={event => setPasswordRepeat(event.target.value)}
+                <input autocomplete="off" onChange={event => setPasswordRepeat(event.target.value)}
                 type='password' id='RepeatPassword' placeholder='Password'/>
 
                 <button className={css.button} onClick={() => {if(password === passwordRepeat && isValidEmail(mail) === true && password !== '' && username !== '')
                 {      
-                    SigningUp()
+                    RegistrationProcess()
                 }
                 else{ 
                     alert('Required information is not filled')

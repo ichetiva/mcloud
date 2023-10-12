@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import LoginPost from '../../../api/auth/login'
 export const Login = () => {
+    
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,12 +17,15 @@ export const Login = () => {
       }
 
     function FormatCheck(UserNameFormat){
+      
                     if (isValidEmail(username) === true){
                         UserNameFormat = 'email'
                         console.log(UserNameFormat)
                     } else {
                         UserNameFormat = 'username'
+                        console.log(UserNameFormat)
                     }
+                    return UserNameFormat
     }
 
     function refreshPage() {
@@ -28,8 +33,10 @@ export const Login = () => {
       }
 
     async function Logining() {
-        let UserNameFormat = ''
-        let Login_type = FormatCheck(UserNameFormat)
+        
+        
+        let Login_type = FormatCheck()
+        console.log(Login_type)
         await LoginPost(username, password, Login_type)
         refreshPage()
     }
