@@ -3,15 +3,11 @@ TODO LIST
 
 Starter todo
 - [x] base structure
-- [x] adding some basic buttons
-- [x] thinking through the Routing 
 - [x] adding routing 
-- [x] basic screen adjustments
-- [x] add onclick Nav change in routes(FloatingPlaylist)
 - [x] add profile onclick menu
 - [x] add modal window signup
 - [ ] add sign-up and login buttons, make a connection to backend 
-- [ ] repair footer flooting above modal
+- [x] repair footer flooting above modal
 - [ ] add variability to site with accounts 
 
 - [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
