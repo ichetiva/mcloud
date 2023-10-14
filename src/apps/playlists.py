@@ -21,7 +21,7 @@ router = APIRouter(
 
 
 @router.post("/", response_model=PlaylistResp)
-async def create_album(
+async def create_playlist(
     user: Annotated[UserDTO, Depends(get_current_user)],
     data: Annotated[CreatePlaylist, Body()],
     poster_file: Annotated[UploadFile, File()],
