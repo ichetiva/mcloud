@@ -4,10 +4,6 @@ WORKDIR /code
 
 RUN pip install -U pipenv
 COPY Pipfile* /code/
-<<<<<<< HEAD:Dockerfile.prod
 RUN pipenv install --system --ignore-pipfile --deploy
-=======
-RUN pipenv install --system
->>>>>>> 4f30af0 (refactor(dockerfile): args to install pipenv packages):Dockerfile
 
 COPY src /code/

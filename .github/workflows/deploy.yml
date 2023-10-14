@@ -21,6 +21,7 @@ jobs:
           script: |
             cd ~/code/mcloud
             git pull origin master
+            rm docker-compose.override.yml
             cp docker-compose.prod.yml docker-compose.override.yml
             docker-compose build
             docker-compose up -d
