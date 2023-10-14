@@ -18,11 +18,11 @@
 - [x] Get another user tracks
 - [x] Get specific track
 - [x] Delete track
-- [ ] Create album
-- [ ] Update album (name, poster)
-- [ ] Update album tracks
-- [ ] Delete album
-- [ ] Create playlist
-- [ ] Update playlist (name, description, poster)
-- [ ] Update playlist tracks
-- [ ] Delete playlist
+- [x] Create album
+- [x] Update album (name, poster)
+- [x] Update album tracks
+- [d] Delete album
+- [x] Create playlist
+- [x] Update playlist (name, description, poster)
+- [x] Update playlist tracks
+- [x] Delete playlist

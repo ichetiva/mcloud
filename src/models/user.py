@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
 from .base import Base
 from ._mixins import TimestampMixin
@@ -12,3 +12,4 @@ class User(Base, TimestampMixin):
     password = Column(String(256))
     email = Column(String(256), unique=True)
     is_admin = Column(Boolean, default=False)
+    favourite_playlist_id = Column(Integer, ForeignKey("playlists.id"))

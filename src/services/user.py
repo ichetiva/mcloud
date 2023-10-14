@@ -4,7 +4,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.exc import IntegrityError
 
 from dao import DAOFactory
-from models import User
+from models import User, Playlist
 from dto import UserDTO
 
 if TYPE_CHECKING:

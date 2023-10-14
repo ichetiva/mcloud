@@ -1,0 +1,11 @@
+FROM python:3.11
+
+WORKDIR /code/src/
+
+RUN pip install -U pipenv
+COPY Pipfile* /code/
+RUN pipenv install --dev --system --deploy --ignore-pipfile
+
+COPY src /code/src/
+RUN touch /code/src/__init__.py
+COPY tests /code/tests/
