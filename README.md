@@ -22,7 +22,7 @@
 - [x] Update album (name, poster)
 - [x] Update album tracks
 - [d] Delete album
-- [ ] Create playlist
-- [ ] Update playlist (name, description, poster)
-- [ ] Update playlist tracks
-- [ ] Delete playlist
+- [x] Create playlist
+- [x] Update playlist (name, description, poster)
+- [x] Update playlist tracks
+- [x] Delete playlist
