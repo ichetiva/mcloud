@@ -104,3 +104,7 @@ class TrackService:
     async def get_by_album_id(self, album_id: int) -> list[TrackDTO]:
         tracks = await self.daos.album_track_dao.get_by_album_id(album_id)
         return self.convert_multiple(tracks)
+
+    async def get_by_playlist_id(self, playlist_id: int) -> list[TrackDTO]:
+        tracks = await self.daos.playlist_track_dao.get_by_playlist_id(playlist_id)
+        return self.convert_multiple(tracks)

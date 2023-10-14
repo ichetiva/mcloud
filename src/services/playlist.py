@@ -23,11 +23,16 @@ class PlaylistService:
             description=playlist.description,
             poster_url=playlist.poster_url,
             is_private=playlist.is_private,
+            tracks=[],
         )
         return playlist_dto
 
     def convert_multiple(self, playlists: list[Playlist]) -> list[PlaylistDTO]:
         return [self.convert(playlist) for playlist in playlists]
+
+    async def get(self, playlist_id: int) -> PlaylistDTO:
+        playlist = await self.daos.playlist_dao.get(id=playlist_id)
+        return self.convert(playlist)
 
     async def create(
         self,
@@ -49,6 +54,34 @@ class PlaylistService:
         )
         await self.daos.session.commit()
         await self.daos.session.refresh(playlist)
+        return self.convert(playlist)
+
+    async def delete(self, playlist: PlaylistDTO) -> bool:
+        try:
+            await self.daos.playlist_dao.delete(playlist.id)
+            await self.daos.session.commit()
+            return True
+        except:
+            return False
+
+    async def update(
+        self,
+        playlist: PlaylistDTO,
+        title: str | None,
+        description: str | None,
+        poster: UploadFile | None,
+    ):
+        playlist = await self.daos.playlist_dao.get(for_update=True, id=playlist.id)
+        if title:
+            playlist.title = title
+        if description:
+            playlist.description = description
+        if poster:
+            poster_url = await self.services.storage_service.save_poster(
+                poster, playlist.user_id, playlist.title, "playlist"
+            )
+            playlist.poster_url = poster_url
+        await self.daos.session.commit()
         return self.convert(playlist)
 
     async def get_by_user_id(self, user_id: int) -> list[PlaylistDTO]:

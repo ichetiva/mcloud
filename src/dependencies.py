@@ -125,3 +125,41 @@ async def valid_author_or_published_album_id(
             detail="You have no permissions to delete this album",
         )
     return album
+
+
+async def valid_author_playlist_id(
+    playlist_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> AlbumDTO:
+    playlist = await services.playlist_service.get(playlist_id)
+    if not playlist:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Playlist not found",
+        )
+    if playlist.user_id != user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You have no permissions to delete this playlist",
+        )
+    return playlist
+
+
+async def valid_author_or_published_playlist_id(
+    playlist_id: Annotated[int, Path()],
+    user: Annotated[UserDTO, Depends(get_current_user)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+) -> AlbumDTO:
+    playlist = await services.playlist_service.get(playlist_id)
+    if not playlist or (playlist.is_private is True and playlist.user_id != user.id):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Playlist not found",
+        )
+    if playlist.user_id != user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You have no permissions to delete this playlist",
+        )
+    return playlist
