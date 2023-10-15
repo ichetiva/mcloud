@@ -57,8 +57,6 @@ export const Registration = () => {
                     LoginClean.value = ''
                     PasswordClean.value = ''
                     RepeatPasswordClean.value = ''
-
-                    
                 }}}> SignUp
                 </button>
                 
