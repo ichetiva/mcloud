@@ -43,7 +43,7 @@ input{
 button{
     font-family: 'Onest-Regular';
     font-size: 1em;
-    position: relative;
+    position:relative;
     bottom: 0;
     outline: none;
     border: none;
@@ -61,7 +61,7 @@ button{
 }
 
 .transfer{
-    height: 60px;
+    
     bottom: 0;
 }
 

@@ -10,14 +10,38 @@
   color: #eee;
   border-radius: 5px;
   padding: 10px;
+  margin-left: 10px;
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  background-color: #1b1c21;
+.icon { 
+  width: 35px;
+  height: 35px; 
   margin-right: 20px;
   border-radius: 5px;
+}
+
+#searchButton{
+  transition: 0.5s;
+  background: url("../../assets/searchImage/searchWhite.svg") no-repeat;
+  background-size: contain;
+}
+#homeButton{
+  transition: 0.5s;
+  background: url("../../assets/homeIcon/houseWhite.svg") no-repeat;
+  background-size: contain;
+}
+
+.link:hover #homeButton{
+  transition: 0.5s;
+  background: url("../../assets/homeIcon/houseBlue.svg") no-repeat;
+  background-size:contain;
+  color: #74edf8;
+}
+.link:hover #searchButton{
+  transition: 0.5s;
+  background: url("../../assets/searchImage/searchBlue.svg") no-repeat;
+  background-size:contain;
+  color: #74edf8;
 }
 
 .link:hover {
@@ -26,6 +50,7 @@
 
 @media (max-width: 500px) {
   .links{
+    margin: 0;
     justify-content: center;
     align-items: center;
   }
@@ -33,7 +58,10 @@
   .content{
     display: none;
   }
-
+  .link{
+    
+    margin: 0;
+  }
   .icon{
     margin: 0;
   }

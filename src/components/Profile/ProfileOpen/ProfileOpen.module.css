@@ -1,6 +1,7 @@
 .links{
     display: flex;
     align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     top: 0;
     right: 0;
@@ -12,10 +13,17 @@
     width: 120px;
 }
 .content{
-    width: 100%;
+    background: #1b1c21;
+    cursor: pointer;
+    color: #eee ;
+    width: 80%;
     height: 20px;
     user-select: none;
     margin: 10px 10px 0px ;
+}
+.content:hover{
+    transition: 0.5s;
+    color: #63dfea ;
 }
 .link{
     color: #eee;

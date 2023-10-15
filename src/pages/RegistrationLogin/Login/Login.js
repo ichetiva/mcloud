@@ -56,12 +56,7 @@ export const Login = () => {
                     PasswordClean.value = ''
                     }
                     }}> Login </button>
-                <div className={css.transfer}>
-                    <a>Still not member?</a>
-                    <Link className={css.signUp} to='/SignUp'>
-                        SignUp now
-                    </Link>
-                </div>
+                
             </div>
         </div>
     )

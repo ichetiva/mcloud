@@ -1,7 +1,7 @@
 .container {
   height: calc(100vh - 80px);
   display: grid;
-  grid-template-columns: 0.7fr 2fr auto;
+  grid-template-columns: 0.6fr 2fr auto;
   grid-auto-rows: 0fr 0fr 1fr;
   grid-template-areas:
     "nav header avatar"
@@ -21,31 +21,43 @@
 }
 
 .nav {
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-elevation-medium);
   grid-area: nav;
   height: 120px;
 }
+
 .header {
+  box-shadow: var(--shadow-elevation-medium);
   grid-area: header;
   height: 60px;
   overflow: hidden;
 }
+
 .pages {
+  box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 15px;
   overflow: auto;
   grid-area: pages;
 }
+
 .userPlaylists {
+  box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 15px;
   overflow: auto;
   grid-area: userPlaylists;
 }
+
 .avatar {
+  box-shadow: var(--shadow-elevation-low);
   grid-area: avatar;
   height: 80px;
   width: 80px;
   background-color: #353941;
   border-radius: 10px;
 }
+
 .footer {
   z-index: 0;
   width: 100%;
@@ -66,6 +78,7 @@
   transition: 0.5s;
   text-decoration: none;
 }
+
 .footer:hover .temporary{
   text-decoration: underline;
 }
@@ -74,6 +87,7 @@
   color: black;
   display: flex;
 }
+
 @media (max-width: 850px) {
   .container {
     grid-template-columns: 180px 2fr auto;
@@ -81,8 +95,36 @@
 }
 
 @media (max-width: 500px) {
+  .nav{
+    justify-content: center;
+    align-items: center;
+  }
+
   .container {
     grid-template-columns: 80px 2fr auto;
   }
 } 
 
+
+
+:root {
+  --shadow-color: 216deg 11% 6%;
+  --shadow-elevation-low:
+    -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
+    -0.1px 0.8px 0.9px -1.2px hsl(var(--shadow-color) / 0.34),
+    -0.2px 2px 2.3px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium:
+    -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
+    -0.2px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
+    -0.5px 4.1px 4.6px -1.7px hsl(var(--shadow-color) / 0.36),
+    -1.1px 9.9px 11.2px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-elevation-high:
+    -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
+    -0.3px 2.9px 3.3px -0.4px hsl(var(--shadow-color) / 0.34),
+    -0.6px 5.4px 6.1px -0.7px hsl(var(--shadow-color) / 0.34),
+    -1px 8.9px 10.1px -1.1px hsl(var(--shadow-color) / 0.34),
+    -1.6px 14.2px 16.1px -1.4px hsl(var(--shadow-color) / 0.34),
+    -2.5px 22.1px 25px -1.8px hsl(var(--shadow-color) / 0.34),
+    -3.8px 33.6px 38px -2.1px hsl(var(--shadow-color) / 0.34),
+    -5.6px 49.5px 56px -2.5px hsl(var(--shadow-color) / 0.34);
+}
