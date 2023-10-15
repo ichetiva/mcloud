@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom";
 import App from "./components/App";
 import "./styles/fonts.css";
 import "./styles/common.css";
-import Login from "./pages/RegistrationLogin/Login";
-import Registration from "./pages/RegistrationLogin/Registration";
 import Auth from "./pages/RegistrationLogin/Auth";
-import LoginForm from "./pages/RegistrationLogin/Auth/LoginForm";
-import { Navigate } from "react-router-dom";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 let status

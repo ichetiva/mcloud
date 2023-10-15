@@ -33,8 +33,6 @@ export const Login = () => {
       }
 
     async function Logining() {
-        
-        
         let Login_type = FormatCheck()
         console.log(Login_type)
         await LoginPost(username, password, Login_type)
@@ -58,12 +56,7 @@ export const Login = () => {
                     PasswordClean.value = ''
                     }
                     }}> Login </button>
-                <div className={css.transfer}>
-                    <a>Still not member?</a>
-                    <Link className={css.signUp} to='/SignUp'>
-                        SignUp now
-                    </Link>
-                </div>
+                
             </div>
         </div>
     )
