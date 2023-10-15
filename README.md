@@ -9,9 +9,8 @@ Starter todo
 - [ ] add sign-up and login buttons, make a connection to backend 
 - [x] repair footer flooting above modal
 - [ ] add variability to site with accounts 
-
+- [ ] return login response to login.js
 - [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
-
 - [ ] on LClick song menu
 - [ ] make home page with one core block, playlist with 2 blocks(nav and container)
 
