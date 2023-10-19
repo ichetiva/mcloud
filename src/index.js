@@ -17,12 +17,13 @@ if (localStorage.getItem('Token') !== null && localStorage.getItem('Token') !== 
 }
 
 root.render(
-  
+  <React.StrictMode>
   <BrowserRouter>
   {
     status
     ? <App />
-    : <Auth /> 
+    : <React.StrictMode><Auth /></React.StrictMode>
   }
   </BrowserRouter>
+  </React.StrictMode>
 );
