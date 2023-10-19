@@ -1,6 +1,6 @@
 import css from './Login.module.css'
 import Switch from '../Switch'
-import { Link } from 'react-router-dom'
+
 import { useState } from 'react'
 import LoginPost from '../../../api/auth/login'
 export const Login = () => {

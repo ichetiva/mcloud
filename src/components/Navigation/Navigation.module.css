@@ -20,6 +20,10 @@
   border-radius: 5px;
 }
 
+.content{
+  transition: 0.5s;
+}
+
 #searchButton{
   transition: 0.5s;
   background: url("../../assets/searchImage/searchWhite.svg") no-repeat;

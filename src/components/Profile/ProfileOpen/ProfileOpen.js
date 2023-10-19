@@ -1,8 +1,4 @@
 import css from "./ProfileOpen.module.css"
-import { Link } from "react-router-dom";
-import Login from "../../../pages/RegistrationLogin/Login";
-
-import { useState } from "react";
 
 export const ProfileOpen = () => {
 
@@ -14,7 +10,7 @@ export const ProfileOpen = () => {
     await localStorage.removeItem('Token')
     refreshPage()
   }
-
+  
   return (
     
       <div className={css.links}>

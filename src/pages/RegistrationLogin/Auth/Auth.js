@@ -1,7 +1,6 @@
 import Registration from "../Registration";
 import Login from "../Login";
-import { Switch } from "../Switch";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 export const Auth = () => {
     return(

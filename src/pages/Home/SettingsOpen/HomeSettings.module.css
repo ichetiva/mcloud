@@ -1,0 +1,14 @@
+.block{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    position: absolute;
+    margin: 3rem 0rem;
+    border-radius: 5px;
+    background-color: #1b1c21;
+    height: 150px;
+    width: 140px;
+}

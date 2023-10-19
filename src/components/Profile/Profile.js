@@ -4,8 +4,12 @@ import { useState } from 'react'
 
 export const Profile = () => {
 const [OpenProfile, setOpenProfile] = useState(false)
+
+function checkOpenMenus() {
+
+}
     return(
-        <div className={css.icon} onClick={() => setOpenProfile((prev) => !prev)}>
+        <div className={css.icon} onClick={() => setOpenProfile((prev) => !prev)} >
             {
             OpenProfile && <ProfileOpen />
             }

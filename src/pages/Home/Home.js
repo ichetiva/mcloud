@@ -1,9 +1,33 @@
 import css from "./Home.module.css";
+import { useState } from 'react'
+import HomeSettings from "./SettingsOpen";
 
 export const Home = () => {
+  const [openSettings, setOpenSettings] = useState(false)
+
   return (
     <div>
-      <h1>Home page for new</h1>
+      <nav className={css.HomeNav}>
+       <div className={css.Options} onClick={() => {
+        setOpenSettings((prev) => !prev)
+        /*
+         if(context === settings){
+          context = none
+        } else {
+          context = settings
+        }
+        */
+       }}>
+        {
+          openSettings && <HomeSettings />
+          /*
+          if(context === settings){
+            HomeSettings /
+          }
+          */
+        }
+       </div>
+      </nav>
     </div>
   );
 };

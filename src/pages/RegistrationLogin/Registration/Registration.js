@@ -1,5 +1,4 @@
 import css from './Registration.module.css'
-import { Link } from 'react-router-dom'
 import Switch from '../Switch'
 import { useState } from 'react'
 import RegistrationPost from '../../../api/auth/registration'

@@ -1,89 +1,23 @@
-.container {
-    height: calc(100vh - 80px);
-    display: grid;
-    grid-template-columns: 0.7fr 2fr auto;
-    grid-auto-rows: 0fr 0fr 1fr;
-    grid-template-areas:
-      "nav header avatar"
-      "nav pages pages"
-      "userPlaylists pages pages";
-    grid-gap: 15px;
-    margin: 15px 15px 0px 15px;
-  }
-  
-  .header,
-  .nav,
-  .userPlaylists,
-  .pages {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #353941;
-  }
-  
-  .nav {
-    grid-area: nav;
-    height: 120px;
-  }
-  .header {
-    grid-area: header;
-    height: 60px;
-    overflow: hidden;
-  }
-  .pages {
-    margin-bottom: 15px;
-    overflow: auto;
-    grid-area: pages;
-  }
-  .userPlaylists {
-    margin-bottom: 15px;
-    overflow: auto;
-    grid-area: userPlaylists;
-  }
-  .avatar {
-    grid-area: avatar;
-    height: 80px;
-    width: 80px;
-    background-color: #353941;
-    border-radius: 10px;
-  }
-  .footer {
-    z-index: 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    height: 4rem;
-    background-color: #1b1c21;
-  }
-  
-  .profile{
-    display: none;
-  }
-  
-  /* Will be deleted */
-  .temporary{
-    color: white;
-    transition: 0.5s;
-    text-decoration: none;
-  }
-  .footer:hover .temporary{
-    text-decoration: underline;
-  }
-  
-  .avatar:target .profile{
-    color: black;
-    display: flex;
-  }
-  @media (max-width: 850px) {
-    .container {
-      grid-template-columns: 180px 2fr auto;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .container {
-      grid-template-columns: 80px 2fr auto;
-    }
-  } 
-  
-  
+.HomeNav{
+
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+.Options{ 
+  z-index: 1;
+  background: url("../../assets/Icons/settingIcon.svg") no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 35px;
+  height: 35px; 
+  border-radius: 100%;
+  right: 10px;
+}
+
+.Options:hover{
+
+}
+
