@@ -17,13 +17,20 @@ if (localStorage.getItem('Token') !== null && localStorage.getItem('Token') !== 
 }
 
 root.render(
-  <React.StrictMode>
+  
   <BrowserRouter>
   {
     status
-    ? <App />
-    : <React.StrictMode><Auth /></React.StrictMode>
+    ? <React.StrictMode>
+        <App />
+      </React.StrictMode>
+
+    : <React.StrictMode>
+        <Auth /> 
+      </React.StrictMode>
   }
   </BrowserRouter>
-  </React.StrictMode>
+
 );
+
+/* React.StrictMode finds shitcode, perhaps kills perfomance a bit*/
