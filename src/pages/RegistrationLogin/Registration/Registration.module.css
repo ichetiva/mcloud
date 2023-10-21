@@ -12,6 +12,7 @@
 }
 
 .block{
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,10 +25,10 @@
     margin-top: 25px;
 }
 input{
+    padding-left: 10px;
     font-family: 'Onest-Regular';
     font-size: 1em;
     box-sizing: border-box;
-    bottom: 0;
     outline: none;
     border: none;
     -webkit-appearance: none;
@@ -35,12 +36,11 @@ input{
     appearance: none;
     padding-block: 0;
     padding-inline: 0;
-    padding-left: 15px;
     display: unset;
     text-decoration: none;
-    margin: 10px;
     height: 50px;
     width: 75%;
+    
     
 }
 

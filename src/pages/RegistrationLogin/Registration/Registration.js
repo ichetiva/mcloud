@@ -35,9 +35,7 @@ export const Registration = () => {
     return(
         <div className={css.form}>
             <div className={css.block}>
-                <h1>SignUp Form</h1>
                 <Switch />
-
                 <input autocomplete="off" onChange={event => setMail(event.target.value)}
                 type='email' placeholder='Email'/>
                 <input autocomplete="off" onChange={event => setUsername(event.target.value)}
