@@ -40,8 +40,9 @@ export const Login = () => {
         let Login_type = FormatCheck()
         console.log(Login_type)
         await LoginPost(username, password, Login_type)
-        refreshPage()
         navigate('/')
+        refreshPage()
+        
         
     }
 
