@@ -1,6 +1,8 @@
+import { AddMusic } from "./AddNewTrack/AddMusic";
 import css from "./Home.module.css";
 import { useState } from 'react'
-import HomeSettings from "./SettingsOpen";
+
+
 
 export const Home = () => {
   const [openSettings, setOpenSettings] = useState(false)
@@ -8,7 +10,8 @@ export const Home = () => {
   return (
     <div>
       <nav className={css.HomeNav}>
-       <div className={css.Options} onClick={() => {
+       <div className={css.Options} onClick={() => 
+       {
         setOpenSettings((prev) => !prev)
         /*
          if(context === settings){
@@ -19,7 +22,7 @@ export const Home = () => {
         */
        }}>
         {
-          openSettings && <HomeSettings />
+          openSettings && <AddMusic />
           /*
           if(context === settings){
             HomeSettings /

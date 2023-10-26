@@ -1,16 +1,20 @@
 import css from './Login.module.css'
 import Switch from '../Switch'
-
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import LoginPost from '../../../api/auth/login'
+
 export const Login = () => {
     
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const LoginClean = document.getElementById('login')
     const PasswordClean = document.getElementById('password')
+
+    
 
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
@@ -37,6 +41,8 @@ export const Login = () => {
         console.log(Login_type)
         await LoginPost(username, password, Login_type)
         refreshPage()
+        navigate('/')
+        
     }
 
     return(  

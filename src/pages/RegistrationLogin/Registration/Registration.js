@@ -3,8 +3,10 @@ import Switch from '../Switch'
 import { useState } from 'react'
 import RegistrationPost from '../../../api/auth/registration'
 import LoginPost from '../../../api/auth/login'
-
+import { useNavigate } from 'react-router-dom'
 export const Registration = () => {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,6 +25,7 @@ export const Registration = () => {
         await RegistrationPost(username, mail, password)
         await LoginPost(username, password, UserNameFormat)
         refreshPage()
+        navigate("/")
     }
 
     function refreshPage() {

@@ -31,6 +31,7 @@ export const App = () => {
         <Playlists />
       </div>
       <div className={css.pages}>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<NotFound />} />

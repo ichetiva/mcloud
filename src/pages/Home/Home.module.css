@@ -1,23 +1,21 @@
 .HomeNav{
-
-  position: relative;
+  display: flex;
   width: 100%;
   border-radius: 10px;
-
+  justify-content: flex-end;
 }
 
 .Options{ 
   z-index: 1;
   background: url("../../assets/Icons/settingIcon.svg") no-repeat;
   background-size: contain;
-  position: absolute;
-  width: 35px;
-  height: 35px; 
+  width: 30px;
+  height: 30px; 
   border-radius: 100%;
-  right: 10px;
+  display: flex;
 }
 
-.Options:hover{
 
-}
+
+
 
