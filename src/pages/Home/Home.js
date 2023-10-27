@@ -5,31 +5,28 @@ import { useState } from 'react'
 
 
 export const Home = () => {
-  const [openSettings, setOpenSettings] = useState(false)
+
+  const [style, setStyle] = useState(`Options`)
+  const [openTab, setOpenTab] = useState(false)
+
+  const closeModal = () => setOpenTab(false)
 
   return (
     <div>
       <nav className={css.HomeNav}>
-       <div className={css.Options} onClick={() => 
+       <div className={css.Options}  onClick={() => 
+       { 
+        setOpenTab(true)
+        setStyle("OptionsGray")
+        }}></div>
        {
-        setOpenSettings((prev) => !prev)
-        /*
-         if(context === settings){
-          context = none
-        } else {
-          context = settings
-        }
-        */
-       }}>
-        {
-          openSettings && <AddMusic />
+          openTab && <AddMusic closeModal={ closeModal } />
           /*
           if(context === settings){
             HomeSettings /
           }
           */
         }
-       </div>
       </nav>
     </div>
   );
