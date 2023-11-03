@@ -1,29 +1,32 @@
 TODO LIST
 -------------------------------------------------------------------------------
 
-Starter todo
+Starter todo (!)
 - [x] base structure
-- [x] adding routing 
-- [x] add profile onclick menu
-- [x] add modal window signup
-- [ ] add sign-up and login buttons, make a connection to backend 
-- [x] repair footer flooting above modal
-- [ ] add variability to site with accounts 
-- [ ] return login response to login.js
-- [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other fucntions)
-- [ ] on LClick song menu
-- [ ] make home page with one core block, playlist with 2 blocks(nav and container)
+- [x] routing
+- [x] accounts system 
+- [?] return login response to login.js
+- [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other functions)
+- [ ] home page with catalog
+- [ ] search bar
+- [ ] working changable nav
+- [ ] 
 
-LateOn todo
+LateOn todo (->)
+- [ ] settings menu 
 - [ ] change to uneditable text(some parts)
-- [ ] fix little space below the container, resize objects
-- [ ] later adding sign up menu
-- [ ] add grid functionality for playlist bar 
-- [ ] adding core styling( background gradient, song div getting lighter onleftclick, shadows for divs)
+- [ ] playlist
+- [ ] adding core styling
 - [ ] organise to basic standarts
+- [ ] check how to optimise lagging logos 
 
+Quiestionable todo (?)
+- [ ] uploading poster image resize possibility(so it doesn't look fcked up)
+- [ ] roles system(admin, user, creator)
+- [ ] light mode dark mode
+- [ ] 
 -------------------------------------------------------------------------------
-Ideas todo
+Ideas todo (~)
 
 - [ ] add changing Nav bar above the home page. It will have some links to mixes on homepage, when playlist is picked it gets bigger and changes info to playlist 
 - [ ] basic idea of equalizer which floats on background and transfers to main screen 
