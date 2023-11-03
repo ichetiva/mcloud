@@ -3,7 +3,7 @@ import css from '../AddNewTrack/AddMusic.module.css'
 
 export const AddMusic = ({ closeModal }) => 
 {
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState('https://i.pinimg.com/originals/74/2f/fe/742ffe1b2629fd606c8341ee93921cf9.gif')
 
     const onImageChange = (event) => {
         if(event.target.files && event.target.files[0]) {
@@ -20,7 +20,7 @@ export const AddMusic = ({ closeModal }) =>
                 <div className={css.close} onClick={() => closeModal()}></div>
                 <input id='poster' className={css.input} onChange={onImageChange} type='file'></input>
                 <label className={css.poster} for='poster'>
-                    <div className={css.posterHover}>Upload track</div> <img src={image} className={css.picture} alt=''></img>
+                    <div className={css.posterHover}>Upload track</div> <img src={image} className={css.picture}></img>
                 </label>
 
                 <input id="track" className={css.input} type='file' ></input>
