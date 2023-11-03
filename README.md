@@ -7,8 +7,8 @@ TODO LIST
 Starter todo (!)
 - [x] base structure
 - [x] routing
-- [x] accounts system 
-- [?] return login response to login.js
+- [x] accounts system :shipit:
+- [ ] return login response to login.js
 - [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other functions)
 - [ ] home page with catalog
 - [ ] search bar
