@@ -12,18 +12,27 @@
     align-items: center;
 }
 .form {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
     z-index: 3;
     border-radius: 10px;
-    border: 1px solid #90B8F8;
+    border: 1px solid #90b8f829 ;
     background: #26282B;
     height: 600px;
     width: 400px;
 }
 
 .close{
+    background: url('../../../assets/Icons/closewhite.png') no-repeat;
+    background-size: contain;  
+    position: absolute;
+    right: 5px;
+    top: 5px;
     width: 30px;
     height: 30px;
-    background-color: #eee;
 }
 
 .background{
@@ -33,12 +42,62 @@
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.4);
 }
+.input{
+    display: none;
+}
+.picture{
+    object-fit: cover;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    position: absolute;
+    background-size: contain;
+    height: 200px;
+    width: 200px;
+}
 
-.icon{
+.poster{
+    background: url('../../../assets/Icons/oceanOrigin.jpg');
+    position: relative;
+    background-size: contain;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+
+}
+.posterHover{
+    position: absolute;
+    z-index: 1;
+    font-size: 20px;
+    justify-content: center;
+    border-radius: 5px;
+    display: none;
+    height: 100%;
+    width: 100%;
+    opacity: 0.6;
+    transition: 0.5s;
+    z-index: 2;
+    background-color: #26282B;
+}
+.poster:hover .posterHover{
+    transition: 0.5s;
+    display:flex;
     
-    width: 100px;
-    height: 100px;
-    background-color: white;
     
 }
+
+.track{
+    text-align: center;
+    border-radius: 5px;
+    left: 0;
+    height: 30px;
+    width: 100px;   
+    background: #6d4c4c;
+}
   
+.title{
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+}

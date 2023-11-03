@@ -20,6 +20,7 @@
   border-radius: 5px;
 }
 
+
 .content{
   transition: 0.5s;
 }
@@ -36,13 +37,11 @@
 }
 
 .link:hover #homeButton{
-  transition: 0.5s;
   background: url("../../assets/homeIcon/houseBlue.svg") no-repeat;
   background-size:contain;
   color: #74edf8;
 }
 .link:hover #searchButton{
-  transition: 0.5s;
   background: url("../../assets/searchImage/searchBlue.svg") no-repeat;
   background-size:contain;
   color: #74edf8;

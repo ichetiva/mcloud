@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginPost from '../../../api/auth/login'
 
+
 export const Login = () => {
     
     const navigate = useNavigate();
@@ -39,11 +40,9 @@ export const Login = () => {
     async function Logining() {
         let Login_type = FormatCheck()
         console.log(Login_type)
-        await LoginPost(username, password, Login_type)
+        const response = await LoginPost(username, password, Login_type)
         navigate('/')
         refreshPage()
-        
-        
     }
 
     return(  
@@ -54,7 +53,8 @@ export const Login = () => {
                 <input type='password' id='password' onChange={event => setPassword(event.target.value)} placeholder='Password'/>
                 <button onClick={() => {if(password !== '')
                 {    
-                   Logining()
+                 Logining()
+                 
                 }
                 else{ 
                     alert('Required information is not filled')

@@ -23,7 +23,7 @@ export const Registration = () => {
     async function RegistrationProcess(){
         let UserNameFormat = 'username'
         await RegistrationPost(username, mail, password)
-        await LoginPost(username, password, UserNameFormat)
+        const response = await LoginPost(username, password, UserNameFormat)
         navigate("/")
         refreshPage()
         

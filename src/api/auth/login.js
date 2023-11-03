@@ -8,7 +8,6 @@ const LoginPost = ( username, password, UserNameFormat) => {
         login_type: UserNameFormat
       }, {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(function (response) {
-        
         localStorage.setItem('Token' , `${response.data.access_token}`)
         console.log(localStorage.getItem('Token'))
       })
