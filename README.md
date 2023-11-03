@@ -10,7 +10,7 @@ Starter todo (!)
 - [ ] home page with catalog
 - [ ] search bar
 - [ ] working changable nav
-- [ ] 
+
 
 LateOn todo (->)
 - [ ] settings menu 
@@ -24,9 +24,11 @@ Quiestionable todo (?)
 - [ ] uploading poster image resize possibility(so it doesn't look fcked up)
 - [ ] roles system(admin, user, creator)
 - [ ] light mode dark mode
-- [ ] 
+
 -------------------------------------------------------------------------------
 Ideas todo (~)
 
 - [ ] add changing Nav bar above the home page. It will have some links to mixes on homepage, when playlist is picked it gets bigger and changes info to playlist 
 - [ ] basic idea of equalizer which floats on background and transfers to main screen 
+
+(https://i.pinimg.com/736x/35/bc/b0/35bcb0f121900adb8bd3610360d9520e.jpg)
