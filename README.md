@@ -1,6 +1,9 @@
 TODO LIST
 -------------------------------------------------------------------------------
 
+> [!NOTE]
+> Work in early progress.
+
 Starter todo (!)
 - [x] base structure
 - [x] routing
