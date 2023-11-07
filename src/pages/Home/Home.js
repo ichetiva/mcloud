@@ -16,6 +16,7 @@ export const Home = () => {
       <nav className={css.HomeNav}>
        <div className={css.Options}  onClick={() => 
        { 
+        
         setOpenTab(true)
         setStyle("OptionsGray")
         }}></div>

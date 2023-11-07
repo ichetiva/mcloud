@@ -40,7 +40,7 @@ export const Login = () => {
     async function Logining() {
         let Login_type = FormatCheck()
         console.log(Login_type)
-        const response = await LoginPost(username, password, Login_type)
+        await LoginPost(username, password, Login_type)
         navigate('/')
         refreshPage()
     }

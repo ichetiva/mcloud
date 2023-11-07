@@ -8,9 +8,13 @@ import Profile from "../Profile";
 import { HomeHead } from "../Header/Home/HomeHead";
 import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
-
+import GetUser from "../../api/GetUser/GetUser";
 
 export const App = () => {
+  const DeleteSecretKey = () => {
+    localStorage.removeItem('Token')
+  }
+  GetUser(DeleteSecretKey)
   return (
     <>
     <div className={css.container}>

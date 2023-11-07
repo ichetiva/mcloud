@@ -87,6 +87,20 @@
     
 }
 
+.button{
+    display: flex;
+    border-radius: 5px;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+    height: 45px;
+    width: 140px;
+    bottom: 0;
+    position: absolute;
+    margin: 40px;
+}
+
 .track{
     text-align: center;
     border-radius: 5px;
