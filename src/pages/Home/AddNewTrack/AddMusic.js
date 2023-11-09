@@ -10,6 +10,7 @@ export const AddMusic = ({ closeModal }) =>
     const [track, setTrack] = useState(null)
     const [label, setLabel] = useState('')
     const [color, setColor] = useState('#6d4c4c')
+    
     const onImageChange = (event) => {
         if(event.target.files && event.target.files[0]) {
             setImageBlub(URL.createObjectURL(event.target.files[0])) 
@@ -47,8 +48,8 @@ export const AddMusic = ({ closeModal }) =>
 
                     if(image !== altPicture && track && label){
                         TrackCreatePost(label, image, track)
-                        console.log({"Authorization": `Bearer ${localStorage.getItem('Token')}`})
-
+                        console.log({label, image, track})
+                        
                     } else {
                         alert("Something is missing, check again")
                     }

@@ -12,7 +12,7 @@ const GetUser = (Action) => {
         
       })
       .catch(function (error) {
-        Action()
+      Action()
       }));
   
 };
