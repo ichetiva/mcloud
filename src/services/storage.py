@@ -11,8 +11,8 @@ import config
 class StorageService:
     def __init__(self) -> None:
         self.session = boto3.Session(
-            YOS_access_key_id=config.YOS_ACCESS_KEY_ID,
-            YOS_secret_access_key=config.YOS_SECRET_ACCESS_KEY,
+            aws_access_key_id=config.YOS_ACCESS_KEY_ID,
+            aws_secret_access_key=config.YOS_SECRET_ACCESS_KEY,
             region_name=config.YOS_REGION_NAME,
         )
         self.s3 = self.session.client(
