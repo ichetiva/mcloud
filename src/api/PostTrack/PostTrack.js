@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const TrackCreatePost = ( label, image, track) => {
   let formData = new FormData();
-  formData.append("data", {title: label, "publish_after_creation": true})
-  formData.append("poster_file", image.binary)
-  formData.append("track_file", track.binary)
+  formData.append("data", JSON.stringify({title: label, "publish_after_creation": true}))
+  formData.append("poster_file", image)
+  formData.append("track_file", track)
   return (
    
     axios.post('https://ichetiva.ru/api/tracks/', 
@@ -15,7 +15,6 @@ const TrackCreatePost = ( label, image, track) => {
     })
       .then(function (response) {
         console.log(response)
-        
       })
       .catch(function (error) {
         console.log(error)

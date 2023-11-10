@@ -10,11 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
 .form {
+    user-select: none;
     display: flex;
     position: relative;
-    align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     z-index: 3;
@@ -23,9 +25,11 @@
     background: #26282B;
     height: 600px;
     width: 400px;
+    box-shadow: var(--shadow-elevation-medium);
 }
 
 .close{
+    z-index: 5;
     background: url('../../../assets/Icons/closewhite.png') no-repeat;
     background-size: contain;  
     position: absolute;
@@ -33,6 +37,7 @@
     top: 5px;
     width: 30px;
     height: 30px;
+    
 }
 
 .background{
@@ -44,6 +49,19 @@
 }
 .input{
     display: none;
+}
+.pictureNav{   
+    box-shadow: var(--shadow-elevation-low); 
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: rgb(95, 133, 219, 0.4);
+    width: 100%;
+}
+.insertNav{
+    display: flex;
+    align-items: center;
 }
 .picture{
     object-fit: cover;
@@ -57,7 +75,7 @@
 }
 
 .poster{
-    
+    box-shadow: var(--shadow-elevation-low);
     position: relative;
     background-size: contain;
     border-radius: 5px;
@@ -102,11 +120,14 @@
 }
 
 .track{
-    text-align: center;
+    margin: 10px;
     border-radius: 5px;
-    left: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     height: 30px;
-    width: 100px;   
+    width: 140px;   
     background: #6d4c4c;
 }
   
@@ -115,3 +136,33 @@
     width: 200px;
     height: 40px;
 }
+
+.indicator{    
+    border-radius: 100%;
+    
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --shadow-color: 216deg 11% 6%;
+    --shadow-elevation-low:
+      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
+      -0.1px 0.8px 0.9px -1.2px hsl(var(--shadow-color) / 0.34),
+      -0.2px 2px 2.3px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium:
+      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
+      -0.2px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
+      -0.5px 4.1px 4.6px -1.7px hsl(var(--shadow-color) / 0.36),
+      -1.1px 9.9px 11.2px -2.5px hsl(var(--shadow-color) / 0.36);
+    --shadow-elevation-high:
+      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
+      -0.3px 2.9px 3.3px -0.4px hsl(var(--shadow-color) / 0.34),
+      -0.6px 5.4px 6.1px -0.7px hsl(var(--shadow-color) / 0.34),
+      -1px 8.9px 10.1px -1.1px hsl(var(--shadow-color) / 0.34),
+      -1.6px 14.2px 16.1px -1.4px hsl(var(--shadow-color) / 0.34),
+      -2.5px 22.1px 25px -1.8px hsl(var(--shadow-color) / 0.34),
+      -3.8px 33.6px 38px -2.1px hsl(var(--shadow-color) / 0.34),
+      -5.6px 49.5px 56px -2.5px hsl(var(--shadow-color) / 0.34);
+  }
