@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GetUser = (Action) => {
+const GetUser = (Action , refresh) => {
   return (
     axios.get('https://ichetiva.ru/api/users/me', {
         headers: {
@@ -13,6 +13,8 @@ const GetUser = (Action) => {
       })
       .catch(function (error) {
       Action()
+      refresh()
+
       }));
   
 };

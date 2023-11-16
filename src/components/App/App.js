@@ -11,10 +11,14 @@ import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
 
 export const App = () => {
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const DeleteSecretKey = () => {
     localStorage.removeItem('Token')
   }
-  GetUser(DeleteSecretKey)
+  GetUser(DeleteSecretKey, refreshPage)
   return (
     <>
     <div className={css.container}>

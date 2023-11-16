@@ -29,6 +29,25 @@ export const Home = () => {
           */
         }
       </nav>
+
+
+
+      {/* test ->*/}
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      {/* <- test */}
+
+
     </div>
   );
 };

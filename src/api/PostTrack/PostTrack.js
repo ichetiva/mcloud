@@ -18,7 +18,6 @@ const TrackCreatePost = ( label, image, track) => {
       })
       .catch(function (error) {
         console.log(error)
-        console.log(formData)
       }));
   
 /*
