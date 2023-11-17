@@ -47,6 +47,6 @@ class StorageService:
 
     @sync_to_async
     def save_track(self, file: UploadFile, user_id: int, title: str):
-        obj_name = self._get_obj_name(user_id, title, file.filename.split(".")[-1])
+        obj_name = self._get_obj_name(user_id, title, file.filename.split(".")[-1], "track")
         self.s3.upload_fileobj(file.file, config.YOS_TRACKS_BUCKET_NAME, obj_name)
         return f"{config.YOS_ENDPOINT_URL}/{config.YOS_TRACKS_BUCKET_NAME}/{obj_name}"
