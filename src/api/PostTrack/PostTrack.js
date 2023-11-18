@@ -1,13 +1,13 @@
 import axios from 'axios';
-
-const TrackCreatePost = ( label, image, track) => {
+const TrackCreatePost = async ( label, image, track, startLoad, stopLoad, closeModal) => {
+  startLoad()
   let formData = new FormData();
   formData.append("data", JSON.stringify({title: label, "publish_after_creation": true}))
   formData.append("poster_file", image)
   formData.append("track_file", track)
   return (
-   
-    axios.post('https://ichetiva.ru/api/tracks/', 
+  
+  await axios.post('https://ichetiva.ru/api/tracks/', 
      formData , 
     {
         headers: 
@@ -15,11 +15,16 @@ const TrackCreatePost = ( label, image, track) => {
     })
       .then(function (response) {
         console.log(response)
+        stopLoad()
+        closeModal()
+        return response
       })
       .catch(function (error) {
         console.log(error)
+        stopLoad()
+        return error
       }));
-  
+   
 /*
   axios.post({
     method: "post",

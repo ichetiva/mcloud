@@ -1,16 +1,27 @@
 import { useState } from 'react'
 import css from '../AddNewTrack/AddMusic.module.css'
 import TrackCreatePost from '../../../api/PostTrack/PostTrack'
-export const AddMusic = ({ closeModal }) => 
+import Loading from '../../../components/loadingScreen'
+
+
+
+export const AddMusic = ({ closeModal , openAlert , alertPropsChange }) => 
 {
     const altPicture = 'https://i.pinimg.com/originals/74/2f/fe/742ffe1b2629fd606c8341ee93921cf9.gif'
-
+    
     const [imageBlub, setImageBlub] = useState(altPicture)
     const [image, setImage] = useState(null)
     const [track, setTrack] = useState(null)
     const [label, setLabel] = useState('')
     const [color, setColor] = useState('../../../assets/Icons/downloadIcon.svg')
+    const [loading, setLoading] = useState(false)
     
+    const startLoad = () => {
+        setLoading(true)
+    }
+    const stopLoad = () => {
+        setLoading(false)
+    }
     const onImageChange = (event) => {
         if(event.target.files && event.target.files[0]) {
             setImageBlub(URL.createObjectURL(event.target.files[0])) 
@@ -25,11 +36,11 @@ export const AddMusic = ({ closeModal }) =>
             setColor('../../../assets/Icons/check mark1.svg')
         }
     }
-
     return (
-        <>
+        <> 
         <div className={css.block}>
             <div className={css.background} onClick={() => closeModal()} ></div>
+            { loading && <Loading /> }
             <div className={css.form} >
                 <div className={css.close} onClick={() => closeModal()}></div>
                 <div className={css.pictureNav}>
@@ -43,14 +54,21 @@ export const AddMusic = ({ closeModal }) =>
                     <label className={css.track} for="track">
                         Insert track
                     </label>
-
-                    <div className={css.indicator} style={{backgroundImage: `url(${color})`}}></div>
+                <div className={css.indicator} style={{backgroundImage: `url(${color})`}}></div>
                 </div>
                 <input className={css.title} type='name' onChange={event => {setLabel(event.target.value)}}></input>
-                <div className={css.button} onClick={() => {
+                <div className={css.button} onClick={async () => {
                         if(image && track && label)
                         {
-                            TrackCreatePost(label, image, track)
+                            const response = await TrackCreatePost(label, image, track, startLoad, stopLoad, closeModal)
+                            if(response.status === 200){
+                               openAlert()
+                               alertPropsChange(["Upload " , "Your track is succesfully uploaded!"])
+                            } else {
+                               openAlert()
+                               alertPropsChange(["Upload Notification", "Something went wrong"])
+                            }
+
                         } else {
                             alert("Something is missing, check again")
                         }

@@ -10,6 +10,7 @@ import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
 
+
 export const App = () => {
   function refreshPage() {
     window.location.reload(false);
@@ -18,9 +19,12 @@ export const App = () => {
   const DeleteSecretKey = () => {
     localStorage.removeItem('Token')
   }
+
+  
   GetUser(DeleteSecretKey, refreshPage)
   return (
     <>
+    
     <div className={css.container}>
       <div className={css.header}>
         <Routes>
