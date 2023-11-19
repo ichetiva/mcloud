@@ -1,3 +1,4 @@
+
 .HomeNav{
   box-sizing: border-box;
   border-radius: 10px;
@@ -22,13 +23,17 @@
 /* test css */
 
 .songs{
+  margin-bottom: 10px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 30px 70px 6fr 1fr 1fr 60px 30px;
   position: relative;
   align-items: center;
   width: 100%;
-  background-color:black;
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgba(32,35,41,1) 45%, rgba(5,6,6,0.5) 76%);
+
+  
 }
 
 .ids, .poster, 

@@ -8,11 +8,11 @@ Starter todo (!)
 - [x] base structure
 - [x] routing
 - [x] accounts system :shipit:
-- [ ] return login response to login.js
-- [ ] structure functionality such as nav bar, playlist buttons,(also functions inside core element, such as topnav, mixing some genres other functions)
-- [ ] home page with catalog
+- [x] track constructer
+- [x] basic notifications with manual fill
+- [:wip:] home page with catalog
 - [ ] search bar
-- [ ] working changable nav
+
 
 
 LateOn todo (->)
@@ -22,6 +22,7 @@ LateOn todo (->)
 - [ ] adding core styling
 - [ ] organise to basic standarts
 - [ ] check how to optimise lagging logos 
+- [ ] working changable nav
 
 Quiestionable todo (?)
 - [ ] uploading poster image resize possibility(so it doesn't look fcked up)

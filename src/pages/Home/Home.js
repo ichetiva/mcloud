@@ -21,7 +21,7 @@ export const Home = () => {
   }
   console.log(alertProperties[0][0])
   return (
-    <div>
+    <div className={css.home}>
       
       <nav className={css.HomeNav}>
        <div className={css.Options}  onClick={() => 
@@ -30,13 +30,109 @@ export const Home = () => {
         setOpenTab(true)
         setStyle("OptionsGray")
         }}></div>
-       {
+        {
           openTab && <AddMusic closeModal={ closeModal } openAlert = { openAlert } alertPropsChange = { alertPropsChange }/>
           
         }
       </nav>
 
       {/* test ->*/}
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
+      <div className={css.songs}>
+          <div className={css.ids}>1</div>
+          <div className={css.poster}></div>
+          <div className={css.label}>
+            <div className={css.title}>Color</div>
+            <div className={css.author}>Sorasan</div>
+          </div>
+          <div className={css.date}>22.01.2023</div>
+          <div className={css.heart}></div>
+          <div className={css.time}>3:35</div>
+          <div className={css.settings}>s</div>
+      </div>
       <div className={css.songs}>
           <div className={css.ids}>1</div>
           <div className={css.poster}></div>

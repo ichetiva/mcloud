@@ -36,6 +36,7 @@
 }
 
 .pages {
+  
   box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 15px;
   overflow: auto;
@@ -106,6 +107,18 @@
 } 
 
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
 
 :root {
   --shadow-color: 216deg 11% 6%;
@@ -128,3 +141,4 @@
     -3.8px 33.6px 38px -2.1px hsl(var(--shadow-color) / 0.34),
     -5.6px 49.5px 56px -2.5px hsl(var(--shadow-color) / 0.34);
 }
+
