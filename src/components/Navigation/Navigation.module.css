@@ -26,6 +26,7 @@
 }
 
 #searchButton{
+  
   transition: 0.5s;
   background: url("../../assets/searchImage/searchWhite.svg") no-repeat;
   background-size: contain;
@@ -39,12 +40,11 @@
 .link:hover #homeButton{
   background: url("../../assets/homeIcon/houseBlue.svg") no-repeat;
   background-size:contain;
-  color: #74edf8;
+  
 }
 .link:hover #searchButton{
   background: url("../../assets/searchImage/searchBlue.svg") no-repeat;
   background-size:contain;
-  color: #74edf8;
 }
 
 .link:hover {

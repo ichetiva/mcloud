@@ -13,8 +13,8 @@
 
 .header,
 .nav,
-.userPlaylists,
-.pages {
+.userPlaylists
+ {
   padding: 10px;
   border-radius: 10px;
   background-color: #353941;
@@ -36,10 +36,13 @@
 }
 
 .pages {
-  
+  background: rgb(39,42,48);
+  background: linear-gradient(0deg, rgba(39,42,48,1) 43%, rgba(32,34,39,1) 67%, rgba(53,57,65,1) 100%);
+  overflow: auto;
+  border-radius: 10px;
+  background-color: #353941;
   box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 15px;
-  overflow: auto;
   grid-area: pages;
 }
 
@@ -106,18 +109,6 @@
   }
 } 
 
-
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
-}
 
 
 :root {

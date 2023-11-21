@@ -1,13 +1,21 @@
+.home{
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.body{
+  padding: 10px 15px 10px 15px;
+}
 
 .HomeNav{
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 0px 0px 1px 0px solid black;
   display: flex;
   width: 100%;
-  height: 45px;
+  height: 55px;
   align-items: center;
   justify-content: flex-end;
+  
 }
 
 .Options{ 
@@ -27,11 +35,10 @@
   border-radius: 10px;
   display: grid;
   grid-template-columns: 30px 70px 6fr 1fr 1fr 60px 30px;
-  position: relative;
   align-items: center;
   width: 100%;
   background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgba(32,35,41,1) 45%, rgba(5,6,6,0.5) 76%);
+background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba(5,6,6,0.5) 76%);
 
   
 }
@@ -43,13 +50,36 @@ background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgba(32,35,41,1) 45%, rgb
   margin: 10px;  
 }
 .poster{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
-  background-color: red;
+  background-color:#FF0000;
   height: 50px;
   width: 50px;
 }
-.date{
 
+.playbutton {
+  transition: 0.5s;
+  display: none;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid #74edf8;
+}
+.poster:hover .playbutton{
+  display: block;
+  transition: 0.5s;
+}
+.poster:hover{
+  background-color:rgba(255, 255, 255, .2);
+}
+
+.poster:hover ~ .label {
+  color: #74edf8;
+}
+.date{
   width: 1fr;
 }
 .heart{
@@ -73,3 +103,14 @@ background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgba(32,35,41,1) 45%, rgb
 
 
 
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
