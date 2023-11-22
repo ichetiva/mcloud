@@ -27,6 +27,7 @@ export const Registration = () => {
         navigate("/")
         refreshPage()
         
+        
     }
 
     function refreshPage() {

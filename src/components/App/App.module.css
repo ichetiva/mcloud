@@ -23,19 +23,20 @@
 .nav {
   display: flex;
   align-items: center;
-  box-shadow: var(--shadow-elevation-medium);
+  box-shadow: var(--shadow-elevation-low);
   grid-area: nav;
   height: 120px;
 }
 
 .header {
-  box-shadow: var(--shadow-elevation-medium);
+  box-shadow: var(--shadow-elevation-low);
   grid-area: header;
   height: 60px;
   overflow: hidden;
 }
 
 .pages {
+  padding: 10px;
   background: rgb(39,42,48);
   background: linear-gradient(0deg, rgba(39,42,48,1) 43%, rgba(32,34,39,1) 67%, rgba(53,57,65,1) 100%);
   overflow: auto;
@@ -47,6 +48,8 @@
 }
 
 .userPlaylists {
+  background: rgb(39,42,48);
+  background: linear-gradient(0deg, rgba(39,42,48,1) 43%, rgba(32,34,39,1) 67%, rgba(53,57,65,1) 100%);
   box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 15px;
   overflow: auto;

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const RegistrationPost = (username , mail, password ) => {
   return (
-    axios.post('https://ichetiva.ru/api/users/sign_up', {
+    axios.post('https://ichetiva.ru/api/users/', {
       username: username,
       email: mail,
       password: password

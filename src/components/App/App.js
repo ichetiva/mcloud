@@ -9,13 +9,12 @@ import { HomeHead } from "../Header/Home/HomeHead";
 import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
-
+import nullSearch from "../../pages/nullSearch";
 
 export const App = () => {
   function refreshPage() {
     window.location.reload(false);
   }
-
   const DeleteSecretKey = () => {
     localStorage.removeItem('Token')
   }
@@ -43,10 +42,10 @@ export const App = () => {
         <Playlists />
       </div>
       <div className={css.pages}>
-        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<NotFound />} />
+          <Route exact path="/search" Component={nullSearch} />
         </Routes>
       </div>
         

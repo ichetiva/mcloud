@@ -2,6 +2,7 @@ import { AddMusic } from "./AddNewTrack/AddMusic";
 import css from "./Home.module.css";
 import { useState } from 'react'
 import Alert from "../../components/Alert";
+import Track from "../../schema/trackSample/"
 
 export const Home = () => {
   const [alertClose, setAlertClose] = useState(false)
@@ -32,83 +33,21 @@ export const Home = () => {
         }}></div>
         {
           openTab && <AddMusic closeModal={ closeModal } openAlert = { openAlert } alertPropsChange = { alertPropsChange }/>
-          
         }
       </nav>
+       
       <div className={css.body}>
-      {/* test ->*/}
-      <div className={css.songs}>
-          <div className={css.ids} >1</div>
-          <div className={css.poster} >
-            <div className={css.playbutton}></div>
-          </div>
-          <div className={css.label} >
-            <div className={css.title}>Color</div>
-            <div className={css.author}>Sorasan</div>
-          </div>
-          <div className={css.date}>22.01.2023</div>
-          <div className={css.heart}></div>
-          <div className={css.time}>3:35</div>
-          <div className={css.settings}>s</div>
+      <Track 
+        id="1"
+        poster="blob"
+        title="Color"
+        author="SoraSan"
+        date="22.04.2023"
+        time="15:25"
+        />
       </div>
-      <div className={css.songs}>
-          <div className={css.ids} >1</div>
-          <div className={css.poster} >
-            <div className={css.playbutton}></div>
-          </div>
-          <div className={css.label} >
-            <div className={css.title}>Color</div>
-            <div className={css.author}>Sorasan</div>
-          </div>
-          <div className={css.date}>22.01.2023</div>
-          <div className={css.heart}></div>
-          <div className={css.time}>3:35</div>
-          <div className={css.settings}>s</div>
-      </div>
-      <div className={css.songs}>
-          <div className={css.ids} >1</div>
-          <div className={css.poster} >
-            <div className={css.playbutton}></div>
-          </div>
-          <div className={css.label} >
-            <div className={css.title}>Color</div>
-            <div className={css.author}>Sorasan</div>
-          </div>
-          <div className={css.date}>22.01.2023</div>
-          <div className={css.heart}></div>
-          <div className={css.time}>3:35</div>
-          <div className={css.settings}>s</div>
-      </div>
-      <div className={css.songs}>
-          <div className={css.ids} >1</div>
-          <div className={css.poster} >
-            <div className={css.playbutton}></div>
-          </div>
-          <div className={css.label} >
-            <div className={css.title}>Color</div>
-            <div className={css.author}>Sorasan</div>
-          </div>
-          <div className={css.date}>22.01.2023</div>
-          <div className={css.heart}></div>
-          <div className={css.time}>3:35</div>
-          <div className={css.settings}>s</div>
-      </div>
-      <div className={css.songs}>
-          <div className={css.ids} >1</div>
-          <div className={css.poster} >
-            <div className={css.playbutton}></div>
-          </div>
-          <div className={css.label} >
-            <div className={css.title}>Color</div>
-            <div className={css.author}>Sorasan</div>
-          </div>
-          <div className={css.date}>22.01.2023</div>
-          <div className={css.heart}></div>
-          <div className={css.time}>3:35</div>
-          <div className={css.settings}>s</div>
-      </div>
-      {/* <- test */}
-      </div>
+
+    {/* passing notification data*/}
     {alertClose && <Alert title={alertProperties[0][0]} description={alertProperties[0][1]} close={closeAlert} />}
     </div>
   );

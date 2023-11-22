@@ -20,7 +20,7 @@ export const Login = () => {
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
       }
-
+      
     function FormatCheck(UserNameFormat){
       
                     if (isValidEmail(username) === true){
@@ -39,7 +39,7 @@ export const Login = () => {
 
     async function Logining() {
         let Login_type = FormatCheck()
-        console.log(Login_type)
+        console.log(Login_type, username, password)
         await LoginPost(username, password, Login_type)
         navigate('/')
         refreshPage()
