@@ -20,7 +20,6 @@ export const Home = () => {
   const alertPropsChange = (title , description) => {
     setAlertProperties([title , description])
   }
-  console.log(alertProperties[0][0])
   return (
     <div className={css.home}>
       

@@ -1,13 +1,38 @@
 .container{
+    border: 2px solid #eee ;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 100%;
+    
 }
 .input{
     font-size: 1.5rem;
     color: #eee;
     background-color: #353941;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
     margin: 0;
+    
+}
+
+.searchButton{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.icon{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px; 
+    border-radius: 5px;
+    background: url("../../../assets/searchImage/search.svg") no-repeat;
+    background-size: contain;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(14%) saturate(6999%) hue-rotate(292deg) brightness(128%) contrast(78%);
+}
+.searchButton:hover .icon{
+    filter: brightness(0) saturate(100%) invert(94%) sepia(34%) saturate(2831%) hue-rotate(156deg) brightness(95%) contrast(105%);
 }

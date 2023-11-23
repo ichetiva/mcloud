@@ -9,34 +9,37 @@ import { HomeHead } from "../Header/Home/HomeHead";
 import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
-import nullSearch from "../../pages/nullSearch";
+import nullSearch from "../../pages/Search/nullSearch";
+import { useState } from "react";
 
 export const App = () => {
+  const [header, setHeader] = useState(["#353941" , "none"]); /* is for header to change disign*/
   function refreshPage() {
     window.location.reload(false);
   }
   const DeleteSecretKey = () => {
     localStorage.removeItem('Token')
   }
-
-  
   GetUser(DeleteSecretKey, refreshPage)
+  console.log(`${header[0][0]}` , header[0][1])
   return (
-    <>
-    
+    <> 
     <div className={css.container}>
-      <div className={css.header}>
+      <div className={css.header} style={{
+        background: header[0][0] ,
+        boxShadow: header[0][1]
+         }}>
         <Routes>
           <Route path="/" element={<HomeHead />} />
           <Route path="/*" element={<NotFoundHead />} />
-          <Route path="/search" element={<SearchBar />} />
+          <Route path="/search" element={<SearchBar/>} />
         </Routes>
       </div>
       <div className={css.avatar}>
         <Profile />
       </div>
       <div className={css.nav}>
-        <Navigation />
+        <Navigation setHeader={setHeader} />
       </div>
       <div className={css.userPlaylists}>
         <Playlists />

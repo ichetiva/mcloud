@@ -29,6 +29,9 @@
 }
 
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: var(--shadow-elevation-low);
   grid-area: header;
   height: 60px;
