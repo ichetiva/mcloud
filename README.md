@@ -11,8 +11,8 @@ Starter todo (!)
 - [x] track constructer
 - [x] basic notifications with manual fill
 - [:wip:] home page with catalog
-- [ ] search bar
-
+- [x] search bar
+- [x] check how to optimise lagging logos 
 
 
 LateOn todo (->)
@@ -21,7 +21,7 @@ LateOn todo (->)
 - [ ] playlist
 - [ ] adding core styling
 - [ ] organise to basic standarts
-- [ ] check how to optimise lagging logos 
+
 - [ ] working changable nav
 
 Quiestionable todo (?)
