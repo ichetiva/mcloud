@@ -18,13 +18,12 @@
     display: flex;
     position: relative;
     justify-content: flex-start;
-    flex-direction: column;
     z-index: 3;
     border-radius: 10px;
     border: 1px solid #90b8f829 ;
     background: #26282B;
     height: 600px;
-    width: 400px;
+    width: 800px;
     box-shadow: var(--shadow-elevation-medium);
 }
 
@@ -57,7 +56,14 @@
     justify-content: center;
     position: relative;
     background: rgb(95, 133, 219, 0.4);
-    width: 100%;
+    width: 40%;
+}
+.pictureBlock{
+    position: absolute;
+    margin-top: 10px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
 }
 .insertNav{
     display: flex;
@@ -70,18 +76,19 @@
     border-radius: 5px;
     position: absolute;
     background-size: contain;
-    height: 200px;
-    width: 200px;
+    height: 240px;
+    width: 240px;
 }
 
 .poster{
+    border: 3px solid #26282B;
     box-shadow: var(--shadow-elevation-low);
     position: relative;
     background-size: contain;
     border-radius: 5px;
     margin: 10px;
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
 
 }
 .posterHover{
@@ -100,9 +107,7 @@
 }
 .poster:hover .posterHover{
     transition: 0.5s;
-    display:flex;
-    
-    
+    display:flex; 
 }
 
 .button{
@@ -112,7 +117,7 @@
     justify-content: center;
     align-items: center;
     background: #eee;
-    height: 45px;
+    height: 35px;
     width: 140px;
     bottom: 0;
     position: absolute;
@@ -126,11 +131,10 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 30px;
-    width: 140px;   
-    background: #6d4c4c;
+    height: 40px;
+    width: 240px;   
+    
 }
-  
 .title{
     border-radius: 5px;
     width: 200px;
@@ -138,8 +142,9 @@
 }
 
 .indicator{    
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
-    
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
