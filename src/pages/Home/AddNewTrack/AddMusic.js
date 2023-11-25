@@ -67,8 +67,6 @@ export const AddMusic = ({ closeModal , openAlert , alertPropsChange }) =>
                         <label className={css.track} style={{backgroundColor: buttonColor}} for="track">
                             Insert track
                         </label>
-                        <div className={css.indicator} style={{backgroundImage: `url(${color})`}}>
-                        </div>
                     </div>
                     </div>
                 </div>

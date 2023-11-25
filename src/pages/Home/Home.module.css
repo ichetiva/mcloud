@@ -33,9 +33,13 @@ html {
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
+  height: 13px;
   width: 0;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: #eeeeee86;
+  border-radius: 10px;
+  
+  
 }

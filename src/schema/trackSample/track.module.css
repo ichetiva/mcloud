@@ -65,3 +65,23 @@
   .settings{
     
   }
+
+  @media (max-width: 750px) {
+    .date{
+      display: none;
+    }
+    .songs{
+      grid-template-columns: 30px 70px 6fr 1fr 60px 30px;     
+    }
+  }
+  
+  @media (max-width: 574px) {
+    .songs{
+      grid-template-columns: 20px 40px 6fr 1fr 60px 10px;     
+     }
+    .poster{
+      border-radius: 5px;
+      width: 30px;
+      height: 30px;
+    }
+  } 
