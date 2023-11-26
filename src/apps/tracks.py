@@ -1,6 +1,15 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Body, UploadFile, Depends, File, Path, HTTPException
+from fastapi import (
+    APIRouter,
+    Body,
+    UploadFile,
+    Depends,
+    File,
+    Path,
+    HTTPException,
+    Query,
+)
 from pydantic import Json
 
 from schemes import OkResp
@@ -70,6 +79,15 @@ async def get_current_user_tracks(
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     tracks = await services.track_service.get_current_user_tracks(user)
+    return tracks
+
+
+@router.get("/search", response_model=list[TrackResp])
+async def search_track(
+    q: Annotated[str, Query()],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    tracks = await services.track_service.search(q)
     return tracks
 
 

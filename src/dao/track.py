@@ -49,3 +49,8 @@ class TrackDAO(BaseDAO[Track]):
         stmt = select(Track).where(Track.id.in_(track_ids))
         result = await self.session.scalars(stmt)
         return result.all()
+
+    async def search(self, q: str) -> list[Track]:
+        stmt = select(Track).where(Track.title.like(f"%{q}%"))
+        result = await self.session.scalars(stmt)
+        return result.all()
