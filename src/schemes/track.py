@@ -16,7 +16,8 @@ class TrackResp(BaseModel):
     id: int
     user_id: int
     title: str
-    poster_path: str | None
+    track_url: str | None
+    poster_url: str | None
     is_published: bool
     created_at: datetime
     updated_at: datetime | None
