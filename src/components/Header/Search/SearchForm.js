@@ -10,8 +10,8 @@ export const SearchBar = ({setSearchStatus, setSearchData}) => {
                 <div className={css.searchIcon} onClick={() => 
                 {
                    
-                   
-                   Search(search, {setSearchStatus, setSearchData})
+                   if(search){Search(search, {setSearchStatus, setSearchData})}
+                  
                    
                 }}>
                     <div className={css.icon}></div>

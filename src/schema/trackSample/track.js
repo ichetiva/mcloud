@@ -1,11 +1,11 @@
 import css from "./track.module.css"
 
-export const Track = ({track}) => {
+export const Track = ({track, id}) => {
   
   if(track){
     return(
       <div className={css.songs}>
-        <div className={css.ids}>{track.id}</div>
+        <div className={css.ids}>{id + 1}</div>
         
           <div className={css.poster} style={{backgroundImage: `url(${track.poster_url})`}}>
           <div className={css.playbutton}></div>
