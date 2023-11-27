@@ -30,8 +30,13 @@ class TrackService:
     def convert_multiple(self, tracks: list[Track]) -> list[TrackDTO]:
         return [self.convert(track) for track in tracks]
 
-    async def search(self, q: str) -> list[TrackDTO]:
-        tracks = await self.daos.track_dao.search(q)
+    async def search(
+        self,
+        q: str,
+        offset: int | None,
+        limit: int | None,
+    ) -> list[TrackDTO]:
+        tracks = await self.daos.track_dao.search(q, offset, limit)
         return self.convert_multiple(tracks)
 
     async def create(

@@ -84,10 +84,12 @@ async def get_current_user_tracks(
 
 @router.get("/search", response_model=list[TrackResp])
 async def search_track(
-    q: Annotated[str, Query("")],
     services: Annotated[ServicesFactory, Depends(get_services)],
+    q: Annotated[str, Query()] = "",
+    offset: Annotated[int | None, Query()] = None,
+    limit: Annotated[int | None, Query()] = None,
 ):
-    tracks = await services.track_service.search(q)
+    tracks = await services.track_service.search(q, offset, limit)
     return tracks
 
 

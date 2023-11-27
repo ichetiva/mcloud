@@ -50,7 +50,16 @@ class TrackDAO(BaseDAO[Track]):
         result = await self.session.scalars(stmt)
         return result.all()
 
-    async def search(self, q: str) -> list[Track]:
+    async def search(
+        self,
+        q: str,
+        offset: int | None,
+        limit: int | None,
+    ) -> list[Track]:
         stmt = select(Track).where(Track.title.like(f"%{q}%"))
+        if offset:
+            stmt = stmt.offset(offset)
+        if limit:
+            stmt = stmt.limit(limit)
         result = await self.session.scalars(stmt)
         return result.all()
