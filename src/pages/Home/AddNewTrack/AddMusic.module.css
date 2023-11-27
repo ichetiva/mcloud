@@ -72,6 +72,9 @@
     align-items: center;
 }
 .picture{
+    justify-content: center;
+    align-items: center;
+    display: flex;
     object-fit: cover;
     width: auto;
     height: auto;

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "../Navigation";
+import SearchPage from "../../pages/Search";
 import Playlists from "../Playlists";
 import NotFound from "../../pages/NotFound";
 import Home from "../../pages/Home";
@@ -9,10 +10,12 @@ import { HomeHead } from "../Header/Home/HomeHead";
 import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
-import nullSearch from "../../pages/Search/nullSearch";
 import { useState } from "react";
 
+
 export const App = () => {
+  const [searchData, setSearchData] = useState([])
+  const [searchStatus, setSearchStatus] = useState(false)
   const [header, setHeader] = useState(["#353941" , "none"]); /* is for header to change disign*/
   function refreshPage() {
     window.location.reload(false);
@@ -21,7 +24,6 @@ export const App = () => {
     localStorage.removeItem('Token')
   }
   GetUser(DeleteSecretKey, refreshPage)
-  console.log(`${header[0][0]}` , header[0][1])
   return (
     <> 
     <div className={css.container}>
@@ -32,14 +34,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomeHead />} />
           <Route path="/*" element={<NotFoundHead />} />
-          <Route path="/search" element={<SearchBar/>} />
+          <Route path="/search" element={<SearchBar setSearchStatus = {setSearchStatus} setSearchData={setSearchData} />} />
         </Routes>
       </div>
       <div className={css.avatar}>
         <Profile />
       </div>
       <div className={css.nav}>
-        <Navigation setHeader={setHeader} />
+        <Navigation setHeader={setHeader}/>
       </div>
       <div className={css.userPlaylists}>
         <Playlists />
@@ -48,7 +50,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<NotFound />} />
-          <Route exact path="/search" Component={nullSearch} />
+          <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData}/>} />
         </Routes>
       </div>
         

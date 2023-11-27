@@ -8,12 +8,12 @@ const GetUser = (Action , refresh) => {
         }
     })
       .then(function (response) {
-        console.log(response)
+        
         
       })
       .catch(function (error) {
       Action()
-      refresh()
+      
 
       }));
   
