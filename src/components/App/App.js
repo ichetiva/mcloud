@@ -10,10 +10,13 @@ import { HomeHead } from "../Header/Home/HomeHead";
 import NotFoundHead from "../Header/NotFound";
 import SearchBar from "../Header/Search";
 import GetUser from "../../api/GetUser/GetUser";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import AllMusic from "../../api/GetAllMusic/Music";
+import TokenCheck from "../../api/auth/authCheck/TokenCheck";
 
 export const App = () => {
+  const [user, setUser] = useState([])
+  const [data, setData] = useState([])
   const [searchData, setSearchData] = useState([])
   const [searchStatus, setSearchStatus] = useState(false)
   const [header, setHeader] = useState(["#353941" , "none"]); /* is for header to change disign*/
@@ -23,7 +26,20 @@ export const App = () => {
   const DeleteSecretKey = () => {
     localStorage.removeItem('Token')
   }
-  GetUser(DeleteSecretKey, refreshPage)
+
+  
+
+  const [timeout, setTimeout] = useState(false)
+  useEffect(() => {
+    AllMusic({setData})
+    setTimeout(false)
+    TokenCheck(DeleteSecretKey)
+    GetUser({setUser})
+  },[timeout])
+
+  
+  
+  
   return (
     <> 
     <div className={css.container}>
@@ -32,7 +48,7 @@ export const App = () => {
         boxShadow: header[0][1]
          }}>
         <Routes>
-          <Route path="/" element={<HomeHead />} />
+          <Route path="/" element={<HomeHead user={user}/>} />
           <Route path="/*" element={<NotFoundHead />} />
           <Route path="/search" element={<SearchBar setSearchStatus = {setSearchStatus} setSearchData={setSearchData} />} />
         </Routes>
@@ -48,7 +64,7 @@ export const App = () => {
       </div>
       <div className={css.pages}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home data={data}/>} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData}/>} />
         </Routes>

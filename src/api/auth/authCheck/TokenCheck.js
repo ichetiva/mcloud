@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GetUser = ({setUser}) => {
+const TokenCheck = (Action) => {
   return (
     axios.get('https://ichetiva.ru/api/users/me', {
         headers: {
@@ -8,13 +8,13 @@ const GetUser = ({setUser}) => {
         }
     })
       .then(function (response) {
-           setUser(response)
+           
       })
       .catch(function (error) {
-      
+      Action()
       
       }));
   
 };
 
-export default GetUser
+export default TokenCheck

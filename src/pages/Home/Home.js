@@ -2,9 +2,12 @@ import { AddMusic } from "./AddNewTrack/AddMusic";
 import css from "./Home.module.css";
 import { useState } from 'react'
 import Alert from "../../components/Alert";
-import Track from "../../schema/trackSample/"
+import AllTracks from "../../schema/trackHomeSample";
+import AllMusic from "../../api/GetAllMusic/Music";
+import GetHomeMusic from "./Music";
 
-export const Home = () => {
+export const Home = ({data}) => {
+  
   const [alertClose, setAlertClose] = useState(false)
   const [alertProperties, setAlertProperties] = useState(["hello" , "goodbye"])
   const [style, setStyle] = useState(`Options`)
@@ -20,6 +23,10 @@ export const Home = () => {
   const alertPropsChange = (title , description) => {
     setAlertProperties([title , description])
   }
+
+  
+
+
   return (
     <div className={css.home}>
       
@@ -36,14 +43,7 @@ export const Home = () => {
       </nav>
        
       <div className={css.body}>
-      <Track 
-        id="1"
-        poster="blob"
-        title="Color"
-        author="SoraSan"
-        date="22.04.2023"
-        time="15:25"
-        />
+        <GetHomeMusic musicData={data}/>
       </div>
 
     {/* passing notification data*/}

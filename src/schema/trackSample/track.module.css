@@ -17,6 +17,10 @@
   .settings{
     margin: 10px;  
   }
+  .label{
+    white-space: nowrap;
+    overflow:hidden
+  }
   .poster{
     object-fit: cover;
     background: no-repeat;

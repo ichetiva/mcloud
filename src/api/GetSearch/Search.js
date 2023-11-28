@@ -6,8 +6,7 @@ const Search = (prompt , {setSearchStatus, setSearchData}) => {
         
         , {headers: {'Access-Control-Allow-Origin': '*'}})
             .then(function (response) {  
-                console.log(prompt)
-                console.log(response)  
+                
                 setSearchData(response)
                 setSearchStatus(true)           
             })
