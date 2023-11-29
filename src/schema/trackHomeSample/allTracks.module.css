@@ -18,6 +18,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba
   margin: 10px;  
 }
 .poster{
+  margin-left: 0;
   object-fit: cover;
   background: no-repeat;
   background-size: cover;  
