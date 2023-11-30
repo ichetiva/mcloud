@@ -1,0 +1,13 @@
+
+.container {
+    
+	width: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+:root{
+    --plyr-audio-controls-background: #1b1c21;
+    --plyr-audio-control-color: #eee;
+
+}

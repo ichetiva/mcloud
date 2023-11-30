@@ -6,9 +6,7 @@
   align-items: center;
   width: 100%;
   background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba(5,6,6,0.5) 76%);
-
-  
+background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba(5,6,6,0.5) 76%);  
 }
 
 .ids, .poster, 
@@ -17,6 +15,7 @@ background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba
 .settings{
   margin: 10px;  
 }
+
 .poster{
   margin-left: 0;
   object-fit: cover;

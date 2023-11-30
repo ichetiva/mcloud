@@ -13,6 +13,7 @@ import GetUser from "../../api/GetUser/GetUser";
 import { useEffect, useState } from "react";
 import AllMusic from "../../api/GetAllMusic/Music";
 import TokenCheck from "../../api/auth/authCheck/TokenCheck";
+import Player from "../Player";
 
 export const App = () => {
   const [user, setUser] = useState([])
@@ -72,9 +73,9 @@ export const App = () => {
         
     </div>
     <div className={css.footer}>
-        <a className={css.temporary} href="https://github.com/ichetiva/mcloud">Source code</a>
-          <br></br>
-        <a className={css.temporary} href="https://youtu.be/ymdhRMiMGK0?si=C_89Ve64LDsySp93">Main info</a>
+      <div>
+        <Player />
+      </div>  
     </div>
     
       </>
