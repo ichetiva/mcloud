@@ -3,24 +3,41 @@ import Plyr from 'plyr'
 import React, { useEffect, useRef, useState } from 'react';
 import './player.module.css'
 
-export const Player = () => {
-    const [music, setMusic] = useState("https://storage.yandexcloud.net/mcloud-tracks/8d2db8776d69cbd0b7d3117404c0288c.mp3")
+export const Player = ({music}) => {
+    const playerRef = useRef(null);
+    const [firstLoad, setFirstLoad] = useState(true);
     useEffect(() => {
-        const player = new Plyr('#audio', {
-          controls: ['play', 'current-time', 'progress','duration', 'mute', 'volume']
-          
-        });
-        return () => {
-          player.destroy();
+      playerRef.current = new Plyr('#audio', {
+        controls: ['play', 'current-time', 'progress','duration', 'mute', 'volume']
+      });
+      return () => {
+        playerRef.current.destroy();
+      };
+  }, []);
+  useEffect(() => {
+    if (playerRef.current) {
+        playerRef.current.source = {
+            type: 'audio',
+            sources: [
+                {
+                    src: music,
+                    type: 'audio/mp3',
+                },
+            ],
         };
-      }, []);
-
+        
+    }
+    if(firstLoad === false){
+      playerRef.current.play()
+    }
+    setFirstLoad(false)
+}, [music]);
 
 
     return(
     <div className='container'>
             <audio id='audio' src={music}/>
-            <div id='prev' onClick={() => {setMusic('https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3')}}></div>
+            <div id='prev' onClick={() => {}}></div>
             <div id='next' onClick={() => {}}></div>
       </div>
     )

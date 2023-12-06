@@ -1,6 +1,6 @@
 import AllTracks from "../../../schema/trackHomeSample";
 import css from './HomeMusic.module.css'
-export const GetHomeMusic = ({musicData}) => {
+export const GetHomeMusic = ({musicData, setMusic}) => {
     if(musicData.data){
         
         const database = musicData.data
@@ -9,7 +9,7 @@ export const GetHomeMusic = ({musicData}) => {
         return (
         <div className={css.grid}>
             {Object.entries(database).map((track, index) => (
-                <AllTracks key={index} track={track[1]} id={index} />
+                <AllTracks key={index} track={track[1]} id={index} setMusic={setMusic} />
             ))}
         </div>
     )

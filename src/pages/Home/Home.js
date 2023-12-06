@@ -6,7 +6,7 @@ import AllTracks from "../../schema/trackHomeSample";
 import AllMusic from "../../api/GetAllMusic/Music";
 import GetHomeMusic from "./Music";
 
-export const Home = ({data}) => {
+export const Home = ({data, setMusic}) => {
   
   const [alertClose, setAlertClose] = useState(false)
   const [alertProperties, setAlertProperties] = useState(["hello" , "goodbye"])
@@ -43,7 +43,7 @@ export const Home = ({data}) => {
       </nav>
        
       <div className={css.body}>
-        <GetHomeMusic musicData={data}/>
+        <GetHomeMusic musicData={data} setMusic={setMusic}/>
       </div>
 
     {/* passing notification data*/}

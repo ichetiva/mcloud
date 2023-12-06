@@ -12,7 +12,9 @@
     color: #eee;
     background-color: #353941;
     margin: 0;
-    
+    outline: none;
+    border: 0;
+    -webkit-appearance: none; 
 }
 
 .searchButton{

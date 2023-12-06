@@ -16,6 +16,7 @@ import TokenCheck from "../../api/auth/authCheck/TokenCheck";
 import Player from "../Player";
 
 export const App = () => {
+  const [music, setMusic] = useState("")
   const [user, setUser] = useState([])
   const [data, setData] = useState([])
   const [searchData, setSearchData] = useState([])
@@ -51,7 +52,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomeHead user={user}/>} />
           <Route path="/*" element={<NotFoundHead />} />
-          <Route path="/search" element={<SearchBar setSearchStatus = {setSearchStatus} setSearchData={setSearchData} />} />
+          <Route path="/search" element={<SearchBar setSearchStatus = {setSearchStatus} setSearchData={setSearchData} />}/>
         </Routes>
       </div>
       <div className={css.avatar}>
@@ -65,16 +66,16 @@ export const App = () => {
       </div>
       <div className={css.pages}>
         <Routes>
-          <Route path="/" element={<Home data={data}/>} />
+          <Route path="/" element={<Home data={data} setMusic={setMusic}/>} />
           <Route path="/*" element={<NotFound />} />
-          <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData}/>} />
+          <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData} setMusic={setMusic}/>} />
         </Routes>
       </div>
         
     </div>
     <div className={css.footer}>
       <div>
-        <Player />
+        <Player music={music}/>
       </div>  
     </div>
     
