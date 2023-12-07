@@ -1,6 +1,5 @@
 import css from './allTracks.module.css'
 export const AllTracks = ({track, id, setMusic}) => {
-  console.log(track)
   if(track){
     return(
         <div className={css.songs}>

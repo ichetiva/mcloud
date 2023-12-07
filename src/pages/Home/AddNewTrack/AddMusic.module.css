@@ -54,9 +54,10 @@
     z-index: 3;
     display: flex;
     justify-content: center;
-    position: relative;
-    background: rgb(95, 133, 219, 0.4);
-    width: 40%;
+    position: relative;width: 40%;
+    background: rgb(95, 133, 219, 0.5);
+    
+    
 }
 .pictureBlock{
     width: 100%;
@@ -66,6 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .insertNav{
     display: flex;
@@ -83,6 +85,7 @@
     background-size: contain;
     height: 240px;
     width: 240px;
+    box-shadow: var(--shadow-elevation-low);
 }
 
 .poster{
@@ -116,34 +119,108 @@
 }
 
 .button{
+    
     display: flex;
-    border-radius: 5px;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    background: #eee;
+    border-radius: 5px; 
     height: 35px;
     width: 140px;
     bottom: 0;
-    position: absolute;
-    margin: 40px;
-}
-
-.track{
-    border-radius: 5px;
-    text-align: center;
     justify-content: center;
     align-items: center;
-    display: flex;
-    height: 40px;
-    width: 240px;   
+    box-shadow: 0 4px 8px 0 rgba(0, 178, 255, 0.2), 0 6px 20px 0 rgba(0, 178, 255, 0.1); 
+    background-color: #00b2ff; 
+    color: #f8f8f2; 
+}
+
+
+.track {
     
+    width: 160px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 178, 255, 0.2), 0 6px 20px 0 rgba(0, 178, 255, 0.1); 
+    background-color: #00b2ff; 
+    color: #f8f8f2; 
 }
-.title{
-    border-radius: 5px;
-    width: 200px;
-    height: 40px;
+.title {
+    box-shadow: var(--shadow-elevation-low);
+    font-family: "Onest-Regular";
+    border: 2px solid black;
+    width: 80%;
+    height: 30px;
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px; 
+    font-weight: 500; 
+    text-align: center; 
+    margin-bottom: 10px; 
+    background-color: #282a36; 
+    color: #eee;
 }
+
+.description{ 
+    box-shadow: var(--shadow-elevation-low);
+    padding-left: 5px;
+    font-family: "Onest-Regular";
+    border: 2px solid black;
+    width: 80%;
+    font-size: 18px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    outline: 0px;
+    border-radius: 10px 10px 5px 5px;
+    font-weight: 500; 
+    resize:unset;
+    margin-bottom: 10px; 
+    background-color: #282a36; 
+    color: #eee;  
+}
+.rightside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.instructionsMenu{
+    padding-left: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.instructionsMenu h3{
+    font-size: 20px;
+    margin: 5px;
+    align-self: center;
+}
+
+.instructionsMenu h4{
+    font-size: 15px;
+    margin: 5px;
+    margin-left: 15px;
+}
+
+.instructionsMenu b{
+    color: rgb(169, 171, 171);
+    font-size: 13px;
+    margin: 5px;
+    font-weight: 100;
+}
+
+.policy{
+    margin: 10px;
+    margin-top: 20px;
+}
+
 
 
 @media (max-width: 850px) {
@@ -187,25 +264,15 @@
     }
   }
 
-:root {
-    --shadow-color: 216deg 11% 6%;
+  :root {
+    --shadow-color: 222deg 52% 37%;
     --shadow-elevation-low:
-      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
-      -0.1px 0.8px 0.9px -1.2px hsl(var(--shadow-color) / 0.34),
-      -0.2px 2px 2.3px -2.5px hsl(var(--shadow-color) / 0.34);
+      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+      0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+      1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
     --shadow-elevation-medium:
-      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
-      -0.2px 1.6px 1.8px -0.8px hsl(var(--shadow-color) / 0.36),
-      -0.5px 4.1px 4.6px -1.7px hsl(var(--shadow-color) / 0.36),
-      -1.1px 9.9px 11.2px -2.5px hsl(var(--shadow-color) / 0.36);
-    --shadow-elevation-high:
-      -0.1px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
-      -0.3px 2.9px 3.3px -0.4px hsl(var(--shadow-color) / 0.34),
-      -0.6px 5.4px 6.1px -0.7px hsl(var(--shadow-color) / 0.34),
-      -1px 8.9px 10.1px -1.1px hsl(var(--shadow-color) / 0.34),
-      -1.6px 14.2px 16.1px -1.4px hsl(var(--shadow-color) / 0.34),
-      -2.5px 22.1px 25px -1.8px hsl(var(--shadow-color) / 0.34),
-      -3.8px 33.6px 38px -2.1px hsl(var(--shadow-color) / 0.34),
-      -5.6px 49.5px 56px -2.5px hsl(var(--shadow-color) / 0.34);
+      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+      0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+      2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+      5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
   }
-

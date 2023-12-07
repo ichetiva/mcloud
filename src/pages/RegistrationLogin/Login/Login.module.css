@@ -49,8 +49,7 @@
 
 .block button{
     transition: background-color 0.3s ease;
-    background-color: #00b2ff; 
-    color: #f8f8f2; 
+    
     font-size: 20px;
     outline: none;
     border: none;
@@ -62,8 +61,11 @@
     padding: 10px 20px; 
      margin-top: 10px; 
     width: 75%;
+     cursor: pointer; 
+   
     box-shadow: 0 4px 8px 0 rgba(0, 178, 255, 0.2), 0 6px 20px 0 rgba(0, 178, 255, 0.1); 
-    cursor: pointer; 
+    background-color: #00b2ff; 
+    color: #f8f8f2; 
 }
 
 .transfer{
