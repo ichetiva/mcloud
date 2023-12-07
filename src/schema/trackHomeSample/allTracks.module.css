@@ -28,7 +28,9 @@ background: linear-gradient(90deg, rgba(0,0,0,0.5) 3%, rgb(27, 29, 34) 45%, rgba
   height: 70px;
   width: 70px;
 }
-
+.ids{
+  margin-right: 15px;
+}
 .playbutton {
   transition: 0.5s;
   display: none;

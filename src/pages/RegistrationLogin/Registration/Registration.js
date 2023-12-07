@@ -55,10 +55,15 @@ export const Registration = () => {
                     RegistrationProcess()
                 }
                 else{ 
-                    alert('Required information is not filled')
+                    if(!password && !mail && !passwordRepeat && !username){
+                        
+                    } else {
+                        alert('Required information is not filled')
                     LoginClean.value = ''
                     PasswordClean.value = ''
                     RepeatPasswordClean.value = ''
+                    }
+                    
                 }}}> SignUp
                 </button>
                 

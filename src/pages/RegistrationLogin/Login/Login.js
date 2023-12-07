@@ -57,9 +57,14 @@ export const Login = () => {
                  
                 }
                 else{ 
-                    alert('Required information is not filled')
+                    if(!username && !password){
+
+                    } else {
+                        alert('Required information is not filled')
                     LoginClean.value = ''
                     PasswordClean.value = ''
+                    }
+                    
                     }
                     }}> Login </button>
                 
