@@ -109,7 +109,7 @@ export const AddMusic = ({ closeModal , openAlert , alertPropsChange }) =>
                     </div>
                     <div className={css.policy}>
                         <input className='policy' type="checkbox" id="policy" name="policy" />
-                        <label for="policy"> I accept current policy </label>
+                        <label for="policy"> I accept rules</label>
                     </div>
                     
                     <div className={css.button} onClick={async () => {createTrack()}}>Submit song
