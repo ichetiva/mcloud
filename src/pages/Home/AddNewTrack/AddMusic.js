@@ -78,9 +78,9 @@ export const AddMusic = ({ closeModal , openAlert , alertPropsChange }) =>
                         </label>
                         
                     </div>
-                    <input className={css.title} placeholder='*Label'type='name' minLength='3' maxLength='40' onChange={event => {setLabel(event.target.value)}}></input>
+                    <input className={css.title} placeholder='Label'type='name' minLength='3' maxLength='40' onChange={event => {setLabel(event.target.value)}}></input>
                     
-                    <textarea className={css.description} placeholder='Description' maxLength='200'  onChange={event => {setLabel(event.target.value)}}></textarea>
+                    <textarea className={css.description} placeholder='Description (free to fill / not used anywhere now)' maxLength='200'  onChange={event => {setLabel(event.target.value)}}></textarea>
                     </div>
                 </div>
                 <div className={css.rightside}>
