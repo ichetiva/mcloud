@@ -190,7 +190,7 @@
 }
 
 .instructionsMenu{
-    padding-left: 10px;
+    
     overflow: hidden;
     display: flex;
     flex-direction: column;
