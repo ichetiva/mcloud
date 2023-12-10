@@ -99,13 +99,13 @@
   display: flex;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1313px) {
   .container {
-    grid-template-columns: 163px 2fr auto;
+    grid-template-columns: 260px 2fr auto;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .nav{
     justify-content: center;
     align-items: center;

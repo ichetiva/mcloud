@@ -43,7 +43,7 @@
   color: #74edf8;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .links{
     margin: 0;
     justify-content: center;

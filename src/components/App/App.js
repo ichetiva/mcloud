@@ -62,7 +62,7 @@ export const App = () => {
         <Navigation setHeader={setHeader}/>
       </div>
       <div className={css.userPlaylists}>
-        <Playlists />
+        <Playlists user={user}/>
       </div>
       <div className={css.pages}>
         <Routes>

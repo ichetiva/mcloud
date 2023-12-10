@@ -1,0 +1,18 @@
+
+.icon{
+    background-color: aliceblue;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.container h3{
+    margin: 5px;
+}
+
+.container{
+    
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
