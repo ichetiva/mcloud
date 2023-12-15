@@ -14,7 +14,8 @@ import { useEffect, useState } from "react";
 import AllMusic from "../../api/GetAllMusic/Music";
 import TokenCheck from "../../api/auth/authCheck/TokenCheck";
 import Player from "../Player";
-
+import GetFavoritePlaylist from "../../api/Playlists/Favorite/GetFavorite";
+import PostFavorite from "../../api/Playlists/Favorite/PostFavorite";
 export const App = () => {
   const [music, setMusic] = useState("")
   const [user, setUser] = useState([])
@@ -71,7 +72,6 @@ export const App = () => {
           <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData} setMusic={setMusic}/>} />
         </Routes>
       </div>
-        
     </div>
     <div className={css.footer}>
       <div>

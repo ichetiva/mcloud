@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const PostFavorite = () => {
-    const image = ''
+const PostFavorite = (image) => {
+    
     let formData = new FormData();
   formData.append("data", JSON.stringify({title: "Favorite songs", description: "Your liked songs are placed here", tracks: [0]}))
   formData.append("poster_file", image)
@@ -15,10 +15,11 @@ const PostFavorite = () => {
         }
     })
       .then(function (response) {
-          
+          console.log(response)
+
       })
       .catch(function (error) {
-      
+          console.log(error + "postPlaylist failed")
       
       }));
   
