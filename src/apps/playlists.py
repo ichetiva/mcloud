@@ -1,6 +1,15 @@
 from typing import Annotated
 
-from fastapi import APIRouter, UploadFile, Depends, Body, File, HTTPException
+from fastapi import (
+    APIRouter,
+    UploadFile,
+    Depends,
+    Body,
+    File,
+    HTTPException,
+    Query,
+    Path,
+)
 
 from schemes import OkResp
 from schemes.playlist import PlaylistResp, CreatePlaylist, UpdatePlaylist
@@ -30,13 +39,33 @@ async def create_playlist(
     if poster_file.content_type != "image/jpeg":
         raise HTTPException(
             status_code=400,
-            detail="The poster requires \"jpeg\" or \"jpg\" format",
+            detail='The poster requires "jpeg" or "jpg" format',
         )
     playlist = await services.playlist_service.create(
-        user, data.title, data.description, poster_file
+        user.id, data.title, data.description, poster_file
     )
     playlist = await services.playlist_track_service.add_multiple(playlist, data.tracks)
     return playlist
+
+
+@router.get("/search", response_model=list[PlaylistResp])
+async def search_playlists(
+    services: Annotated[ServicesFactory, Depends(get_services)],
+    q: Annotated[str, Query()] = "",
+    limit: Annotated[int, Query()] = None,
+    offset: Annotated[int, Query()] = None,
+):
+    playlists = await services.playlist_service.get_by_title(q, limit, offset)
+    return playlists
+
+
+@router.get("/user/{user_id}", response_model=list[PlaylistResp])
+async def get_user_playlists(
+    services: Annotated[ServicesFactory, Depends(get_services)],
+    user_id: Annotated[int, Path()],
+):
+    playlists = await services.playlist_service.get_by_user_id(user_id)
+    return playlists
 
 
 @router.get("/{playlist_id}", response_model=PlaylistResp)

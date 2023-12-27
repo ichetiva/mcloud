@@ -13,11 +13,14 @@ class PlaylistTrackService:
         self.services = services
 
     async def add_multiple(
-        self, playlist: PlaylistDTO, track_ids: list[int], publish_after_creation: bool
+        self,
+        playlist: PlaylistDTO,
+        track_ids: list[int],
+        publish_after_creation: bool = False,
     ) -> PlaylistDTO:
         tracks_dto = await self.services.track_service.get_by_ids(track_ids)
         for track in tracks_dto:
-            await self.daos.playlist_dao.create(playlist.id, track.id)
+            await self.daos.playlist_track_dao.create(playlist.id, track.id)
             await self.daos.track_dao.update(
                 track.id, is_published=publish_after_creation
             )

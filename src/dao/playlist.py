@@ -1,3 +1,4 @@
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .base import BaseDAO
@@ -12,9 +13,9 @@ class PlaylistDAO(BaseDAO[Playlist]):
         self,
         user_id: int,
         title: str,
-        description: str | None,
-        poster_url: str | None,
-        is_private: bool,
+        description: str = None,
+        poster_url: str = None,
+        is_private: bool = True,
     ) -> Playlist:
         playlist = Playlist(
             user_id=user_id,
@@ -25,3 +26,12 @@ class PlaylistDAO(BaseDAO[Playlist]):
         )
         self.session.add(playlist)
         return playlist
+
+    async def get_by_title(self, title: str, limit: int = None, offset: int = None):
+        stmt = select(self.model).where(self.model.title.ilike(f"%{title}%"))
+        if limit:
+            stmt = stmt.limit(limit)
+        if offset:
+            stmt = stmt.offset(offset)
+        result = await self.session.scalars(stmt)
+        return result.all()

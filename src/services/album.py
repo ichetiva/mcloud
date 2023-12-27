@@ -15,19 +15,19 @@ class AlbumService:
         self.daos = daos
         self.services = services
 
-    def convert(self, album: Album, tracks: list[TrackDTO] = []) -> AlbumDTO:
+    def convert(self, album: Album, tracks: list[TrackDTO] = None) -> AlbumDTO:
         return AlbumDTO(
             id=album.id,
             user_id=album.user_id,
             title=album.title,
             is_published=album.is_published,
-            tracks=tracks,
+            tracks=tracks or [],
         )
 
     async def get(self, album_id: int) -> AlbumDTO:
         album = await self.daos.album_dao.get(id=album_id)
         if not album:
-            return None
+            return
         return self.convert(album)
 
     async def create(

@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from fastapi import UploadFile
 
 from dao import DAOFactory
-from dto import PlaylistDTO
+from dto import PlaylistDTO, TrackDTO
 from models import Playlist
 
 if TYPE_CHECKING:
@@ -15,7 +15,9 @@ class PlaylistService:
         self.daos = daos
         self.services = services
 
-    def convert(self, playlist: Playlist) -> PlaylistDTO:
+    def convert(
+        self, playlist: Playlist | PlaylistDTO, tracks: list[TrackDTO] = None
+    ) -> PlaylistDTO:
         playlist_dto = PlaylistDTO(
             id=playlist.id,
             user_id=playlist.user_id,
@@ -23,7 +25,7 @@ class PlaylistService:
             description=playlist.description,
             poster_url=playlist.poster_url,
             is_private=playlist.is_private,
-            tracks=[],
+            tracks=tracks or [],
         )
         return playlist_dto
 
@@ -86,4 +88,10 @@ class PlaylistService:
 
     async def get_by_user_id(self, user_id: int) -> list[PlaylistDTO]:
         playlists = await self.services.playlist_service.get_by_user_id(user_id)
+        return self.convert_multiple(playlists)
+
+    async def get_by_title(
+        self, title: str, limit: int = None, offset: int = None
+    ) -> list[PlaylistDTO]:
+        playlists = await self.daos.playlist_dao.get_by_title(title, limit, offset)
         return self.convert_multiple(playlists)
