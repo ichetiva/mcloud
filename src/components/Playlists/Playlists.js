@@ -1,8 +1,7 @@
 import React from "react";
 import css from "./Playlists.module.css";
-import LikedPlaylist from "./LikedPlaylist";
 import PlaylistTools from "./PlaylistTools";
-
+import PlaylistArray from "./PlaylistArray";
 export const Playlists = () => {
   
   return(
@@ -10,10 +9,8 @@ export const Playlists = () => {
     <div className={css.container}>
       <PlaylistTools />
       <div className={css.array}>
-        
-        
+         <PlaylistArray />
       </div>
-      
     </div>
     
     
