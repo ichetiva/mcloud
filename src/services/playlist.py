@@ -91,7 +91,7 @@ class PlaylistService:
         return self.convert_multiple(playlists)
 
     async def get_by_title(
-        self, title: str, limit: int = None, offset: int = None
+        self, user_id: int, title: str, limit: int = None, offset: int = None
     ) -> list[PlaylistDTO]:
-        playlists = await self.daos.playlist_dao.get_by_title(title, limit, offset)
+        playlists = await self.daos.playlist_dao.get_by_title(user_id, title, limit, offset)
         return self.convert_multiple(playlists)

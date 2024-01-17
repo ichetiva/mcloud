@@ -54,6 +54,17 @@ async def get_current_user(
     return user
 
 
+async def get_current_user_or_none(
+    auth: Annotated[HTTPAuthorizationCredentials, Depends(oauth2_scheme)],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
+    try:
+        user = await get_current_user(auth, services)
+        return user
+    except:
+        return None
+
+
 async def valid_track_id(
     track_id: Annotated[int, Path()],
     services: Annotated[ServicesFactory, Depends(get_services)],

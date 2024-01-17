@@ -21,6 +21,7 @@ class PlaylistResp(BaseModel):
     description: str
     poster_url: str
     tracks: list[TrackResp]
+    is_private: bool
 
     class Config:
         orm_mode = True

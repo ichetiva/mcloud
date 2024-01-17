@@ -16,6 +16,7 @@ from schemes.playlist import PlaylistResp, CreatePlaylist, UpdatePlaylist
 from dto import UserDTO, PlaylistDTO, TrackDTO
 from dependencies import (
     get_current_user,
+    get_current_user_or_none,
     get_services,
     valid_author_playlist_id,
     valid_author_track_id,
@@ -51,11 +52,13 @@ async def create_playlist(
 @router.get("/search", response_model=list[PlaylistResp])
 async def search_playlists(
     services: Annotated[ServicesFactory, Depends(get_services)],
+    user: Annotated[UserDTO | None, Depends(get_current_user_or_none)],
     q: Annotated[str, Query()] = "",
     limit: Annotated[int, Query()] = None,
     offset: Annotated[int, Query()] = None,
 ):
-    playlists = await services.playlist_service.get_by_title(q, limit, offset)
+    user_id = user.id if user else 0
+    playlists = await services.playlist_service.get_by_title(user_id, q, limit, offset)
     return playlists
 
 
@@ -78,7 +81,7 @@ async def get_playlist(
     return playlist
 
 
-@router.put("/{playlist_id}", response_model=PlaylistDTO)
+@router.put("/{playlist_id}", response_model=PlaylistResp)
 async def update_playlist(
     playlist: Annotated[PlaylistDTO, Depends(valid_author_playlist_id)],
     data: Annotated[UpdatePlaylist, Body()],
