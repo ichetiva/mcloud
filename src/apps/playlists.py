@@ -43,7 +43,7 @@ async def create_playlist(
             detail='The poster requires "jpeg" or "jpg" format',
         )
     playlist = await services.playlist_service.create(
-        user.id, data.title, data.description, poster_file
+        user.id, data.title, data.description, data.is_private, poster_file
     )
     playlist = await services.playlist_track_service.add_multiple(playlist, data.tracks)
     return playlist
@@ -89,7 +89,7 @@ async def update_playlist(
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     playlist = await services.playlist_service.update(
-        playlist, data.title, data.description, poster_file
+        playlist, data.title, data.description, data.is_private, poster_file
     )
     return playlist
 

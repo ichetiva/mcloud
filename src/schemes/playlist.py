@@ -7,11 +7,13 @@ class CreatePlaylist(BaseModel):
     title: str
     description: str
     tracks: list[int]
+    is_private: bool = True
 
 
 class UpdatePlaylist(BaseModel):
     title: str | None
     description: str | None
+    is_private: bool | None
 
 
 class PlaylistResp(BaseModel):

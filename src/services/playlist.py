@@ -41,8 +41,8 @@ class PlaylistService:
         user_id: int,
         title: str,
         description: str | None,
+        is_private: bool,
         poster: UploadFile | None,
-        is_private: bool = False,
     ) -> PlaylistDTO:
         poster_url = (
             await self.services.storage_service.save_poster(
@@ -71,6 +71,7 @@ class PlaylistService:
         playlist: PlaylistDTO,
         title: str | None,
         description: str | None,
+        is_private: bool | None,
         poster: UploadFile | None,
     ):
         playlist = await self.daos.playlist_dao.get(for_update=True, id=playlist.id)
@@ -78,6 +79,8 @@ class PlaylistService:
             playlist.title = title
         if description:
             playlist.description = description
+        if is_private:
+            playlist.is_private = is_private
         if poster:
             poster_url = await self.services.storage_service.save_poster(
                 poster, playlist.user_id, playlist.title, "playlist"
