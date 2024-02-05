@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PostFavorite = (image) => {
+const PostPlaylist = (image) => {
     
     let formData = new FormData();
   formData.append("data", JSON.stringify({title: "Favorite songs", description: "Your liked songs are placed here", tracks: [0]}))
@@ -25,4 +25,4 @@ const PostFavorite = (image) => {
   
 };
 
-export default PostFavorite
+export default PostPlaylist

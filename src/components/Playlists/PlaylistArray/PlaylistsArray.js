@@ -1,6 +1,7 @@
 import css from './Playlist.module.css'
 import PlaylistTable from '../../../schema/playlistSample'
 import LoadingSM from '../../loadingScreen/loading'
+import PostLikedPlaylist from '../../../api/Playlists/Favorite/PostLikedPlaylist'
 export const PlaylistArray = () => {
    
     const musicData = true
@@ -26,7 +27,7 @@ export const PlaylistArray = () => {
  return <div className={css.loading}>
              <h3>Working on it....</h3>
              <LoadingSM width="55px" height="55px"/>
-             
+             <button style={{width: "60px", height:"20px"}} onClick={() => {PostLikedPlaylist()}}>Post</button>
         </div> 
 }
        

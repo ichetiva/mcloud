@@ -15,7 +15,7 @@ import AllMusic from "../../api/GetAllMusic/Music";
 import TokenCheck from "../../api/auth/authCheck/TokenCheck";
 import Player from "../Player";
 import GetFavoritePlaylist from "../../api/Playlists/Favorite/GetFavorite";
-import PostFavorite from "../../api/Playlists/Favorite/PostFavorite";
+import PostPlaylist from "../../api/Playlists/Favorite/PostPlaylist";
 export const App = () => {
   const [music, setMusic] = useState("")
   const [user, setUser] = useState([])
