@@ -4,7 +4,7 @@ const GetFavoritePlaylist = ({createFavoritePlaylist}) => {
     
   
   return (
-    axios.get('https://ichetiva.ru/api/playlists/{0}', {
+    axios.get('http://94.198.219.99:8000/api/playlists/{0}', {
         
     }, {
         headers: {

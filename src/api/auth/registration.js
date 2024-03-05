@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const RegistrationPost = (username , mail, password ) => {
   return (
-    axios.post('https://ichetiva.ru/api/users/', {
+    axios.post('http://94.198.219.99:8000/users/', {
       username: username,
       email: mail,
       password: password

@@ -7,7 +7,7 @@ const TrackCreatePost = async ( label, image, track, startLoad, stopLoad, closeM
   formData.append("track_file", track)
   return (
   
-  await axios.post('https://ichetiva.ru/api/tracks/', 
+  await axios.post('http://94.198.219.99:8000/api/tracks/', 
      formData , 
     {
         headers: 

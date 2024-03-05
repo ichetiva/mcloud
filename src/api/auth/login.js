@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const LoginPost = ( username, password, UserNameFormat) => {
   return (
-    axios.post('https://ichetiva.ru/api/auth/token', {
+    axios.post('http://94.198.219.99:8000/api/auth/token', {
         login: username,
         password: password,
         login_type: UserNameFormat

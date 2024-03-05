@@ -11,8 +11,26 @@
 }
 
 .container{
-    
+    width: 100%;
+    position: relative;
     height: 120px;
     display: flex;
     align-items: center;
 }
+
+
+.createPlaylist{
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: url('../../../assets//Icons/plus-104.svg');
+    filter: brightness(0) saturate(100%) invert(100%) sepia(44%) saturate(91%) hue-rotate(190deg) brightness(115%) contrast(87%);
+}
+.createPlaylist:hover{
+    
+    scale: 0.8;
+}
+

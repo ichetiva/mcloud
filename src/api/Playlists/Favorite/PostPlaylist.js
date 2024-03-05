@@ -7,7 +7,7 @@ const PostPlaylist = (image) => {
   formData.append("poster_file", image)
   
   return (
-    axios.post('https://ichetiva.ru/api/playlists/', {
+    axios.post('http://94.198.219.99:8000/api/playlists/', {
         
     }, {
         headers: {

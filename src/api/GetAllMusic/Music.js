@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const AllMusic = ({setData}) => {
     return (
-        axios.get(`https://ichetiva.ru/api/tracks/search`  
+        axios.get(`http://94.198.219.99:8000/api/tracks/search`  
         
         , {headers: {'Access-Control-Allow-Origin': '*'}})
             .then(function (response) { 

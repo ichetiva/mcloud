@@ -1,13 +1,20 @@
 import css from './Playlist.module.css'
-import PlaylistTable from '../../../schema/playlistSample'
 import LoadingSM from '../../loadingScreen/loading'
 import PostLikedPlaylist from '../../../api/Playlists/Favorite/PostLikedPlaylist'
+
 export const PlaylistArray = () => {
-   
+  /*  
+    const fileInput = document.getElementById('fileUp');
+    console.log(fileInput)
+    fileInput.addEventListener('change', function() {
+      const file = fileInput.files[0];
+      console.log(file);
+    });*/ 
+    
     const musicData = true
    
-     
-    
+ 
+   
        // eslint-disable-next-line no-lone-blocks
        {if(/* musicData.data */  musicData === false){
         /*
@@ -31,7 +38,4 @@ export const PlaylistArray = () => {
         </div> 
 }
        
-    
-
- 
     }}

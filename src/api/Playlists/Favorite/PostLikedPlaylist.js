@@ -1,19 +1,17 @@
 import axios from 'axios';
-import fs from 'fs';
-// breaks the code
-import path from 'path';
-const PostLikedPlaylist = () => {
-
+import mime from 'mime'
+import picture from '../../../assets/Icons/favoriteIcon.jpg'
+const PostLikedPlaylist = (image) => {
+    
     let formData = new FormData();
     formData.append("data", JSON.stringify({title: 'Favorite songs', description: 'Your liked songs are placed here', tracks: [0], is_private: true}));
-    // breaks the code
-    const imagePath = path.resolve(__dirname, '../../../assets/Icons/favoriteIcon.jpg');
-    const imageFile = fs.readFileSync(imagePath); // read file synchronously
+
+    formData.append('poster_file', image)
     
-    formData.append("poster_file", new Blob([imageFile]), 'favoriteIcon.jpg');
+   
 
   return (
-    axios.post('https://ichetiva.ru/api/playlists/', 
+    axios.post('http://94.198.219.99:8000/api/playlists/', 
         formData, 
         {
         headers: {

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const GetUser = ({setUser}) => {
   return (
-    axios.get('https://ichetiva.ru/api/users/me', {
+    axios.get('http://94.198.219.99:8000/api/users/me', {
         headers: {
             "Authorization": `Bearer ${localStorage.getItem('Token')}`
         }
