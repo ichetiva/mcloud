@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import css from './PlaylistConstructor.module.css'
-import Loading from '../../../components/loadingScreen'
+
 
 export const PlConstructor = ( {closeTab}) => { 
     const altPicture = 'https://i.pinimg.com/originals/74/2f/fe/742ffe1b2629fd606c8341ee93921cf9.gif'
     const [imageBlub, setImageBlub] = useState(altPicture)
     const [image, setImage] = useState(null)
     const [loading, setLoading] = useState(false)
-    
+
     const startLoad = () => {
         setLoading(true)
     }
