@@ -2,7 +2,7 @@ import css from './PlaylistTools.module.css'
 import { useState } from 'react'
 import PlConstructor from './PlaylistConstructor'
 
-export const PlaylistTools = () => {
+export const PlaylistTools = ({data, setMusic}) => {
     const [openTab, setOpenTab] = useState(false)
     const closeTab = () => {
         setOpenTab(false)
@@ -18,7 +18,7 @@ export const PlaylistTools = () => {
              
             </div> 
         </div>
-        {openTab && <PlConstructor closeTab = {closeTab}/>}
+        {openTab && <PlConstructor closeTab = {closeTab} data={data} setMusic={setMusic}/>}
         </>
     )
 }

@@ -71,7 +71,7 @@
 .footer {
   display: flex;
   align-items: center;
-  z-index: 0;
+  z-index: 10;
   width: 100%;
   position: fixed;
   height: 4rem; /*4rem*/

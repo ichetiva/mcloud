@@ -73,14 +73,16 @@
     height: 240px;
     background-color: aliceblue;
     position: relative;
+    box-shadow: var(--shadow-elevation-medium);
 }
 .posterBox{
-    background-color: #52565c59;
+    background-color: rgb(95, 133, 219, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1.7;
     position: relative;
+    box-shadow: var(--shadow-elevation-medium);
     
 }
 
@@ -108,10 +110,62 @@
     height: 240px;
 }
 .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 2;
 }
+.textPolicy{
+    margin: 25px;
+    box-shadow: var(--shadow-elevation-low);
+    padding-left: 5px;
+    font-family: "Onest-Regular";
+    border: 1px solid black;
+    width: 90%;
+    font-size: 15px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    outline: 0px;
+    border-radius: 10px 10px 5px 5px;
+    font-weight: 500; 
+    resize:unset;
+    margin-bottom: 10px; 
+    
+    color: #eee;  
+}
 .rightPt{
+    overflow: scroll;
     background-color: black;
     flex: 1.1;
     
 }
+.submit{
+    margin: 15px;
+    display: flex;
+    border-radius: 5px; 
+    height: 35px;
+    width: 140px;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 178, 255, 0.2), 0 6px 20px 0 rgba(0, 178, 255, 0.1); 
+    background-color: #00b2ff; 
+    color: #f8f8f2; 
+}
+
+.songs{
+    margin-bottom: 20px;
+}
+:root {
+    --shadow-color: 222deg 52% 37%;
+    --shadow-elevation-low:
+      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
+      0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
+      1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
+    --shadow-elevation-medium:
+      0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+      0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+      2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+      5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+  }

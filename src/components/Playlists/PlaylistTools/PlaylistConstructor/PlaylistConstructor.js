@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import css from './PlaylistConstructor.module.css'
-
-
-export const PlConstructor = ( {closeTab}) => { 
+import GetSuggestionMusic from './suggestionAdd'
+export const PlConstructor = ( {closeTab, data, setMusic}) => { 
     const altPicture = 'https://i.pinimg.com/originals/74/2f/fe/742ffe1b2629fd606c8341ee93921cf9.gif'
     const [imageBlub, setImageBlub] = useState(altPicture)
     const [image, setImage] = useState(null)
@@ -38,10 +37,19 @@ export const PlConstructor = ( {closeTab}) => {
                                 </label>
                             </div>
                         </div>
-                        <div className={css.text}></div>
+                        <div className={css.text}>
+                            <div className={css.textPolicy}>
+                                
+                            </div>
+                            <div>
+                                <input className='policy' type="checkbox" id="policy" name="policy" />
+                                <label for="policy"> I accept rules</label>
+                            </div>
+                            <div className={css.submit}>Submit</div>
+                        </div>
                     </div>
                     <div className={css.rightPt}>
-                        <h1>Add songs</h1>
+                     <GetSuggestionMusic musicData={data} setMusic={setMusic}/>
                     </div>
                 </div>
             </div>

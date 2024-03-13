@@ -60,10 +60,10 @@ export const App = () => {
         <Profile />
       </div>
       <div className={css.nav}>
-        <Navigation setHeader={setHeader}/>
+        <Navigation setHeader={setHeader} />
       </div>
       <div className={css.userPlaylists}>
-        <Playlists user={user}/>
+        <Playlists data={data} setMusic={setMusic} />
       </div>
       <div className={css.pages}>
         <Routes>
