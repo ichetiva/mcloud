@@ -1,18 +1,14 @@
 import { useState } from 'react'
 import css from './PlaylistConstructor.module.css'
 import GetSuggestionMusic from './suggestionAdd'
+import PostPlaylist from '../../../../api/Playlists/Favorite/PostPlaylist'
 export const PlConstructor = ( {closeTab, data, setMusic}) => { 
     const altPicture = 'https://i.pinimg.com/originals/74/2f/fe/742ffe1b2629fd606c8341ee93921cf9.gif'
     const [imageBlub, setImageBlub] = useState(altPicture)
     const [image, setImage] = useState(null)
     const [loading, setLoading] = useState(false)
-
-    const startLoad = () => {
-        setLoading(true)
-    }
-    const stopLoad = () => {
-        setLoading(false)
-    }
+    const [label, setLabel] = useState('')
+    const [description, setDescription] = useState('')
 
     const onImageChange = (event) => {
         if(event.target.files && event.target.files[0]) {
@@ -21,6 +17,17 @@ export const PlConstructor = ( {closeTab, data, setMusic}) => {
             setImage(file) 
         }
     }
+
+    const createTrack = async () => {
+        if(image && label)
+                            {
+                                const response = await PostPlaylist(image, label, description)
+                               
+                            } else {
+                                alert("Something is missing, check again")
+                            }
+    }
+
 
     return(
         <div className={css.block}>
@@ -38,14 +45,13 @@ export const PlConstructor = ( {closeTab, data, setMusic}) => {
                             </div>
                         </div>
                         <div className={css.text}>
-                            <div className={css.textPolicy}>
-                                
+                            <div className={css.info}>
+                                <input className={css.label} placeholder='title' onChange={(event) => {setLabel(event.target.value)}}></input>
+                                <input className={css.description} placeholder='description' onChange={(event) => {setDescription(event.target.value)}}></input>
                             </div>
-                            <div>
-                                <input className='policy' type="checkbox" id="policy" name="policy" />
-                                <label for="policy"> I accept rules</label>
-                            </div>
-                            <div className={css.submit}>Submit</div>
+                            <div className={css.submit} onClick={() => {
+                                createTrack()
+                            }}>Submit</div>
                         </div>
                     </div>
                     <div className={css.rightPt}>
