@@ -34,7 +34,6 @@ router = APIRouter(
 async def create_playlist(
     user: Annotated[UserDTO, Depends(get_current_user)],
     data: Annotated[CreatePlaylist, Body()],
-    poster_file: Annotated[UploadFile, File()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
     if poster_file.content_type != "image/jpeg":
