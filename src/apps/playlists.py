@@ -36,13 +36,15 @@ async def create_playlist(
     data: Annotated[CreatePlaylist, Body()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
+    """
     if poster_file.content_type != "image/jpeg":
         raise HTTPException(
             status_code=400,
             detail='The poster requires "jpeg" or "jpg" format',
         )
+        """
     playlist = await services.playlist_service.create(
-        user.id, data.title, data.description, data.is_private, poster_file
+        user.id, data.title, data.description, data.is_private, None
     )
     playlist = await services.playlist_track_service.add_multiple(playlist, data.tracks)
     return playlist
