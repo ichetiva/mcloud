@@ -27,10 +27,26 @@ class PlaylistDAO(BaseDAO[Playlist]):
         self.session.add(playlist)
         return playlist
 
-    async def get_by_title(self, user_id: int, title: str, limit: int = None, offset: int = None):
+    async def get_by_user_id(self, user_id: int) -> list[Playlist]:
+        stmt = select(self.model).where(
+            (self.model.user_id == user_id)
+            & (
+                (self.model.is_private == False)
+                | (self.model.is_private == True & self.model.user_id == user_id)
+            )
+        )
+        result = await self.session.scalars(stmt)
+        return result.all()
+
+    async def get_by_title(
+        self, user_id: int, title: str, limit: int = None, offset: int = None
+    ):
         stmt = select(self.model).where(
             self.model.title.ilike(f"%{title}%")
-            & ((self.model.is_private == False) | (self.model.is_private == True & self.model.user_id == user_id))
+            & (
+                (self.model.is_private == False)
+                | (self.model.is_private == True & self.model.user_id == user_id)
+            )
         )
         if limit:
             stmt = stmt.limit(limit)

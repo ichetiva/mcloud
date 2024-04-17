@@ -36,17 +36,27 @@ async def create_playlist(
     data: Annotated[CreatePlaylist, Body()],
     services: Annotated[ServicesFactory, Depends(get_services)],
 ):
-    """
+    playlist = await services.playlist_service.create(
+        user.id, data.title, data.description, data.is_private, None
+    )
+    playlist = await services.playlist_track_service.add_multiple(playlist, data.tracks)
+    return playlist
+
+
+@router.post("/{playlist_id}/poster", response_model=PlaylistResp)
+async def set_playlist_poster(
+    playlist: Annotated[PlaylistDTO, Depends(valid_author_playlist_id)],
+    poster_file: Annotated[UploadFile, File()],
+    services: Annotated[ServicesFactory, Depends(get_services)],
+):
     if poster_file.content_type != "image/jpeg":
         raise HTTPException(
             status_code=400,
             detail='The poster requires "jpeg" or "jpg" format',
         )
-        """
-    playlist = await services.playlist_service.create(
-        user.id, data.title, data.description, data.is_private, None
+    playlist = await services.playlist_service.update(
+        playlist, None, None, None, poster_file
     )
-    playlist = await services.playlist_track_service.add_multiple(playlist, data.tracks)
     return playlist
 
 

@@ -90,11 +90,13 @@ class PlaylistService:
         return self.convert(playlist)
 
     async def get_by_user_id(self, user_id: int) -> list[PlaylistDTO]:
-        playlists = await self.services.playlist_service.get_by_user_id(user_id)
+        playlists = await self.daos.playlist_dao.get_by_user_id(user_id)
         return self.convert_multiple(playlists)
 
     async def get_by_title(
         self, user_id: int, title: str, limit: int = None, offset: int = None
     ) -> list[PlaylistDTO]:
-        playlists = await self.daos.playlist_dao.get_by_title(user_id, title, limit, offset)
+        playlists = await self.daos.playlist_dao.get_by_title(
+            user_id, title, limit, offset
+        )
         return self.convert_multiple(playlists)
