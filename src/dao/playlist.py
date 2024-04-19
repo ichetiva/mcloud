@@ -32,7 +32,7 @@ class PlaylistDAO(BaseDAO[Playlist]):
             (self.model.user_id == user_id)
             & (
                 (self.model.is_private == False)
-                | (self.model.is_private == True & self.model.user_id == user_id)
+                | ((self.model.is_private == True) & (self.model.user_id == user_id))
             )
         )
         result = await self.session.scalars(stmt)
@@ -45,7 +45,7 @@ class PlaylistDAO(BaseDAO[Playlist]):
             self.model.title.ilike(f"%{title}%")
             & (
                 (self.model.is_private == False)
-                | (self.model.is_private == True & self.model.user_id == user_id)
+                | ((self.model.is_private == True) & (self.model.user_id == user_id))
             )
         )
         if limit:
