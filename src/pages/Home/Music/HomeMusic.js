@@ -1,6 +1,7 @@
 import AllTracks from "../../../schema/trackHomeSample";
 import { useState } from "react";
 import css from './HomeMusic.module.css'
+import LoadingSM from "../../../components/loadingScreen/loading";
 export const GetHomeMusic = ({musicData, setMusic}) => {
 
     const [piece, setPiece] = useState()
@@ -15,7 +16,16 @@ export const GetHomeMusic = ({musicData, setMusic}) => {
         </div>
     )
     }
-    }    
+    }     else {
+        return <>
+               <div className={css.loading}>
+                    <h3>Working on it....</h3>
+                    <LoadingSM width="70px" height="70px"/>
+               </div> 
+               
+               
+               </>
+       }
 }
     
     
