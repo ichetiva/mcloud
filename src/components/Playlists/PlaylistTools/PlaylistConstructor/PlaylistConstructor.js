@@ -19,7 +19,7 @@ export const PlConstructor = ( {closeTab, data, setMusic}) => {
     }
 
     const createTrack = async () => {
-        if(image && label)
+        if(/*image && */ label)
                             {
                                 const response = await PostPlaylist(image, label, description)
                                

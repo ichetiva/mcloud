@@ -7,7 +7,6 @@ import AllMusic from "../../api/GetAllMusic/Music";
 import GetHomeMusic from "./Music";
 
 export const Home = ({data, setMusic}) => {
-  
   const [alertClose, setAlertClose] = useState(false)
   const [alertProperties, setAlertProperties] = useState(["hello" , "goodbye"])
   const [style, setStyle] = useState(`Options`)

@@ -7,6 +7,7 @@ const AllMusic = ({setData}) => {
         , {headers: {'Access-Control-Allow-Origin': '*'}})
             .then(function (response) { 
                 setData(response)
+                
             })
             .catch(function (error) {
                 console.log(error)

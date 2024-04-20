@@ -1,8 +1,7 @@
 import css from './Playlist.module.css'
 import LoadingSM from '../../loadingScreen/loading'
-import PostLikedPlaylist from '../../../api/Playlists/Favorite/PostLikedPlaylist'
-
-export const PlaylistArray = () => {
+import { PlaylistTable } from '../../../schema/playlistSample/playlistTable'
+export const PlaylistArray = ({user, playlists}) => {
   /*  
     const fileInput = document.getElementById('fileUp');
     console.log(fileInput)
@@ -11,31 +10,29 @@ export const PlaylistArray = () => {
       console.log(file);
     });*/ 
     
-    const musicData = true
-   
- 
-   
-       // eslint-disable-next-line no-lone-blocks
-       {if(/* musicData.data */  musicData === false){
-        /*
-            const database = musicData.data
+    if(user.data && playlists.data){
+      const playlistData = playlists.data
+      const database = playlistData
             if(Object.keys(database)?.length > 0) {
             return (
             <div className={css.grid}>
-                {Object.entries(database).map((track, index) => (
-                    <PlaylistTable key={index} track={track[1]} id={index} setMusic={setMusic} />
+                {Object.entries(database).map((playlist, index) => (
+                    <PlaylistTable key={index} playlist={playlist[1]} id={index} user={user} />
                 ))}
             </div>
         )
         }
-    */}
-    
+    }
+ 
  else {
- return <div className={css.loading}>
+ return <>
+        <div className={css.loading}>
              <h3>Working on it....</h3>
              <LoadingSM width="55px" height="55px"/>
-             <button style={{width: "60px", height:"20px"}} onClick={() => {PostLikedPlaylist()}}>Post</button>
         </div> 
+        
+        
+        </>
 }
        
-    }}
+    }

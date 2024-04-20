@@ -14,12 +14,14 @@ import { useEffect, useState } from "react";
 import AllMusic from "../../api/GetAllMusic/Music";
 import TokenCheck from "../../api/auth/authCheck/TokenCheck";
 import Player from "../Player";
+import GetPlaylists from "../../api/Playlists/GetPlaylists";
 import GetFavoritePlaylist from "../../api/Playlists/Favorite/GetFavorite";
 import PostPlaylist from "../../api/Playlists/Favorite/PostPlaylist";
 export const App = () => {
   const [music, setMusic] = useState("")
   const [user, setUser] = useState([])
   const [data, setData] = useState([])
+  const [playlists, setPlaylists ] = useState([])
   const [searchData, setSearchData] = useState([])
   const [searchStatus, setSearchStatus] = useState(false)
   const [header, setHeader] = useState(["#353941" , "none"]); /* is for header to change disign*/
@@ -31,17 +33,24 @@ export const App = () => {
   }
 
   
-
-  const [timeout, setTimeout] = useState(false)
+  const [timeout, setTimeout] = useState(true)
   useEffect(() => {
-    AllMusic({setData})
-    setTimeout(false)
-    TokenCheck(DeleteSecretKey)
+    async function setting()  {
+    await TokenCheck(DeleteSecretKey)
     GetUser({setUser})
+    AllMusic({setData})
+    await setTimeout(false)
+    }
+    setting()
+    
   },[timeout])
 
   
-  
+  const [timeout1, setTimeout1] = useState(false)
+  if(user.data && !timeout1){
+    GetPlaylists(user, {setPlaylists})
+    setTimeout1(true)
+  }
   
   return (
     <> 
@@ -63,7 +72,7 @@ export const App = () => {
         <Navigation setHeader={setHeader} />
       </div>
       <div className={css.userPlaylists}>
-        <Playlists data={data} setMusic={setMusic} />
+        <Playlists data={data} setMusic={setMusic} user={user} playlists={playlists}/>
       </div>
       <div className={css.pages}>
         <Routes>

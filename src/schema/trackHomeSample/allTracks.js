@@ -1,10 +1,22 @@
+import { useEffect, useState } from 'react'
 import css from './allTracks.module.css'
-export const AllTracks = ({track, id, setMusic}) => {
+export const AllTracks = ({track, id, setMusic, setPiece, piece}) => {
+  const [color, setColor] = useState()
+
+  useEffect(() => {
+    if(id === piece){
+      setColor({backgroundColor:"#eeeeee4d"})
+    }
+    if(id !== piece){
+      setColor()
+    }
+  } , [piece,id])
+  
   if(track){
     return(
-        <div className={css.songs}>
+        <div className={css.songs} style={color}>
           <div className={css.ids}>{id + 1}</div>
-            <div className={css.poster} style={{backgroundImage: `url(${track.poster_url})`}} onClick={() => {setMusic(track.track_url)}}>
+            <div className={css.poster} style={{backgroundImage: `url(${track.poster_url})`}} onClick={() => {setMusic(track.track_url); setPiece(id)}}>
                <div className={css.shadow}>
                   <div className={css.playbutton}></div>
                 </div>

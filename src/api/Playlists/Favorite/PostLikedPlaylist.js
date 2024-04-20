@@ -1,5 +1,5 @@
 import axios from 'axios';
-import mime from 'mime'
+
 import picture from '../../../assets/Icons/favoriteIcon.jpg'
 const PostLikedPlaylist = (image) => {
     
@@ -16,7 +16,6 @@ const PostLikedPlaylist = (image) => {
         {
         headers: {
             "Authorization": `Bearer ${localStorage.getItem('Token')}`,
-            'Content-Type': 'multipart/form-data'
         }
     })
       .then(function (response) {

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import GetPlaylists from '../Playlists/GetPlaylists';
 
 const GetUser = ({setUser}) => {
   return (
@@ -7,11 +8,11 @@ const GetUser = ({setUser}) => {
             "Authorization": `Bearer ${localStorage.getItem('Token')}`
         }
     })
-      .then(function (response) {
-           setUser(response)
+      .then(function (response) { 
+        setUser(response)
       })
       .catch(function (error) {
-      
+      console.log(error)
       
       }));
   

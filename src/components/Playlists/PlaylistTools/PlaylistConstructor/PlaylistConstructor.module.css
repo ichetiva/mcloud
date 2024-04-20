@@ -117,10 +117,8 @@
 }
 .info{
     margin: 25px;
-    box-shadow: var(--shadow-elevation-low);
     padding-left: 5px;
     font-family: "Onest-Regular";
-    
     width: 90%;
     font-size: 15px;
     height: 150px;
@@ -133,14 +131,12 @@
     font-weight: 500; 
     resize:unset;
     margin-bottom: 10px; 
-    
     color: #eee;  
 }
 .rightPt{
     overflow: scroll;
     background-color: black;
     flex: 1.1;
-    
 }
 .label{
     box-shadow: var(--shadow-elevation-low);
@@ -152,11 +148,9 @@
     border-radius: 10px;
     font-size: 16px; 
     font-weight: 500; 
-   
     margin-bottom: 10px; 
     background-color: #282a36; 
-    color: #eee;
-    
+    color: #eee; 
 }
 .description{
     box-shadow: var(--shadow-elevation-low);

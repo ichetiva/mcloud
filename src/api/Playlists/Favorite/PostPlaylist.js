@@ -1,32 +1,34 @@
 import axios from 'axios';
 
 const PostPlaylist = (image, label, description) => {
+  
   let formData = new FormData();
-  formData.append("data", JSON.stringify({
-    "title": label,
-    "description": description,
-    "tracks": [0]
-  }))
-  formData.append("poster_file", image)
+ // formData.append("data", JSON.stringify({"title": label, "description": description}))
+ // formData.append("poster_file", image)
   
   return (
     axios.post('http://94.198.219.99:8000/api/playlists/', 
-    formData
+        {
+            title: JSON.stringify(label),
+            description: JSON.stringify(description),
+            tracks: [0],
+            is_private: true
+          }
+  
     , 
      {
         headers: {
-            'Content-Type': 'multipart/form-data',
             "Authorization": `Bearer ${localStorage.getItem('Token')}`
         }
     })
       .then(function (response) {
           console.log(response)
+          alert('successful upload')
 
       })
       .catch(function (error) {
-        console.log(formData)
           console.log(error)
-      
+          alert('error occured ' + error)
       }));
   
 };

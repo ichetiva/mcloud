@@ -56,3 +56,33 @@
     background-color: rgb(238, 238, 238, 0.08);
     
   }
+
+  .playlistTable{
+    color: #eee;
+    height: 70px;
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    align-items: center;
+    display: flex;
+}
+.playlistTable:hover{
+    background-color: rgb(238, 238, 238 , 0.3);
+}
+.poster{
+    border-radius: 5px;
+    margin: 7.5px;
+    width: 55px;
+    height: 55px;
+
+    object-fit: cover;
+    background: no-repeat;
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
