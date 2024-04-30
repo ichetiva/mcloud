@@ -86,3 +86,14 @@
     align-items: center;
   
 }
+.playlist{
+  position: relative;
+  display: flex;
+}
+.ContextMenu{
+  border: 1px solid red;
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  background-color: #90B8F8;
+}

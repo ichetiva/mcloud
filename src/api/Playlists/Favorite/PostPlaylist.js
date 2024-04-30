@@ -1,20 +1,13 @@
 import axios from 'axios';
+import UpdatePoster from '../settings/UpdatePoster';
 
 const PostPlaylist = (image, label, description) => {
-  
-  let formData = new FormData();
- // formData.append("data", JSON.stringify({"title": label, "description": description}))
- // formData.append("poster_file", image)
-  
+  console.log(image)
+
+ 
   return (
-    axios.post('http://94.198.219.99:8000/api/playlists/', 
-        {
-            title: JSON.stringify(label),
-            description: JSON.stringify(description),
-            tracks: [0],
-            is_private: true
-          }
-  
+    axios.post('http://94.198.219.99:8000/api/playlists/',  {title: label, description: description, tracks: [], is_private: true}
+
     , 
      {
         headers: {
@@ -22,13 +15,11 @@ const PostPlaylist = (image, label, description) => {
         }
     })
       .then(function (response) {
-          console.log(response)
-          alert('successful upload')
-
+      
+        UpdatePoster(response, image)
       })
       .catch(function (error) {
-          console.log(error)
-          alert('error occured ' + error)
+     
       }));
   
 };

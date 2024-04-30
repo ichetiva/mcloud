@@ -5,14 +5,12 @@ TODO LIST
 > Work in early progress.
 
 ToDo (!)
-- [x] base structure
-- [x] routing
 - [x] accounts system :shipit:
-- [x] track constructer
+- [x] track post
 - [x] basic notifications with manual fill
-- [:wip:] home page with catalog
+- [x] home page with catalog
 - [x] search bar
-- [x] check how to optimise lagging logos 
+- [x] poster change
 - [ ] signup/in,upload if() statements change(cursewords)
 - [ ] files size format check
 - [ ] poster size, format check
