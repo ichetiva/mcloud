@@ -58,6 +58,8 @@
   }
 
   .playlistTable{
+    pointer-events: none;
+    text-decoration: none;
     color: #eee;
     height: 70px;
     border-radius: 10px;
@@ -88,7 +90,7 @@
 }
 .playlist{
   position: relative;
-  display: flex;
+  
 }
 .ContextMenu{
   border: 1px solid red;

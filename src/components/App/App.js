@@ -17,7 +17,12 @@ import Player from "../Player";
 import GetPlaylists from "../../api/Playlists/GetPlaylists";
 import GetFavoritePlaylist from "../../api/Playlists/Favorite/GetFavorite";
 import PostPlaylist from "../../api/Playlists/Favorite/PostPlaylist";
+import PlaylistPage from "../Playlists/PlaylistPage";
+
 export const App = () => {
+  
+  const [playlistData, setPlaylistData] = useState()
+  const [PlaylistId, setPlaylistId] = useState()
   const [music, setMusic] = useState("")
   const [user, setUser] = useState([])
   const [data, setData] = useState([])
@@ -32,7 +37,14 @@ export const App = () => {
     localStorage.removeItem('Token')
   }
 
-  
+  const [urlPath, setUrlPath] = useState(window.location.href)
+
+  useEffect(() => {
+    if (urlPath.includes("/playlist/")) {
+    const lastDigit = parseInt(urlPath.split("/").pop());
+    setPlaylistId(lastDigit)
+  } }, [urlPath])
+
   const [timeout, setTimeout] = useState(true)
   useEffect(() => {
     async function setting()  {
@@ -72,10 +84,11 @@ export const App = () => {
         <Navigation setHeader={setHeader} />
       </div>
       <div className={css.userPlaylists}>
-        <Playlists data={data} setMusic={setMusic} user={user} playlists={playlists}/>
+        <Playlists data={data} setMusic={setMusic} user={user} playlists={playlists} setPlaylistData={setPlaylistData} setPlaylistId={setPlaylistId}/>
       </div>
       <div className={css.pages}>
         <Routes>
+          <Route path={`/playlist/${PlaylistId}`} element={<PlaylistPage  PlaylistId={PlaylistId} setPlaylistId={setPlaylistId}/>} />
           <Route path="/" element={<Home data={data} setMusic={setMusic}/>} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData} setMusic={setMusic}/>} />

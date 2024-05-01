@@ -1,7 +1,7 @@
 import css from './Playlist.module.css'
 import LoadingSM from '../../loadingScreen/loading'
 import { PlaylistTable } from '../../../schema/playlistSample/playlistTable'
-export const PlaylistArray = ({user, playlists}) => {
+export const PlaylistArray = ({user, playlists, setPlaylistData, setPlaylistId}) => {
   /*  
     const fileInput = document.getElementById('fileUp');
     console.log(fileInput)
@@ -17,7 +17,7 @@ export const PlaylistArray = ({user, playlists}) => {
             return (
             <div className={css.grid}>
                 {Object.entries(database).map((playlist, index) => (
-                    <PlaylistTable key={index} playlist={playlist[1]} id={index} user={user} />
+                    <PlaylistTable key={index} playlist={playlist[1]} id={index} user={user} setPlaylistData={setPlaylistData} setPlaylistId={setPlaylistId}/>
                 ))}
             </div>
         )
