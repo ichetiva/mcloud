@@ -30,6 +30,10 @@ class UserService:
     def convert_multiple(self, users: list[User]) -> list[UserDTO]:
         return [self.convert(user) for user in users]
 
+    async def get_by_id(self, id) -> UserDTO | None:
+        user = await self.daos.user_dao.get(id=id)
+        return self.convert(user)
+
     async def get(self, username) -> UserDTO | None:
         user = await self.daos.user_dao.get(username=username)
         return self.convert(user)
