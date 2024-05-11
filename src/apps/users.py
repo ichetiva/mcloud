@@ -28,6 +28,7 @@ async def sign_up_user(
 @router.get("/{id}", response_model=UserResp)
 async def get_user_by_id(id: Annotated[int, Path()], services: Annotated[ServicesFactory, Depends(get_services)]):
     user = await services.user_service.get_by_id(id)
+    return user
 
 
 @router.get("/me", response_model=UserResp)
