@@ -1,6 +1,6 @@
 from typing import Annotated, List
 
-from fastapi import APIRouter, Body, Query, Depends
+from fastapi import APIRouter, Body, Query, Depends, Path
 
 from schemes import OkResp
 from schemes.user import UserResp, CreateUser, ChangePassword
@@ -23,6 +23,11 @@ async def sign_up_user(
     playlist = await services.playlist_service.create(
         user.id, "Favourite", "The tracks you liked", None, True
     )
+
+
+@router.get("/{id}", response_model=UserResp)
+async def get_user_by_id(id: Annotated[int, Path()], services: Annotated[ServicesFactory, Depends(get_services)]):
+    user = await services.user_service.get_by_id(id)
 
 
 @router.get("/me", response_model=UserResp)
