@@ -1,5 +1,5 @@
 import axios from 'axios';
-const GetPlaylistsById = (id, {setPlaylistData}) => {
+const GetPlaylistsById = (id, {setPlaylistData, setError}) => {
 if(id){
     return (
     axios.get(`http://94.198.219.99:8000/api/playlists/${id}`,
@@ -13,7 +13,7 @@ if(id){
         setPlaylistData(response)
       })
       .catch(function (error) {
-            console.log(error)
+        setError("Playlist is not found (;_:). Perhaps it is private playlist")
       }));
 }
   

@@ -1,0 +1,105 @@
+.loading{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist{
+   position: relative;
+   overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.poster{
+    margin-bottom: 15px;
+    margin-left: 25px;
+    margin-right: calc(15px + 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    background: no-repeat;
+    border-radius: 10px;
+    background-size: contain;
+    width: 250px;
+    height: 250px;
+}
+
+.props{
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+    flex: 3;
+}
+.privacy{
+    font-size: 15px;
+}
+.title{
+    display: flex;
+    
+    overflow: hidden;
+    font-size: 50px;
+    font-weight: 600;
+}
+.description{
+    text-overflow: initial;
+    width: 400px;
+    overflow: hidden;
+    opacity: 0.8;
+    font-size: 15px;    
+    word-wrap: break-word;
+}
+
+/* flex boxes*/
+.header{
+    display: flex;
+
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex: 6;
+}
+.hashtag{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.id, .posterBlock, .labels, .album, .time{
+    
+    margin: 5px;
+}
+.id{
+    
+    width: 50px;;
+}
+.posterBlock{
+    width: 70px;
+}
+.labels{
+    text-align: left;
+    flex: 12
+}
+.album{
+    text-align: left;
+    flex: 4
+}
+.time{
+    
+    flex: 1
+}
+
+.body{
+    flex: 6;
+    
+}

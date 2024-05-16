@@ -58,6 +58,7 @@
   }
 
   .playlistTable{
+    
     pointer-events: none;
     text-decoration: none;
     color: #eee;
@@ -71,9 +72,11 @@
     align-items: center;
     display: flex;
 }
+
 .playlistTable:hover{
     background-color: rgb(238, 238, 238 , 0.3);
 }
+
 .poster{
     border-radius: 5px;
     margin: 7.5px;
@@ -89,10 +92,12 @@
   
 }
 .playlist{
+  text-decoration: none;
   position: relative;
   
 }
 .ContextMenu{
+  text-decoration: none;
   border: 1px solid red;
   position: absolute;
   width: 150px;

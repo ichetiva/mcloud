@@ -25,10 +25,11 @@ export const AllTracks = ({track, id, setMusic, setPiece, piece}) => {
             <div className={css.title}>{track.title}</div>
             <div className={css.author}>{track.user_id}</div>
           </div>
-          <div className={css.date}>{track.updated_at}</div>
-          <div className={css.heart}></div>
-          <div className={css.time}></div>
-          <div className={css.settings}></div>
+          <div className={css.album}>Album</div>
+          {/*<div className={css.date}>{track.updated_at}</div>*/}
+          {/*<div className={css.heart}></div>*/}
+          <div className={css.time}>time</div>
+          {/*<div className={css.settings}></div>*/}
         </div>
     
   )

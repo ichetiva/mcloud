@@ -11,6 +11,7 @@ ToDo (!)
 - [x] home page with catalog
 - [x] search bar
 - [x] poster change
+- [x] rerouting for playlists done
 - [ ] signup/in,upload if() statements change(cursewords)
 - [ ] files size format check
 - [ ] poster size, format check

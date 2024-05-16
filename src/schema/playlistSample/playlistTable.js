@@ -27,6 +27,6 @@ const id = playlist.id
         </div>
       </div> 
 {/*      <div className="ContextMenu" style={{visibility:"hidden"}}></div>  */}
-      </Link>
+    </Link>
       )
 } 

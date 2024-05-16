@@ -1,0 +1,37 @@
+.hashtag{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.id, .posterBlock, .labels, .album, .time{
+    
+    margin: 5px;
+}
+.id{
+    
+    width: 50px;
+}
+.posterBlock{
+    width: 70px;
+}
+.labels{
+    text-align: left;
+    flex: 12
+}
+.album{
+    text-align: left;
+    flex: 4
+}
+.time{
+    text-align: left;
+    flex: 1
+}
+
+.body{
+    flex: 6;
+    
+}
