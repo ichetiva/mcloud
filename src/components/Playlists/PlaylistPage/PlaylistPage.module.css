@@ -106,5 +106,16 @@
 
 
 
-
+::-webkit-scrollbar {
+    width: 10px;
+  
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: #eeeeee86;
+    border-radius: 5px;
+    
+    
+  }
   
