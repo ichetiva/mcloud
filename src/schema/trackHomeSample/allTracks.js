@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import css from './allTracks.module.css'
 export const AllTracks = ({track, id, setMusic, setPiece, piece}) => {
+  console.log(setMusic)
   const [color, setColor] = useState()
-
+  console.log(track)
   useEffect(() => {
     if(id === piece){
       setColor({backgroundColor:"#eeeeee4d"})

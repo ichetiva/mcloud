@@ -6,7 +6,8 @@ import ColorThief from 'colorthief'
 import GetUserById from '../../../api/GetUser/GetUserById'
 import GetPlaylistMusic from './tracks'
 
-export const PlaylistPage = ({PlaylistId, setPlaylistId}) => {
+export const PlaylistPage = ({PlaylistId, setMusic}) => {
+    
     const [error, setError] = useState()
     const [playlistData, setPlaylistData] = useState()
     const [username, setUsername] = useState("user")
@@ -15,7 +16,9 @@ export const PlaylistPage = ({PlaylistId, setPlaylistId}) => {
     if(playlistData){
    
     const playlist = playlistData.data 
+    
     GetUserById(playlist.user_id, {setUsername})
+        
     
     let poster = null
     let privacy = null
@@ -55,7 +58,7 @@ export const PlaylistPage = ({PlaylistId, setPlaylistId}) => {
                     <div className={css.time}>time</div>
                 </div>
                 <div className={css.body}>
-                    <GetPlaylistMusic musicData={playlist.tracks}/>
+                    <GetPlaylistMusic musicData={playlist.tracks} setMusic={setMusic}/>
                 </div>
             </div>
         )

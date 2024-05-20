@@ -88,7 +88,7 @@ export const App = () => {
       </div>
       <div className={css.pages}>
         <Routes>
-          <Route path={`/playlist/${PlaylistId}`} element={<PlaylistPage  PlaylistId={PlaylistId} setPlaylistId={setPlaylistId}/>} />
+          <Route path={`/playlist/${PlaylistId}`} element={<PlaylistPage  PlaylistId={PlaylistId} setMusic={setMusic}/>} />
           <Route path="/" element={<Home data={data} setMusic={setMusic}/>} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/search" element={<SearchPage status={searchStatus} searchData={searchData} setMusic={setMusic}/>} />

@@ -3,10 +3,10 @@ import { useState } from "react";
 import css from './playlistTracks.module.css'
 import LoadingSM from "../../../loadingScreen/loading";
 export const GetPlaylistMusic = ({musicData, setMusic}) => {
-
+    
     const [piece, setPiece] = useState()
-    if(musicData.data){
-        const database = musicData.data
+    if(musicData){
+        const database = musicData
         if(Object.keys(database)?.length > 0) {
         return (
 

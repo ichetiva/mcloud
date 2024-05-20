@@ -1,4 +1,7 @@
 .home{
+  
+  position: relative;
+  overflow: overlay;
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,18 +34,26 @@
 
 
 
-html {
-  overflow: scroll;
-  overflow-x: hidden;
+
+
+
+.home::-webkit-scrollbar-track-piece:start {
+  background: transparent;
 }
-::-webkit-scrollbar {
-  height: 13px;
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+.home::-webkit-scrollbar-track-piece:end {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb {
+.home::-webkit-scrollbar {
+  width: 10px;
+  position: absolute;
+
+}
+
+.home::-webkit-scrollbar-thumb {
+  position: absolute;
+  width: 10px;
   background: #eeeeee86;
-  border-radius: 10px;
+  border-radius: 5px;
   
   
 }
