@@ -36,13 +36,14 @@ export const Player = ({music}) => {
 
     return(
     <div className='container'>
-            <audio id='audio' src={music}/>
-            <div id='prev' onClick={() => {}}>
+            <div id='prev' className='prev' onClick={() => {}}>
               <div id='prev-button'></div>
             </div>
-            <div id='next' onClick={() => {}}>
+            <div id='next' className='next' onClick={() => {}}>
               <div id='next-button'></div>
             </div>
+            <audio id='audio' src={music}></audio>
+            
       </div>
     )
 }

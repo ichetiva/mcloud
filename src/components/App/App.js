@@ -96,7 +96,7 @@ export const App = () => {
       </div>
     </div>
     <div className={css.footer}>
-      <div>
+      <div className={css.footerPlayer}>
         <Player music={music}/>
       </div>  
     </div>
